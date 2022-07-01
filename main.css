@@ -1,0 +1,222 @@
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@font-face {
+    font-family: "Ubuntu";
+    font-weight: 100;
+    font-style: normal;
+    src: url("/resources/Ubuntu-Th.ttf") format("truetype");
+}
+@font-face {font-family: "Uni Sans"; src:url("/resources/Uni Sans.ttf") format("truetype");}
+@font-face {font-family: "Uni Sans Special"; src:url("/resources/Uni Sans Special.ttf") format("truetype");}
+/*Base*/
+::-webkit-scrollbar {width: 1em;}
+::-webkit-scrollbar-track {background: #fff0;}
+::-webkit-scrollbar-thumb {background: red content-box;border-radius: 0.5em;border: 0.25em solid #fff0;}
+body {
+    margin: 0;
+    background: #161616;
+    overflow-x: hidden;
+    overflow-y: overlay;
+    margin: 4em 0;
+    transition: all 0.2s ease-in-out 0s;
+    letter-spacing: -0.02em;
+}
+.mtb {
+    background: red;
+    color: white;
+    font-size: 1.5em;
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    padding: 0.1em 0.25em 0.1em 0.25em;
+}
+.mtb.special{font-family: 'Uni Sans Special';padding: 0.09em 0.25em 0 0.25em;letter-spacing: unset;}
+.nocopy{-moz-user-select: none;user-select: none;text-decoration: none;}
+header {
+    display: flex;
+    position: fixed;
+    top: 0;
+    height: 2em;
+    width: calc(100% - 3em);
+    padding: 1em 1.5em;
+    justify-content: space-between;
+    background: linear-gradient(#161616 85%, transparent);
+    z-index: 1;
+}
+.mini_logo {
+    display: none;
+    width: 0.8335em;
+    background: red url(/resources/MakeTankiBetter_logo.svg) center center / 95% no-repeat;
+}
+.rightside {
+   display: flex;
+   justify-content: space-between;
+}
+.rightside > a{display:none;}
+.rightside > div:after{
+    content: '	\007C';
+    color: red;
+    padding: 0 0.2em;
+    font-size: 1.5em;
+    font-family: 'Uni Sans';
+}
+.rightside > :last-child:after{display:none;}
+.nav, .lang {display: flex;flex-direction: row;align-items: center;}
+a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
+.active {
+    background: red;
+    color: white !important;
+    padding: 0.1em 0.2em;
+    cursor: default !important;
+    text-decoration: none !important;
+}
+.inside {font-family: 'Uni Sans Special' !important;transform: translateY(-0.09em);}
+.nav > [href="#"], .lang > [href="#"] {display:none;}
+.rightside > div > a:nth-last-child(2) {margin: 0 !important;}
+header .nav a, header .lang a {
+    margin-right: 0.25em;
+    color: red;
+    font-family: 'Ubuntu';
+    font-weight: 600;
+    font-size: 1.5em;
+    text-decoration: underline 0.11em;
+    cursor: pointer;
+    letter-spacing: -0.02em;
+}
+footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    height: 2em;
+    width: calc(100% - 3em);
+    padding: 1em 1.5em;
+    justify-content: space-between;
+    background: linear-gradient(#0000, #161616 15%);
+    z-index: 1;
+}
+.social{display:flex}
+footer a{
+    width: 1.75em;
+    height: 1.75em;
+    margin: 0.125em 0.3em;
+    transition: background 0.2s ease-in-out;
+}
+#vk{background: url(/resources/vk_red.svg) center center / 100% no-repeat;cursor: pointer;}
+#youtube{background: url(/resources/youtube_red.svg) center center / 100% no-repeat;cursor: pointer;}
+#discord{background: url(/resources/discord_red.svg) center center / 100% no-repeat;cursor: pointer;}
+/*UI scale for landscape screens*/
+@media screen and (min-width:1280px) and (orientation:landscape), (min-height:950px) and (orientation:landscape) {body {font-size: calc(1em / 3 * 4);}}
+@media screen and (min-width:1220px) and (max-width:1279px) and (orientation:landscape), (min-height:900px) and (max-height:949px) and (orientation:landscape) {body{font-size:calc(0.95em / 3 * 4);}}
+@media screen and (min-width:1160px) and (max-width:1219px) and (orientation:landscape), (min-height:864px) and (max-height:899px) and (orientation:landscape) {body{font-size:calc(0.8em / 3 * 4);}}
+@media screen and (min-width:1100px) and (max-width:1159px) and (orientation:landscape), (min-height:810px) and (max-height:863px) and (orientation:landscape) {body{font-size:calc(0.85em / 3 * 4);}}
+@media screen and (min-width:1024px) and (max-width:1099px) and (orientation:landscape), (min-height:768px) and (max-height:809px) and (orientation:landscape) {body{font-size:calc(0.8em / 3 * 4);}}
+@media screen and (min-width:960px) and (max-width:1023px) and (orientation:landscape), (min-height:720px) and (max-height:767px) and (orientation:landscape) {body{font-size: calc(0.75em / 3 * 4);}}
+@media screen and (min-width:900px) and (max-width:959px) and (orientation:landscape), (min-height:680px) and (max-height:719px) and (orientation:landscape) {body{font-size:calc(0.7em / 3 * 4);}}
+@media screen and  (min-width:840px) and (max-width:899px) and (orientation:landscape), (min-height:630px) and (max-height:679px) and (orientation:landscape) {body{font-size:calc(0.65em / 3 * 4);}}
+@media screen and (min-width:760px) and (max-width:839px) and (orientation:landscape), (min-height:580px) and (max-height:629px) and (orientation:landscape) {body{font-size:calc(0.6em / 3 * 4);}}
+@media screen and (min-width:700px) and (max-width:759px) and (orientation:landscape), (min-height:530px) and (max-height:579px) and (orientation:landscape) {body{font-size:calc(0.55em / 3 * 4);}}
+@media screen and (min-width:640px) and (max-width:699px) and (orientation:landscape), (min-height:480px) and (max-height:529px) and (orientation:landscape) {body{font-size:calc(0.5em / 3 * 4);}}
+@media screen and (min-width:580px) and (max-width:639px) and (orientation:landscape), (min-height:440px) and (max-height:479px) and (orientation:landscape) {body{font-size:calc(0.45em / 3 * 4);}}
+@media screen and (min-width:510px) and (max-width:579px) and (orientation:landscape), (min-height:390px) and (max-height:439px) and (orientation:landscape) {body{font-size:calc(0.4em / 3 * 4);}}
+@media screen and (min-width:480px) and (max-width:509px) and (orientation:landscape), (min-height:0px) and (max-height:389px) and (orientation:landscape) {body{font-size:calc(0.35em / 3 * 4);}}
+@media screen and (min-width:100px) and (max-width:479px) and (orientation:landscape), (min-height:0px) and (max-height:389px) and (orientation:landscape) {body{font-size:calc(0.3em / 3 * 4);}}
+/*Adaptive UI for portrait screens*/
+@media screen and (orientation: portrait) {
+    header{width: calc(100% - 2em);padding: 1em;}
+    .rightside{width: 4.8em}
+    .rightside > div:after{font-size:0;}
+    footer{
+        padding: 1em;
+        width: calc(100% - 2em);
+    }
+    .nav_mobile{
+        display: block !important;
+        width: 0.7143em;
+        font-size: 2.8em;
+        line-height: 0.65em;
+        margin-right: 0.1em;
+        text-decoration: none;
+        color: red;
+    }
+    .lang_mobile {
+        display: block !important;
+        width: 0.6897em;
+        font-size: 2.9em;
+        line-height: 0.65em;
+        text-decoration: none;
+        color: red;
+    }
+    .nav, .lang{
+        display: none;
+        position: fixed;
+        top: unset;
+        bottom: 4em;
+        left: 0;
+        right: 0;
+        background: linear-gradient(0deg, red 3.75em, #000000bf 3.75em);
+        align-items: flex-end;
+        padding: 1.15em 3.85em 1.05em 1.15em;
+        border-bottom: 0.35em solid red;
+        width: auto;
+        height: calc(100vh - 5.75em);
+        z-index: 2;
+        overflow: overlay;
+    }
+    .nav::-webkit-scrollbar, .lang::-webkit-scrollbar {width: 1vh;}
+    .nav::-webkit-scrollbar-track, .lang::-webkit-scrollbar-track {background: #ffffff00;}
+    .nav::-webkit-scrollbar-thumb, .lang::-webkit-scrollbar-thumb {
+        background: white;
+        border-radius: 0.5em;
+        border: 0.25em solid #ff0000;
+    }
+    #nav_mobile:target ~ header .nav, #lang_mobile:target ~ header .lang {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-columns: max-content max-content max-content;
+    }
+    #nav_mobile:target ~ header .nav > a, #lang_mobile:target ~ header .lang > a{
+        display: block;
+        color: white;
+        width: max-content;
+        height: 1em;
+    }
+    #nav_mobile:target ~ header .nav > a.active, #lang_mobile:target ~ header .lang > a.active {
+        border-radius: 0;
+        font-family: 'Uni Sans Special';
+        padding: 0;
+        text-decoration: none;
+    }
+    .nav > :nth-last-child(2), .lang > :nth-last-child(2) {margin-right: 5px !important;}
+    #nav_mobile:target ~ header .nav > [href="#"], #lang_mobile:target ~ header .lang > [href="#"] {
+        display: block;
+        background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, red;
+        position: fixed;
+        bottom: 2.75em;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        border: 0.8em solid red;
+        padding: 0;
+        margin: 0 !important;
+        outline: none !important;
+        cursor: pointer;
+        filter: drop-shadow(-3px 0 2px red);
+    }
+    #nav_mobile:target ~ header .nav > [href="#"]:after, #lang_mobile:target ~ header .lang > [href="#"]:after{font-size: 0;}
+    .nav > a:before, .nav > a:after, .lang > a:before, .lang > a:after{color: white !important}
+    #nav_mobile:target ~ footer, #lang_mobile:target ~ footer{background: #161616;}
+}
+@media screen and (orientation: portrait) and (max-width: 358px) {.mini_logo {display: block;} .mini_logo + a{display:none;}}
+/*For them who use only keyboard and for mouse hover's*/
+footer a#vk:focus-visible {background: red url(/resources/vk.svg) center center / 75% no-repeat !important;border-radius: 0.2em;outline: 0;}
+footer a#discord:focus-visible {background: red url(/resources/discord.svg) center center / 75% no-repeat !important;border-radius: 0.2em;outline: 0;}
+footer a#youtube:focus-visible {background: red url(/resources/youtube.svg) center center / 75% no-repeat !important;border-radius: 0.2em;outline: 0;}
+header a:hover, header a:focus-visible {
+    outline: 0;
+    color: white;
+}
+header > a:focus-visible {
+    outline: 0;
+    box-shadow: inset 0 0 0 0.1em red;
+    background: #161616;
+    color: red;
+}
