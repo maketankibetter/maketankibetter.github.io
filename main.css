@@ -69,7 +69,7 @@ a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
     cursor: default !important;
     text-decoration: none !important;
 }
-.inside {font-family: 'Uni Sans Special' !important;transform: translateY(-0.09em);}
+.inside {font-family: 'Uni Sans Special' !important;}
 .nav > [href="#"], .lang > [href="#"] {display:none;}
 .rightside > div > a:nth-last-child(2) {margin: 0 !important;}
 header .nav a, header .lang a {
