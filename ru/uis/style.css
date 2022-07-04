@@ -1,0 +1,235 @@
+header > a{transition: background 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s, color 0.2s ease-in-out;}
+.page1 {
+    height: calc(100vh - 6em);
+    width: 100vw;
+}
+.slideshow {
+    overflow: hidden;
+    display: flex;
+    width: 24em;
+    height: 13.5em;
+    position: absolute;
+    right: 2.4em;
+    top: 17.5%;
+    background: #ff0000;
+    border: 0.5em solid red;
+    flex-direction: row;
+}
+.slideshow div {
+    margin: 0 !important;
+    border: 0 !important;
+    animation: 12s ease 0s infinite normal none running slide;
+    user-select: none;
+    -moz-user-select: none;
+    transition: unset !important;
+    max-height: unset !important;
+    justify-content: space-between !important;
+    min-width: 24em;
+}
+@keyframes slide{
+    0% {transform: translateX(0);}
+    20.833333333% {transform: translateX(0);}
+    25% {transform: translateX(-100%);}
+    45.833333333% {transform: translateX(-100%);}
+    50% {transform: translateX(-200%);}
+    70.833333333% {transform: translateX(-200%);}
+    75% {transform: translateX(-300%);}
+    95.833333333% {transform: translateX(-300%);}
+    100% {transform: translateX(-400%);}
+}
+button {
+    position: absolute;
+    top: calc(10% + 5.75em);
+    left: 1.35em;
+    font-size: 3em !important;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    text-decoration-line: underline;
+}
+.support{
+    position: absolute;
+    top: calc(10% + 5.5em);
+    left: 0.8em;
+    font-size: 3em;
+    border: none;
+    border-radius: 0.25em;
+    cursor: pointer;
+    text-decoration: underline red;
+    padding: 0.05em 0.2em 0.15em 0.2em;
+    transition: text-decoration-color 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+.support:hover{text-decoration-color: white;transition: text-decoration-color 0.2s ease-in-out 0s;}
+.choose {
+    position: absolute;
+    top: calc(10% + 7em);
+    left: 0.8em;
+    border-radius: 0.25em;
+    border: 0.1em solid red;
+    padding: 0 0.15em 0.1em 0.15em;
+    background: 0;
+    color: red;
+    font-size: 3em;
+    text-decoration-line: underline;
+    text-decoration-color: #0000;
+    cursor: pointer;
+    transition: text-decoration-color 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s;
+}
+.choose:hover {text-decoration-color: red;transition: text-decoration-color 0.2s ease-in-out 0s;}
+h1 {
+    font-family: ubuntu;
+    font-size: 4em;
+    margin: 0.8em 0.6em;
+    position: absolute;
+    top: 10%;
+    color: red;
+}
+h2 {
+    position: absolute;
+    top: calc(10% + 5.5em);
+    margin: 2.75em 0 2.75em 1.6em;
+    color: red;
+    font: 400 1.5em 'Ubuntu';
+    min-width: 16em;
+    max-width: 50vh;
+}
+.page1 span {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 2.25em;
+    font: 200 1.5em 'Ubuntu';
+    color: white;
+}
+#styles {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    justify-items: stretch;
+    align-content: stretch;
+}
+#styles a, .slideshow div {
+    display: flex;
+    max-width: 90vw;
+    width: 24em;
+    max-height: 45vw;
+    height: 13.5em;
+    background: var(--myImage);
+    border: 0.5em solid red;
+    margin: 0.5em;
+    flex-direction: column;
+    justify-content: flex-end;
+    --myImage: url('../../resources/soon.png') 0 0 / cover;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+#styles a:hover, #styles a:focus-visible, .slideshow div {background: radial-gradient(100% 100% at 30% 100%, #f00c 0%, #f000 100%), var(--myImage);}
+h3 {
+    font-size: 1.75em;
+    font-family: 'Uni Sans Special';
+    color: white;
+    margin: 0.15em 0.5em;
+    transition: all 0.2s ease-in-out 0s;
+}
+h3::selection{background:red;}
+#styles a:hover h3, #styles a:focus-visible h3 {
+    transition: all 0.2s ease-in-out 0s;
+    font-size: 1.2em;
+    margin: 0 0.5em;
+}
+h4 {
+    font-size:0;
+    font-family: 'Ubuntu';
+    color: white;
+    transition: all 0.2s ease-in-out 0s;
+}
+#styles a:hover > h4, #styles a:focus-visible > h4 {
+    display: unset;
+    font-size: 1em;
+    margin: 0 0.5em 0.2em 0.5em;
+    transition: all 0.2s ease-in-out 0s;
+}
+h5 {
+    position: absolute;
+    margin: 0 0.5em 10.75em 0.5em;
+    font-size: 1em;
+    width: 23em;
+    font-family: 'ubuntu';
+    letter-spacing: -0.02em;
+    color: white;
+}
+.slideshow h5 {
+    position: relative;
+    margin: 0.5em;
+}
+#vk{background: url(../../resources/vk_red.svg) center center / 100% no-repeat;cursor: pointer;}
+#youtube{background: url(../../resources/youtube_red.svg) center center / 100% no-repeat;cursor: pointer;}
+#discord{background: url(../../resources/discord_red.svg) center center / 100% no-repeat;cursor: pointer;}
+/*UI thumbnails*/
+#dejavu {--myImage:url('../../resources/dejavu_demo.png') center center / cover !important;}
+#nui {--myImage:url('../../resources/nui_demo.png') center center / cover !important;}
+#fsi {--myImage:url('../../resources/fsi_demo.png') center center / cover !important;}
+#xui {--myImage:radial-gradient(20.5em 14.5em at 30% 0%, #000 0%, #0000 100%), url(../../resources/xui_demo.png) center center / cover !important;}
+#lui {--myImage: radial-gradient(20.5em 14.5em at 30% 0%, #000f 0%, #0000 100%), url('../../resources/lui_demo.png') 0 0 / cover !important;}
+/*Adaptive UI for portrait screens*/
+@media screen and (orientation: portrait) {
+    .page1 span {
+        font-size: 5vw;
+        bottom: 3.25rem;
+    }
+    .slideshow {display: none;}
+    .slideshow div{
+        max-height: unset !important;
+        max-width: unset !important;
+        min-width: 86.1vw !important;
+        min-height: 48.431vw !important;
+        max-height: 48.431vw !important;
+    }
+    h1 {
+        font-size: 9vw;
+        top: 4.5rem;
+        margin: 0 0.5em;
+        line-height: 9vw;
+    }
+    header {padding: 1em;width: calc(100% - 2em);}
+    h2 {
+        top: calc(5rem + 9vw + 1.75em);
+        font-size: 5.5vw;
+        margin: 0 0 0 0.775em;
+        line-height: 5.5vw;
+        max-width: unset;
+    }
+    .support {
+        font-size: 9vw !important;
+        top: unset;
+        bottom: calc(3.5rem + 6vw);
+        left: unset;
+        right: 0.35em;
+    }
+    .choose {
+        font-size: 9vw !important;
+        top: unset;
+        bottom: calc(3.5rem + 20vw);
+        left: unset;
+        right: 0.35em;
+    }
+}
+@media screen and (orientation: portrait) and (min-height: 115vw) and (max-width: 68vh){
+    .slideshow {
+        display: flex;
+        top: calc(4.75rem + 31.5vw);
+        left: 4.5vw;
+        right: unset;
+        width: 86.1vw;
+        height: 48.431vw;
+    }
+}
+@media screen and (orientation: portrait) and (max-width: 480px) { h3 {font-size: 5.85vw;} #styles a:hover > h4, #styles a:focus-visible > h4 {font-size: 3.34vw;} h5{font-size: 3.34vw;}}
+/*For them who use only keyboard and for mouse hover's*/
+.support:focus-visible, .choose:focus-visible {outline: none;box-shadow: 0 0 0.25em 0.1em #f00;}
+#styles a:focus-visible {
+    outline: 0;
+    box-shadow: 0 0.2em 1em 0em red;
+    transform: translateY(-0.2em);
+}
