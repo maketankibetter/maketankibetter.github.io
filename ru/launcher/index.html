@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html style="overflow: hidden" lang="ru">
+    <head>
+		<meta http-equiv="Content-Type" content="charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Тестовые сервера</title>
+		<link rel="shortcut icon" href="https://test.tankionline.com/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Rubik+Mono+One&family=Rubik:wght@300;500;700&display=swap" rel="stylesheet">
+        <meta name="theme-color" content="#001926">
+	</head>
+	<body>
+	    <help id="console"></help>
+	    <help id="flag"></help>
+		<div id="modal">
+	        <div class="console">
+	            <a class="exit" href="#"></a>
+			    <h2>Данные серверов</h2>
+			    <h3>Сервер 1: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 2: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 3: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 4: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 5: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 6: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 7: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 8: <a class="offline">Нет данных</a></h3>
+			    <h3>Сервер 9: <a class="offline">Нет данных</a></h3>
+                <h4>Примечание: сервисы авторизации (OAuth) не работают на 8-ом и 9-ом servers.</h4>
+			</div>
+			<div class="flagChooseLST">
+			    <flag class="usa" onclick="window.location.href='../../en/launcher/'"></flag>
+			    <flag class="rus" onclick="window.location.href='../../ru/launcher/'"></flag>
+			</div>
+        </div>
+        <content>
+			<div class="top">
+			    <div class="logo" onclick="window.location.href='https://tankionline.com/'" title="Главная страница Танков Онлайн"></div>
+			    <a class="con" title="Данные о серверах" href="#console"></a>
+				<h1>Лаунчер Танков Онлайн</h1>
+				<div class="help" onclick="window.location.href='/help'" title="Часто задоваемые вопросы">?</div>
+			    <a class="flags" id="flagChooseBTN" href="#flag">
+                    <flag class="rus"></flag>
+                </a>
+                <a class="flags" id="flagChooseBTN_ACTIVE" href="#">
+                    <flag class="rus"></flag>
+                </a>
+			</div>
+			<div class="servers">
+                <serv id="online" onclick="window.location.href='https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy2.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy2.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy2.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy3.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy3.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy3.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy4.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy4.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy4.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy5.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy5.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy5.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy6.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy6.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy6.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy7.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy7.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy7.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy8.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy8.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy8.test-eu.tankionline.com/balancer'"></serv>
+                <serv id="online" onclick="window.location.href='https://public-deploy9.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy9.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy9.test-eu.tankionline.com/balancer'"></serv>
+                <div onclick="window.location.href='https://tankionline.com/play'">Я хочу на основные сервера</div>
+            </div>
+			<footer>
+			    <img src="../../resources/MakeTankiBetter_logo.svg" class="MTB">
+			    <p><a class="MTB" href="../">MAKETANKIBETTER</a>Строим будущее</p>
+                <div class="social">
+                    <a id="vk" onclick="window.location.href='https://vk.com/maketankibetter'"></a>
+                    <a id="youtube" onclick="window.location.href='https://www.youtube.com/channel/UCLTFrkBahNvQdJcIZ7Q4bSQ'"></a>
+                    <a id="discord" onclick="window.location.href='https://discord.gg/qnQg4tZswp'"></a>
+                </div>
+            </footer>
+		</content>
+	</body>
+</html>
