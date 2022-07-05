@@ -1,0 +1,24 @@
+body {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+h1{}
+h2{}
+h3{}
+h4{}
+h5{}
+h6{}
+span{}
+.exit{}
+.primary{}
+.secondary{}
+img{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+p{
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+a{}
