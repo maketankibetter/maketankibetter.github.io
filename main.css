@@ -63,7 +63,7 @@ header {
 .nav, .lang {display: flex;flex-direction: row;align-items: center;}
 a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
 .active {
-    background: red;
+    background: red !important;
     color: white !important;
     padding: 0.1em 0.2em;
     cursor: default !important;
@@ -73,14 +73,17 @@ a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
 .nav > [href="#"], .lang > [href="#"] {display:none;}
 .rightside > div > a:nth-last-child(2) {margin: 0 !important;}
 header .nav a, header .lang a {
-    margin-right: 0.25em;
     color: red;
     font-family: 'Ubuntu';
     font-weight: 600;
     font-size: 1.5em;
-    text-decoration: underline 0.11em;
+    text-decoration: none;
     cursor: pointer;
     letter-spacing: -0.02em;
+    padding: 0.1em 0.2em;
+    background: #ff000040;
+    text-decoration: underline #501010 0.11em;
+    background-clip: border-box;
 }
 footer {
     display: flex;
@@ -91,7 +94,6 @@ footer {
     padding: 1em 1.5em;
     justify-content: space-between;
     background: linear-gradient(#0000, #161616 15%);
-    z-index: 1;
 }
 .social{display:flex}
 footer a{
@@ -149,24 +151,23 @@ footer a{
         display: none;
         position: fixed;
         top: unset;
-        bottom: 4em;
+        bottom: 3.5em;
         left: 0;
         right: 0;
-        background: linear-gradient(0deg, red 3.75em, #000000bf 3.75em);
+        background: linear-gradient(0deg, #161616 4.75em, #000000bf 4.75em);
         align-items: flex-end;
-        padding: 1.15em 3.85em 1.05em 1.15em;
-        border-bottom: 0.35em solid red;
+        padding: 1.15em 3.85em 1.45em 1.15em;
         width: auto;
-        height: calc(100vh - 5.75em);
-        z-index: 2;
+        height: calc(100vh - 5.5em);
+        z-index: 3;
         overflow: overlay;
     }
     .nav::-webkit-scrollbar, .lang::-webkit-scrollbar {width: 1vh;}
     .nav::-webkit-scrollbar-track, .lang::-webkit-scrollbar-track {background: #ffffff00;}
     .nav::-webkit-scrollbar-thumb, .lang::-webkit-scrollbar-thumb {
-        background: white;
+        background: white content-box;
         border-radius: 0.5em;
-        border: 0.25em solid #ff0000;
+        border: 0.25em solid #0000;
     }
     #nav_mobile:target ~ header .nav, #lang_mobile:target ~ header .lang {
         display: grid;
@@ -175,31 +176,26 @@ footer a{
     }
     #nav_mobile:target ~ header .nav > a, #lang_mobile:target ~ header .lang > a{
         display: block;
-        color: white;
         width: max-content;
-        height: 1em;
     }
     #nav_mobile:target ~ header .nav > a.active, #lang_mobile:target ~ header .lang > a.active {
         border-radius: 0;
-        font-family: 'Uni Sans Special';
-        padding: 0;
         text-decoration: none;
     }
     .nav > :nth-last-child(2), .lang > :nth-last-child(2) {margin-right: 5px !important;}
     #nav_mobile:target ~ header .nav > [href="#"], #lang_mobile:target ~ header .lang > [href="#"] {
-        display: block;
-        background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, red;
+        background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, #ff0000;
         position: fixed;
+        border-radius: 50%;
+        outline: 0.5em solid red;
         bottom: 2.75em;
         right: 0;
         width: 1em;
         height: 1em;
-        border: 0.8em solid red;
+        margin: 0.8em;
         padding: 0;
-        margin: 0 !important;
-        outline: none !important;
         cursor: pointer;
-        filter: drop-shadow(-3px 0 2px red);
+        filter: drop-shadow(-3px 0 2px #161616);
     }
     #nav_mobile:target ~ header .nav > [href="#"]:after, #lang_mobile:target ~ header .lang > [href="#"]:after{font-size: 0;}
     .nav > a:before, .nav > a:after, .lang > a:before, .lang > a:after{color: white !important}
@@ -212,7 +208,7 @@ footer a#discord:focus-visible {background: red url(/resources/discord.svg) cent
 footer a#youtube:focus-visible {background: red url(/resources/youtube.svg) center center / 75% no-repeat !important;border-radius: 0.2em;outline: 0;}
 header a:hover, header a:focus-visible {
     outline: 0;
-    color: white;
+    text-decoration-color: red;
 }
 header > a:focus-visible {
     outline: 0;
