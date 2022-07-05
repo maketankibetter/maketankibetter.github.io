@@ -52,14 +52,12 @@ header {
    justify-content: space-between;
 }
 .rightside > a{display:none;}
-.rightside > div:after{
-    content: '	\007C';
+.rightside > div:not(:last-child):after{
+    content: '\007C';
     color: red;
     padding: 0 0.2em;
-    font-size: 1.5em;
-    font-family: 'Uni Sans';
+    font: 900 1.5em 'Ubuntu';
 }
-.rightside > :last-child:after{display:none;}
 .nav, .lang {display: flex;flex-direction: row;align-items: center;}
 a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
 .active {
@@ -69,9 +67,10 @@ a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
     cursor: default !important;
     text-decoration: none !important;
 }
-.inside {font-family: 'Uni Sans Special' !important;}
-.nav > [href="#"], .lang > [href="#"] {display:none;}
-header .nav a, header .lang a {
+.inside {background: red !important;color: white !important;text-decoration-color: red !important;}
+.inside:is(:hover, :focus-visible) {text-decoration-color: white !important;}
+[href="#"] {display:none;}
+header :is(.nav, .lang) a {
     color: red;
     font-family: 'Ubuntu';
     font-weight: 600;
@@ -105,23 +104,23 @@ footer a{
 #youtube{background: url(/resources/youtube_red.svg) center center / 100% no-repeat;cursor: pointer;}
 #discord{background: url(/resources/discord_red.svg) center center / 100% no-repeat;cursor: pointer;}
 /*UI scale for landscape screens*/
-@media screen and (min-width:1280px) and (orientation:landscape), (min-height:950px) and (orientation:landscape) {body {font-size: calc(1em / 3 * 4);}}
-@media screen and (min-width:1220px) and (max-width:1279px) and (orientation:landscape), (min-height:900px) and (max-height:949px) and (orientation:landscape) {body{font-size:calc(0.95em / 3 * 4);}}
-@media screen and (min-width:1160px) and (max-width:1219px) and (orientation:landscape), (min-height:864px) and (max-height:899px) and (orientation:landscape) {body{font-size:calc(0.8em / 3 * 4);}}
-@media screen and (min-width:1100px) and (max-width:1159px) and (orientation:landscape), (min-height:810px) and (max-height:863px) and (orientation:landscape) {body{font-size:calc(0.85em / 3 * 4);}}
-@media screen and (min-width:1024px) and (max-width:1099px) and (orientation:landscape), (min-height:768px) and (max-height:809px) and (orientation:landscape) {body{font-size:calc(0.8em / 3 * 4);}}
-@media screen and (min-width:960px) and (max-width:1023px) and (orientation:landscape), (min-height:720px) and (max-height:767px) and (orientation:landscape) {body{font-size: calc(0.75em / 3 * 4);}}
-@media screen and (min-width:900px) and (max-width:959px) and (orientation:landscape), (min-height:680px) and (max-height:719px) and (orientation:landscape) {body{font-size:calc(0.7em / 3 * 4);}}
-@media screen and  (min-width:840px) and (max-width:899px) and (orientation:landscape), (min-height:630px) and (max-height:679px) and (orientation:landscape) {body{font-size:calc(0.65em / 3 * 4);}}
-@media screen and (min-width:760px) and (max-width:839px) and (orientation:landscape), (min-height:580px) and (max-height:629px) and (orientation:landscape) {body{font-size:calc(0.6em / 3 * 4);}}
-@media screen and (min-width:700px) and (max-width:759px) and (orientation:landscape), (min-height:530px) and (max-height:579px) and (orientation:landscape) {body{font-size:calc(0.55em / 3 * 4);}}
-@media screen and (min-width:640px) and (max-width:699px) and (orientation:landscape), (min-height:480px) and (max-height:529px) and (orientation:landscape) {body{font-size:calc(0.5em / 3 * 4);}}
-@media screen and (min-width:580px) and (max-width:639px) and (orientation:landscape), (min-height:440px) and (max-height:479px) and (orientation:landscape) {body{font-size:calc(0.45em / 3 * 4);}}
-@media screen and (min-width:510px) and (max-width:579px) and (orientation:landscape), (min-height:390px) and (max-height:439px) and (orientation:landscape) {body{font-size:calc(0.4em / 3 * 4);}}
-@media screen and (min-width:480px) and (max-width:509px) and (orientation:landscape), (min-height:0px) and (max-height:389px) and (orientation:landscape) {body{font-size:calc(0.35em / 3 * 4);}}
-@media screen and (min-width:100px) and (max-width:479px) and (orientation:landscape), (min-height:0px) and (max-height:389px) and (orientation:landscape) {body{font-size:calc(0.3em / 3 * 4);}}
+@media (min-width:1280px) and (orientation:landscape), (min-height:950px) and (orientation:landscape) {body {font-size: calc(1em / 3 * 4);}}
+@media (min-width:1220px) and (max-width:1279px) and (orientation:landscape), (min-height:900px) and (max-height:949px) and (orientation:landscape) {body{font-size:calc(0.95em / 3 * 4);}}
+@media (min-width:1160px) and (max-width:1219px) and (orientation:landscape), (min-height:864px) and (max-height:899px) and (orientation:landscape) {body{font-size:calc(0.8em / 3 * 4);}}
+@media (min-width:1100px) and (max-width:1159px) and (orientation:landscape), (min-height:810px) and (max-height:863px) and (orientation:landscape) {body{font-size:calc(0.85em / 3 * 4);}}
+@media (min-width:1024px) and (max-width:1099px) and (orientation:landscape), (min-height:768px) and (max-height:809px) and (orientation:landscape) {body{font-size:calc(0.8em / 3 * 4);}}
+@media (min-width:960px) and (max-width:1023px) and (orientation:landscape), (min-height:720px) and (max-height:767px) and (orientation:landscape) {body{font-size: calc(0.75em / 3 * 4);}}
+@media (min-width:900px) and (max-width:959px) and (orientation:landscape), (min-height:680px) and (max-height:719px) and (orientation:landscape) {body{font-size:calc(0.7em / 3 * 4);}}
+@media (min-width:840px) and (max-width:899px) and (orientation:landscape), (min-height:630px) and (max-height:679px) and (orientation:landscape) {body{font-size:calc(0.65em / 3 * 4);}}
+@media (min-width:760px) and (max-width:839px) and (orientation:landscape), (min-height:580px) and (max-height:629px) and (orientation:landscape) {body{font-size:calc(0.6em / 3 * 4);}}
+@media (min-width:700px) and (max-width:759px) and (orientation:landscape), (min-height:530px) and (max-height:579px) and (orientation:landscape) {body{font-size:calc(0.55em / 3 * 4);}}
+@media (min-width:640px) and (max-width:699px) and (orientation:landscape), (min-height:480px) and (max-height:529px) and (orientation:landscape) {body{font-size:calc(0.5em / 3 * 4);}}
+@media (min-width:580px) and (max-width:639px) and (orientation:landscape), (min-height:440px) and (max-height:479px) and (orientation:landscape) {body{font-size:calc(0.45em / 3 * 4);}}
+@media (min-width:510px) and (max-width:579px) and (orientation:landscape), (min-height:390px) and (max-height:439px) and (orientation:landscape) {body{font-size:calc(0.4em / 3 * 4);}}
+@media (min-width:480px) and (max-width:509px) and (orientation:landscape), (min-height:0px) and (max-height:389px) and (orientation:landscape) {body{font-size:calc(0.35em / 3 * 4);}}
+@media (min-width:100px) and (max-width:479px) and (orientation:landscape), (min-height:0px) and (max-height:389px) and (orientation:landscape) {body{font-size:calc(0.3em / 3 * 4);}}
 /*Adaptive UI for portrait screens*/
-@media screen and (orientation: portrait) {
+@media (orientation: portrait) {
     header{width: calc(100% - 2em);padding: 1em;}
     .rightside{width: 4.8em}
     .rightside > div:after{font-size:0;}
@@ -161,9 +160,9 @@ footer a{
         z-index: 3;
         overflow: overlay;
     }
-    .nav::-webkit-scrollbar, .lang::-webkit-scrollbar {width: 1vh;}
-    .nav::-webkit-scrollbar-track, .lang::-webkit-scrollbar-track {background: #ffffff00;}
-    .nav::-webkit-scrollbar-thumb, .lang::-webkit-scrollbar-thumb {
+    :is(.nav, .lang)::-webkit-scrollbar {width: 1vh;}
+    :is(.nav, .lang)::-webkit-scrollbar-track {background: #ffffff00;}
+    :is(.nav, .lang)::-webkit-scrollbar-thumb {
         background: white content-box;
         border-radius: 0.5em;
         border: 0.25em solid #0000;
@@ -181,31 +180,29 @@ footer a{
         border-radius: 0;
         text-decoration: none;
     }
-    .nav > :nth-last-child(2), .lang > :nth-last-child(2) {margin-right: 5px !important;}
+    :is(.nav, .lang) > :nth-last-child(2) {margin-right: 5px !important;}
     #nav_mobile:target ~ header .nav > [href="#"], #lang_mobile:target ~ header .lang > [href="#"] {
         background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, #ff0000;
         position: fixed;
         border-radius: 50%;
-        outline: 0.5em solid red;
-        bottom: 2.75em;
+        border: 0.5em solid red;
+        bottom: 2.25em;
         right: 0;
         width: 1em;
         height: 1em;
-        margin: 0.8em;
+        margin: 0.8em 0.3em;
         padding: 0;
         cursor: pointer;
         filter: drop-shadow(-3px 0 2px #161616);
     }
-    #nav_mobile:target ~ header .nav > [href="#"]:after, #lang_mobile:target ~ header .lang > [href="#"]:after{font-size: 0;}
-    .nav > a:before, .nav > a:after, .lang > a:before, .lang > a:after{color: white !important}
     #nav_mobile:target ~ footer, #lang_mobile:target ~ footer{background: #161616;}
 }
-@media screen and (orientation: portrait) and (max-width: 358px) {.mini_logo {display: block;} .mini_logo + a{display:none;}}
+@media (orientation: portrait) and (max-width: 358px) {.mini_logo {display: block;} .mini_logo + a{display:none;}}
 /*For them who use only keyboard and for mouse hover's*/
 footer a#vk:focus-visible {background: red url(/resources/vk.svg) center center / 75% no-repeat !important;border-radius: 0.2em;outline: 0;}
 footer a#discord:focus-visible {background: red url(/resources/discord.svg) center center / 75% no-repeat !important;border-radius: 0.2em;outline: 0;}
 footer a#youtube:focus-visible {background: red url(/resources/youtube.svg) center center / 75% no-repeat !important;border-radius: 0.2em;outline: 0;}
-header a:hover, header a:focus-visible {
+header a:is(:hover, :focus-visible) {
     outline: 0;
     text-decoration-color: red;
 }
