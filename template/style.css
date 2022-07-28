@@ -5,7 +5,7 @@ body {
   display: grid;
   grid-template-columns: 614px 260px;
   gap: 10px;
-  overflow: auto;
+  overflow: overlay;
   align-items: center;
   letter-spacing: -0.35px;
 }
@@ -18,14 +18,14 @@ h1{
 }
 h1::selection{color:white;background:red;}
 h2{
-    font: 700 70px 'Ubuntu';
+    font: 700 70px 'Roboto';
     color: red;
     margin: 0;
     height: fit-content;
     width: fit-content;
 }
 h3{
-    font: 500 30px 'Ubuntu';
+    font: 500 30px 'Roboto';
     color: white;
     padding: 2px 5px;
     background: red;
@@ -36,7 +36,7 @@ h3{
 }
 h3::selection{text-decoration-color: #fff;}
 h4{
-    font: 500 18px 'Ubuntu';
+    font: 500 18px 'Roboto';
     color: red;
     margin: 0;
     height: fit-content;
@@ -45,12 +45,12 @@ h4{
 h5{
     margin: 0;
     color: white;
-    font: 300 14px 'Ubuntu';
+    font: 300 14px 'Roboto';
     width: fit-content;
     height: fit-content;
 }
 a{
-    font: 500 14px 'Ubuntu';
+    font: 500 14px 'Roboto';
     color: red;
     height: fit-content;
     width: fit-content;
@@ -61,7 +61,7 @@ a:hover {
 }
 a::selection{background:#00f;color:#fff;}
 span{
-    font: 500 20px 'Ubuntu';
+    font: 500 20px 'Roboto';
     padding: 1px 4px;
 }
 .selected {
@@ -99,7 +99,7 @@ span{
 .exit{
     background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, #ff0000;
     border-radius: 50%;
-    border: 0.5em solid red;
+    border: 8px solid red;
     width: 40px;
     height: 40px;
     padding: 0;
@@ -107,7 +107,7 @@ span{
 }
 .primary{
     width: fit-content;
-    font: 500 30px 'Ubuntu';
+    font: 500 30px 'Roboto';
     color: white;
     background: red;
     border-radius: 8px;
@@ -124,7 +124,7 @@ span{
 }
 .secondary{
     width: fit-content;
-    font: 500 30px 'Ubuntu';
+    font: 500 30px 'Roboto';
     color: red;
     background: none;
     border-radius: 8px;
@@ -138,6 +138,10 @@ span{
 }
 .secondary:hover {
     text-decoration-color: red;
+}
+:is(.secondary, .primary):focus-visible {
+    outline: none;
+    box-shadow: 0 0 10px 0 #f00;
 }
 img{
   width: 400px;
@@ -161,7 +165,7 @@ hr {
 }
 p{
   text-align: center;
-  font: 300 14px 'Ubuntu';
+  font: 300 14px 'Roboto';
   color: red;
   grid-column-start: 1;
   grid-column-end: 3;
