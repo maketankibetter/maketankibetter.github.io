@@ -10,7 +10,7 @@ body {
     background: #161616;
     overflow-x: hidden;
     overflow-y: overlay;
-    margin: 56px 0 0;
+    margin: 56px 0;
     transition: all 0.2s ease-in-out 0s;
     letter-spacing: -0.35px;
 }
