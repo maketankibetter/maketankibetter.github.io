@@ -38,16 +38,6 @@ header > a{transition: background 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-o
     95.833333333% {transform: translateX(-300%);}
     100% {transform: translateX(-400%);}
 }
-button {
-    position: absolute;
-    top: calc(10% + 5.75em);
-    left: 1.35em;
-    font-size: 3em !important;
-    border: none;
-    border-radius: 0.25em;
-    cursor: pointer;
-    text-decoration-line: underline;
-}
 .support{
     width: fit-content;
     font: 500 30px 'Roboto';
@@ -129,7 +119,7 @@ h3 {
     margin: 0.15em 0.5em;
     transition: all 0.2s ease-in-out 0s;
 }
-h3::selection{background:red;}
+h1::selection, h2::selection, h3::selection{background:red;color:white;}
 #styles a:hover h3, #styles a:focus-visible h3 {
     transition: all 0.2s ease-in-out 0s;
     font-size: 1.2em;
@@ -153,15 +143,6 @@ h5 {
     width: 23em;
     color: white;
 }
-.slideshow h5 {
-    position: absolute;
-    margin: 0;
-    width: fit-content;
-    top: -1px;
-}
-#vk{background: url(../../resources/vk_red.svg) center center / 100% no-repeat;cursor: pointer;}
-#youtube{background: url(../../resources/youtube_red.svg) center center / 100% no-repeat;cursor: pointer;}
-#discord{background: url(../../resources/discord_red.svg) center center / 100% no-repeat;cursor: pointer;}
 /*UI thumbnails*/
 #dejavu {--myImage:url('../../resources/dejavu_demo.png') center center / cover !important;}
 #nui {--myImage:url('../../resources/nui_demo.png') center center / cover !important;}
