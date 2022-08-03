@@ -338,6 +338,7 @@ footer {
     margin: 0 2em;
     font-size: inherit;
     transition: 0.2s;
+    position: relative;
 }
 footer a {
     cursor: alias;
