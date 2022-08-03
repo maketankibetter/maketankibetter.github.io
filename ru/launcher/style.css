@@ -273,6 +273,22 @@ h5 {
     counter-reset: count;
     transition: 0.2s;
 }
+.servers a:before{
+    -webkit-mask-image: url(../../resources/pentagon.svg);
+    -webkit-mask-size: cover;
+    width: 11em;
+    height: 10.65em;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    content:
+    '.';
+    color: #fff0;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    transform: scale(0.9);
+}
 .servers a {
     display: flex;
     user-select: none;
@@ -288,49 +304,17 @@ h5 {
 .servers a:after{
     counter-increment: count;
     content: counter(count);
-    transform: translateY(3%);
+    transform: translateY(10%);
     text-decoration: none;
     font: 6em 'Rubik Mono One', sans-serif;
 }
 .servers a:first-child:after{
     counter-increment: unset;
     content: 'm';
-    transform: translateY(3%)
 }
-.servers div {
-    display: flex;
-    height: 2em;
-    width: 300%;
-    border: #ffffff40 solid 1px;
-    border-radius: 0.5em;
-    margin-left: -1px;
-    border-top: none;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    -moz-user-select: none;
-}
-.servers a:before{
-    -webkit-mask-image: url(../../resources/pentagon.svg);
-    -webkit-mask-size: cover;
-    width: 11em;
-    height: 10.65em;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-position: center;
-    content:
-    '.';
-    color: #fff0;
-    z-index: -1;
-    user-select: none;
-    pointer-events: none;
-    transform: translateY(-4%) scale(0.9);
-}
-.servers a#offline:before{background: #fa636380;}
-.servers a#online:before{background: #76f63140;}
-.servers a#invite:before{background: #bfd5ff26;}
+#offline:before{background: #fa636380;}
+#online:before{background: #76f63140;}
+#invite:before{background: #bfd5ff26;}
 #invite{cursor: help;}
 #offline{cursor: not-allowed;}
 /*Временно*/ #offline{cursor: pointer !important;}
