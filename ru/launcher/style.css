@@ -394,7 +394,21 @@ footer .social a:hover{filter: none;}
     .servers a span {display:none}
     footer{
         width: calc(100% - 2em);
-        margin: 0 1em;
+        margin: 0 1em 3em;
+    }
+    footer:after{
+        display: flex;
+        content:
+        'RESERVED FOR MOBILE BROWSERS';
+        position: absolute;
+        width: calc(100% + 2em);
+        height: 3em;
+        bottom: -3em;
+        left: -1em;
+        background: black;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
     content{overflow-y:scroll;}
     content::-webkit-scrollbar {background: #0000;width: 0.5em;}
