@@ -29,6 +29,7 @@ header > a{transition: background 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-o
     filter: blur(1px);
     pointer-events: none;
     justify-content: center;
+    overflow: hidden;
 }
 .slideshow img {
     height: calc(100vh - 112px);
