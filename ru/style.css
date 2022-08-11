@@ -30,7 +30,7 @@
 .support:hover {text-decoration-color: white;}
 .questions {
     width: fit-content;
-    font: 500 30px 'Roboto';
+    font: 500 30px var(--font);
     color: red;
     background: none;
     border-radius: 8px;
@@ -55,7 +55,7 @@ h2 {
     margin: 10px 0 15px;
     text-align: center;
     color: #fffbfb;
-    font: 300 14px 'Roboto';
+    font: 300 14px var(--font);
     line-height: 0;
 }
 /*Adaptive UI for portrait screens*/
