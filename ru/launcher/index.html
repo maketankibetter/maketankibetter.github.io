@@ -1,52 +1,52 @@
 <!DOCTYPE html>
-<html style="overflow: hidden" lang="ru">
+<html lang="ru">
     <head>
         <meta http-equiv="Content-Type" content="charset=UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="theme-color" content="#001926">
         <title>Лаунчер Танков Онлайн</title>
-        <link rel="shortcut icon" href="https://tankionlinetester.000webhostapp.com/resources/test.png" type="image/png">
+        <bgsound src="/resources/ambient.wav">
+        <link rel="shortcut icon" href="/resources/launcher.png" type="image/png">
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&amp;family=Rubik+Mono+One&amp;family=Rubik:wght@300;500;700&amp;display=swap" rel="stylesheet">
-        <meta name="theme-color" content="#001926">
     </head>
     <body>
-        <help id="console"></help>
+        <help id="status"></help>
         <help id="flag"></help>
-        <div id="modal">
-            <div class="console">
-                <a class="exit" href="#"></a>
-                <h2>Данные серверов</h2>
-                <h3>Сервер 1: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 2: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 3: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 4: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 5: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 6: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 7: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 8: <a class="offline">Нет данных</a></h3>
-                <h3>Сервер 9: <a class="offline">Нет данных</a></h3>
-                <h4>Примечание: сервисы авторизации (OAuth) не работают на 8-ом и 9-ом серверах.</h4>
-            </div>
-            <div class="flagChooseLST">
-                <a class="usa" href="../../en/launcher/"></a>
-                <a class="rus" href="../../ru/launcher/"></a>
-            </div>
-        </div>
         <content>
-            <div class="top">
-                <a class="logo" title="Главная страница Танков Онлайн" href="https://tankionline.com/"></a>
-                <a class="con" title="Данные о серверах" href="#console"></a>
+            <div id="modal">
+                <div class="console">
+                    <a class="exit" href="#"></a>
+                    <h2>Данные серверов</h2>
+                    <h3>Сервер 1: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 2: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 3: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 4: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 5: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 6: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 7: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 8: <a class="offline">Нет данных</a></h3>
+                    <h3>Сервер 9: <a class="offline">Нет данных</a></h3>
+                    <h4>Примечание: сервисы авторизации (OAuth) не работают на 8-ом и 9-ом серверах.</h4>
+                </div>
+                <div class="flagChooseLST">
+                    <a class="usa" href="../../en/launcher/"></a>
+                    <a class="rus" href="../../ru/launcher/"></a>
+                </div>
+            </div>
+            <header>
+                <a class="logo" title="Главная страница Танков Онлайн" href="https://tankionline.com/" target="_blank"></a>
+                <a class="status" title="Данные о статусе серверов" href="#status"></a>
                 <h1>Лаунчер Танков Онлайн</h1>
-                <a class="help" title="Часто задоваемые вопросы" href="/help">?</a>
                 <a class="flags" id="flagChooseBTN" href="#flag">
                     <flag class="rus"></flag>
                 </a>
                 <a class="flags" id="flagChooseBTN_ACTIVE" href="#">
                     <flag class="rus"></flag>
                 </a>
-            </div>
+            </header>
             <div class="servers">
                 <a id="online" href="https://tankionline.com/play"><span>Основные сервера</span></a>
                 <a id="offline" href="https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer"></a>
@@ -61,12 +61,12 @@
             </div>
             <footer>
                 <img src="../../resources/MakeTankiBetter_logo.svg" class="MTB">
-                <p><a class="MTB" href="/">MAKETANKIBETTER</a>Строим будущее</p>
+                <p><a target="_blank" class="MTB" href="/">MAKETANKIBETTER</a>Строим будущее</p>
                 <div class="social">
-                    <a id="vk" href="https://vk.com/maketankibetter"></a>
-                    <a id="youtube" href="https://www.youtube.com/channel/UCLTFrkBahNvQdJcIZ7Q4bSQ"></a>
-                    <a id="discord" href="https://discord.gg/qnQg4tZswp"></a>
-                	<a id="github" href="https://github.com/maketankibetter"></a></div>
+                    <a target="_blank" id="vk" href="https://vk.com/maketankibetter"></a>
+                    <a target="_blank" id="youtube" href="https://www.youtube.com/channel/UCLTFrkBahNvQdJcIZ7Q4bSQ"></a>
+                    <a target="_blank" id="discord" href="https://discord.gg/qnQg4tZswp"></a>
+                	<a target="_blank" id="github" href="https://github.com/maketankibetter"></a></div>
             </footer>
         </content>
     </body>
