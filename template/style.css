@@ -16,16 +16,16 @@ h1{
     width: fit-content;
     height: fit-content;
 }
-h1::selection{color:white;background:red;}
 h2{
-    font: 700 70px 'Roboto';
+    font: 700 70px var(--font);
     color: red;
     margin: 0;
     height: fit-content;
     width: fit-content;
 }
+h1::selection, h2::selection{color:white;background:red;}
 h3{
-    font: 500 30px 'Roboto';
+    font: 500 30px var(--font);
     color: white;
     padding: 2px 5px;
     background: red;
@@ -36,7 +36,7 @@ h3{
 }
 h3::selection{text-decoration-color: #fff;}
 h4{
-    font: 500 18px 'Roboto';
+    font: 500 18px var(--font);
     color: red;
     margin: 0;
     height: fit-content;
@@ -45,23 +45,21 @@ h4{
 h5{
     margin: 0;
     color: white;
-    font: 300 14px 'Roboto';
+    font: 300 14px var(--font);
     width: fit-content;
     height: fit-content;
 }
 a{
-    font: 500 14px 'Roboto';
+    font: 500 14px var(--font);
     color: red;
     height: fit-content;
     width: fit-content;
     background-color: #0000;
 }
-a:hover {
-    color: white;
-}
+a:hover {color: white;}
 a::selection{background:#00f;color:#fff;}
 span{
-    font: 500 20px 'Roboto';
+    font: 500 20px var(--font);
     padding: 1px 4px;
 }
 .selected {
@@ -90,12 +88,8 @@ span{
     transition: 0.2s ease-in-out text-decoration-color;
     cursor: pointer;
 }
-.parent:hover {
-    text-decoration-color: white;
-}
-.unselected:hover {
-    text-decoration-color: red;
-}
+.parent:hover {text-decoration-color: white;}
+.unselected:hover {text-decoration-color: red;}
 .exit{
     background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, #ff0000;
     border-radius: 50%;
@@ -107,7 +101,7 @@ span{
 }
 .primary{
     width: fit-content;
-    font: 500 30px 'Roboto';
+    font: 500 30px var(--font);
     color: white;
     background: red;
     border-radius: 8px;
@@ -119,12 +113,10 @@ span{
     user-select: none;
     -moz-user-select: none;
 }
-.primary:hover {
-    text-decoration-color: white;
-}
+.primary:hover {text-decoration-color: white;}
 .secondary{
     width: fit-content;
-    font: 500 30px 'Roboto';
+    font: 500 30px var(--font);
     color: red;
     background: none;
     border-radius: 8px;
@@ -136,13 +128,8 @@ span{
     user-select: none;
     -moz-user-select: none;
 }
-.secondary:hover {
-    text-decoration-color: red;
-}
-:is(.secondary, .primary):focus-visible {
-    outline: none;
-    box-shadow: 0 0 10px 0 #f00;
-}
+.secondary:hover {text-decoration-color: red;}
+:is(.secondary, .primary):focus-visible {outline: none;box-shadow: 0 0 10px 0 #f00;}
 img{
   width: 400px;
   height: 300px;
@@ -165,7 +152,7 @@ hr {
 }
 p{
   text-align: center;
-  font: 300 14px 'Roboto';
+  font: 300 14px var(--font);
   color: red;
   grid-column-start: 1;
   grid-column-end: 3;
