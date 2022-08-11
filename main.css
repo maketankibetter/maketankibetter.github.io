@@ -34,15 +34,13 @@ header {
     background: linear-gradient(#161616 90%, transparent);
     z-index: 1;
 }
+header > a{transition: background 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s, color 0.2s ease-in-out;}
 .mini_logo {
     display: none;
     width: 16px;
     background: red url(/resources/MakeTankiBetter_logo.svg) center center / 95% no-repeat;
 }
-.rightside {
-   display: flex;
-   justify-content: space-between;
-}
+.rightside {display: flex;justify-content: space-between;}
 .rightside > a{display:none;}
 .rightside > div:not(:last-child):after{
     content: '\007C';
@@ -132,17 +130,9 @@ footer a{
         border-radius: 8px;
         border: 4px solid #0000;
     }
-    #nav_mobile:target ~ header .nav, #lang_mobile:target ~ header .lang {
-        display: flex;
-    }
-    #nav_mobile:target ~ header .nav > a, #lang_mobile:target ~ header .lang > a{
-        display: block;
-        width: max-content;
-    }
-    #nav_mobile:target ~ header .nav > a.active, #lang_mobile:target ~ header .lang > a.active {
-        border-radius: 0;
-        text-decoration: none;
-    }
+    #nav_mobile:target ~ header .nav, #lang_mobile:target ~ header .lang {display: flex;}
+    #nav_mobile:target ~ header .nav > a, #lang_mobile:target ~ header .lang > a{display: block;width: max-content;}
+    #nav_mobile:target ~ header .nav > a.active, #lang_mobile:target ~ header .lang > a.active {border-radius: 0;text-decoration: none;}
     #nav_mobile:target ~ header .nav > [href="#"], #lang_mobile:target ~ header .lang > [href="#"] {
     display: inline-block;
     background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, #ff0000;
@@ -166,10 +156,7 @@ footer a#vk:focus-visible {background: red url(/resources/vk.svg) center center 
 footer a#discord:focus-visible {background: red url(/resources/discord.svg) center center / 73% no-repeat !important;border-radius: 15%;outline: 0;}
 footer a#youtube:focus-visible {background: red url(/resources/youtube.svg) center center / 73% no-repeat !important;border-radius: 15%;outline: 0;}
 footer a#github:focus-visible {background: red url(/resources/github.svg) center center / 73% no-repeat !important;border-radius: 15%;outline: 0;}
-header a:is(:hover, :focus-visible) {
-    outline: 0;
-    text-decoration-color: red;
-}
+header a:is(:hover, :focus-visible) {outline: 0;text-decoration-color: red;}
 header > a:focus-visible {
     box-shadow: inset 0 0 0 2px red;
     background: #161616;
