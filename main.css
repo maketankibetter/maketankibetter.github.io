@@ -92,7 +92,7 @@ footer a{
 /*Adaptive UI for portrait screens*/
 @media (orientation: portrait) {
     .rightside{gap: 2px;}
-    .rightside > div:after{font-size:0;}
+    .rightside > div:after{display:none;}
     .nav_mobile{
         display: block !important;
         font-size: 40px;
