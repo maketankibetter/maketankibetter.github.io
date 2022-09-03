@@ -1,0 +1,123 @@
+body {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 10px 20px;
+}
+article {
+    padding: 16px 0;
+    display: flex;
+    min-height: calc(100vh - 8em);
+    width: 700px;
+    border: 1px solid red;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+}
+article h1 {
+    font: 70px/70px 'Uni Sans Special';
+    margin: 0 25px 0;
+    color: red;
+}
+article h2 {
+    font: 500 22px var(--font);
+    margin: 0 25px;
+    color: red;
+}
+article h3 {
+    font: 500 16px var(--font);
+    color: red;
+    margin: 5px 25px;
+}
+h1::selection, h2::selection, h3::selection{background:red;color:white}
+a {color: red;}
+a:hover {color: white;}
+hr {
+    width: calc(100% - 50px);
+    background: red;
+    border: 0;
+    height: 1px;
+    margin: 6px 25px;
+}
+article li {
+    margin: 0 25px;
+    font: 700 16px var(--font);
+    color: red;
+    text-transform: lowercase;
+}
+aside li::marker{content: '';}
+article img {
+    width: 650px;
+    margin: 0 auto;
+    user-select: none;
+}
+article p {
+    font: 300 13px var(--font);
+    width: calc(100% - 5em);
+    margin: 3px 25px -3px;
+    color: #f00;
+    text-align: center;
+}
+aside section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    border: 1px solid red;
+    padding: 10px;
+    box-sizing: border-box;
+}
+aside {
+    display: flex;
+    height: fit-content;
+    flex-direction: column;
+    gap: 10px;
+    position: sticky;
+    top: 56px;
+    width: 280px;
+}
+aside h1 {
+    font: 600 22px var(--font);
+    margin: 0 0 6px;
+    color: red;
+}
+aside li {margin: 0 0 6px;}
+aside li:last-child {margin: 0;}
+aside li a {font: 500 16px var(--font);}
+.install {
+    padding: 1px 5px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    font: 500 24px var(--font);
+    color: white;
+    background: red;
+    border-radius: 8px;
+    border: 3px solid red;
+    text-decoration: underline red;
+    transition: 0.2s ease-in-out text-decoration-color;
+    cursor: pointer;
+    letter-spacing: -0.35px;
+    user-select: none;
+}
+.install:hover {text-decoration-color: white;}
+/*Adaptive UI*/
+@media screen and (max-width: 1030px) {
+    body{flex-direction: column;}
+    article {
+        width: calc(100vw - 36px);
+        min-width: calc(100vw - 36px);
+        margin: 0 auto;
+    }
+    img {width: calc(100vw - 85px) !important;}
+    aside{
+        margin: auto;
+        position: relative;
+        width: calc(100vw - 34px) !important;
+        flex-direction: column-reverse !important;
+    }
+}
+@media screen and (orientation: portrait) {
+    .install {display: none;}
+    img {width: 75vw;margin: 0.2em calc(12.5vw - 1em);}
+}
