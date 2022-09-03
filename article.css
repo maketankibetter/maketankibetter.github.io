@@ -113,6 +113,7 @@ aside li a {font: 500 16px var(--font);}
     aside{
         margin: auto;
         position: relative;
+        top: 0;
         width: calc(100vw - 34px) !important;
         flex-direction: column-reverse !important;
     }
