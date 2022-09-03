@@ -104,8 +104,8 @@ h2 {
 }
 #styles a {
     display: flex;
-    width: 24em;
-    height: 13.5em;
+    width: 384px;
+    height: 216px;
     --myImage: url('../../resources/soon.png') 0 0 / cover;
     background: var(--myImage);
     outline: 3px solid red;
@@ -152,7 +152,7 @@ h5 {
 /*UI thumbnails*/
 #dejavu {--myImage:url('../../resources/dejavu_demo.png') center / cover !important;}
 #nui {--myImage:url('../../resources/nui_demo.png') center / cover !important;}
-#fsi {--myImage:url('../../resources/fsi_demo.png') center / cover !important;}
+#legacy {--myImage:url('../../resources/fsi_demo.png') center / cover !important;}
 #xui {--myImage:radial-gradient(20.5em 14.5em at 30% 0%, #000 0%, #0000 100%), url('../../resources/xui_demo.png') center / cover !important;}
 #lui {--myImage:radial-gradient(20.5em 14.5em at 30% 0%, #000 0%, #0000 100%), url('../../resources/lui_demo.png') center / cover !important;}
 /*Adaptive UI for portrait screens*/
