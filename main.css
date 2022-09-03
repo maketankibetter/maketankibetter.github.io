@@ -55,7 +55,6 @@ a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
     background: red !important;
     color: white !important;
     cursor: default !important;
-    text-decoration: none !important;
     font-weight: 900 !important;
 }
 .inside {background: red !important;color: white !important;text-decoration-color: red !important;}
@@ -134,7 +133,7 @@ footer a{
     #nav_mobile:target ~ header .nav, #lang_mobile:target ~ header .lang {display: flex;}
     #nav_mobile:target ~ header .nav > a, #lang_mobile:target ~ header .lang > a{display: block;width: max-content;}
     #nav_mobile:target ~ header .nav > a.active, #lang_mobile:target ~ header .lang > a.active {border-radius: 0;text-decoration: none;}
-    #nav_mobile:target ~ header .nav > [href="#"], #lang_mobile:target ~ header .lang > [href="#"] {
+    :is(#nav_mobile, #lang_mobile):target ~ header :is(.nav, .lang) [href="#"] {
         display: inline-block;
         background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, #ff0000;
         border-radius: 50%;
