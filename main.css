@@ -3,12 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
 @font-face {font-family: "Uni Sans Special"; src:url("/resources/Uni Sans Special.ttf") format("truetype");}
 /*Base*/
-::-webkit-scrollbar {width: 16px;}
-::-webkit-scrollbar-track {background: #fff0;}
-::-webkit-scrollbar-thumb {background: red content-box;border-radius: 8px;border: 4px solid #fff0;}
+::-webkit-scrollbar {width: 14px;}
+::-webkit-scrollbar-track {background: #fff0;margin: 3px;}
+::-webkit-scrollbar-thumb {background: #53565a content-box;border-radius: 8px;border: 4px solid #fff0;}
 help {display: none;}
 body {
-    background: #161616;
+    background: #23282e;
     overflow-x: hidden;
     overflow-y: overlay;
     margin: 56px 0;
@@ -17,13 +17,13 @@ body {
     --font: 'Inter', 'Roboto', sans-serif;
 }
 .mtb {
-    background: red;
-    color: white;
+    background: #d54737;
+    color: #d4d8de;
     font: 500 20px var(--font);
     padding: 2px 5px;
 }
-.mtb.special{font: 19px 'Uni Sans Special';padding: 2px 5px;letter-spacing: unset;}
-.nocopy{-moz-user-select: none;user-select: none;text-decoration: none;}
+.mtb.special{font: 19px 'Uni Sans Special';background: #e02e2e;color: #f0f2f5;padding: 2px 5px;letter-spacing: unset;}
+.nocopy{user-select: none;text-decoration: none;}
 header {
     display: flex;
     position: fixed;
@@ -32,40 +32,45 @@ header {
     width: calc(100vw - 32px);
     padding: 15px 16px;
     justify-content: space-between;
-    background: linear-gradient(#161616 90%, transparent);
-    z-index: 1;
+    background: linear-gradient(#23282e 90%, transparent);
+    z-index: 2;
 }
 header > a{transition: background 0.2s ease-in-out 0s, box-shadow 0.2s ease-in-out 0s, color 0.2s ease-in-out;}
 .mini_logo {
     display: none;
+    font-size: 23px !important;
+    align-items: center;
     width: 16px;
-    background: red url(/resources/MakeTankiBetter_logo.svg) center center / 95% no-repeat;
 }
 .rightside {display: flex;justify-content: space-between;}
 .rightside > a{display:none;}
 .rightside > div:not(:last-child):after{
-    content: '\007C';
-    color: red;
-    padding: 0 5px;
+    content: '';
+    width: 2px;
+    height: 100%;
+    background: #53565a;
+    margin: 0 5px;
     font: 500 24px var(--font);
 }
-.nav, .lang {display: flex;flex-direction: row;align-items: center;}
+.nav, .lang {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
 a {transition: text-decoration-color 0.2s ease-in-out, color 0.2s ease-in-out;}
 .active {
-    background: red !important;
-    color: white !important;
+    background: #d54737 !important;
     cursor: default !important;
-    font-weight: 900 !important;
+    font-weight: 700 !important;
 }
-.inside {background: red !important;color: white !important;text-decoration-color: red !important;}
-.inside:is(:hover, :focus-visible) {text-decoration-color: white !important;}
-[href="#"] {display:none;}
+.inside {background: #d54737 !important;text-decoration-color: #d54737;}
+[href="#x"] {display:none;}
 header :is(.nav, .lang) a {
-    color: red;
+    color: #d4d8de;
     font: 500 20px var(--font);
     padding: 1px 4px;
     cursor: pointer;
-    background: #ff000040;
+    background: #53565a;
     text-decoration: underline #0000;
     background-clip: border-box;
 }
@@ -77,36 +82,36 @@ footer {
     padding: 14px 16px;
     width: calc(100vw - 32px);
     justify-content: space-between;
-    background: linear-gradient(#0000, #161616 10%);
+    background: linear-gradient(#0000, #23282e 10%);
 }
 .social{display:flex;gap: 0 8px;}
 footer a{
     width: 28px;
     height: 28px;
-    transition: background 0.2s ease-in-out;
+    border: 0px solid #d54737;
 }
-#vk{background: url(/resources/vk_red.svg) center / 100% no-repeat;cursor: pointer;}
-#youtube{background: url(/resources/youtube_red.svg) center / 100% no-repeat;cursor: pointer;}
-#discord{background: url(/resources/discord_red.svg) center / 100% no-repeat;cursor: pointer;}
-#github{background: url(/resources/github_red.svg) center / 100% no-repeat;cursor: pointer;}
+#vk{-webkit-mask: url(/resources/vk.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
+#youtube{-webkit-mask: url(/resources/youtube.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
+#discord{-webkit-mask: url(/resources/discord.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
+#github{-webkit-mask: url(/resources/github.svg) center / 100% no-repeat;background: #d54737;}
 /*Adaptive UI for portrait screens*/
 @media (orientation: portrait) {
+    body{font-size: 0.85em}
     .rightside{gap: 2px;}
     .rightside > div:after{display:none;}
     .nav_mobile{
         display: block !important;
         font-size: 40px;
         line-height: 26px;
-        margin-right: 4px;
         text-decoration: none;
-        color: red;
+        color: #d54737;
     }
     .lang_mobile {
         display: block !important;
         font-size: 42px;
         line-height: 26px;
         text-decoration: none;
-        color: red;
+        color: #d54737;
     }
     .nav, .lang{
         display: none;
@@ -115,9 +120,9 @@ footer a{
         bottom: 56px;
         left: 0;
         right: 0;
-        background: linear-gradient(0deg, #161616 65px, #000000bf 65px);
+        background: linear-gradient(0deg, #23282e 65px, #000000bf 65px);
         align-items: flex-end;
-        padding: 0 54px 18px 18px;
+        padding: 0 60px 18px 18px;
         width: auto;
         height: calc(100vh - 18px);
         z-index: 3;
@@ -125,40 +130,42 @@ footer a{
     }
     :is(.nav, .lang)::-webkit-scrollbar {width: 16px;}
     :is(.nav, .lang)::-webkit-scrollbar-track {background: #ffffff00;}
-    :is(.nav, .lang)::-webkit-scrollbar-thumb {
-        background: white content-box;
-        border-radius: 8px;
-        border: 4px solid #0000;
-    }
+    :is(.nav, .lang)::-webkit-scrollbar-track {margin: 12px;}
     #nav_mobile:target ~ header .nav, #lang_mobile:target ~ header .lang {display: flex;}
     #nav_mobile:target ~ header .nav > a, #lang_mobile:target ~ header .lang > a{display: block;width: max-content;}
     #nav_mobile:target ~ header .nav > a.active, #lang_mobile:target ~ header .lang > a.active {border-radius: 0;text-decoration: none;}
-    :is(#nav_mobile, #lang_mobile):target ~ header :is(.nav, .lang) [href="#"] {
+    :is(#nav_mobile, #lang_mobile):target ~ header :is(.nav, .lang) [href="#x"] {
         display: inline-block;
-        background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover, #ff0000;
+        background: linear-gradient(-45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover content-box, linear-gradient(45deg, transparent 47.5%, white 47.5%, white 52.5%, transparent 52.5%) center center / cover content-box, #d54737;
         border-radius: 50%;
-        border: 8px solid red;
         width: 40px;
         height: 40px;
-        padding: 0;
+        padding: 8px;
         cursor: pointer;
-        filter: drop-shadow(-3px 0 2px #161616);
+        filter: drop-shadow(-3px 0 2px #23282e) drop-shadow(20px 0 0px #23282e);
         box-sizing: border-box;
         position: fixed;
         right: 20px;
         margin: -6px;
     }
-    #nav_mobile:target ~ footer, #lang_mobile:target ~ footer{background: #161616;}
+    #nav_mobile:target ~ footer, #lang_mobile:target ~ footer{background: #23282e;}
 }
-@media (orientation: portrait) and (max-width: 318px) {.mini_logo {display: block;} .mini_logo + a{display:none;}}
+@media (orientation: portrait) and (max-width: 318px) {.mini_logo {display: flex;} .mini_logo + a{display:none;}}
+@media (orientation: portrait) and (max-width: 320px) {[lang="en"] footer > span {display: none;} .social{width: 100%;justify-content: space-evenly;}}
+@media (orientation: portrait) and (max-width: 340px) {[lang="ru"] footer > span {display: none;} .social{width: 100%;justify-content: space-evenly;}}
 /*For them who use only keyboard and for mouse hover's*/
-footer a#vk:focus-visible {background: red url(/resources/vk.svg) center center / 73% no-repeat !important;border-radius: 15%;outline: 0;}
-footer a#discord:focus-visible {background: red url(/resources/discord.svg) center center / 73% no-repeat !important;border-radius: 15%;outline: 0;}
-footer a#youtube:focus-visible {background: red url(/resources/youtube.svg) center center / 73% no-repeat !important;border-radius: 15%;outline: 0;}
-footer a#github:focus-visible {background: red url(/resources/github.svg) center center / 73% no-repeat !important;border-radius: 15%;outline: 0;}
-header a:is(:hover, :focus-visible) {outline: 0;text-decoration-color: red;}
-header > a:focus-visible {
-    box-shadow: inset 0 0 0 2px red;
-    background: #161616;
-    color: red;
+footer a:focus-visible{
+    -webkit-mask: unset !important;
+    border-radius: 15%;
+    outline: 0;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-width: 4px;
 }
+footer a#vk:focus-visible {background: #d54737 url(/resources/vk.svg) center / 100% no-repeat !important;}
+footer a#discord:focus-visible {background: #d54737 url(/resources/discord.svg) center / 100% no-repeat;}
+footer a#youtube:focus-visible {background: #d54737 url(/resources/youtube.svg) center / 100% no-repeat;}
+footer a#github:focus-visible {background: #d54737 url(/resources/github.svg) center / 100% no-repeat !important;}
+header a:not(.active):is(:hover, :focus-visible) {outline: 0;text-decoration-color: currentColor;}
+header > a:focus-visible {box-shadow: 0 3px 12px 0 #00000040;}
