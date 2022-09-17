@@ -5,57 +5,59 @@ body {
     gap: 10px 20px;
 }
 article {
-    padding: 16px 0;
+    padding: 16px 1.5em;
     display: flex;
     min-height: calc(100vh - 8em);
     width: 700px;
-    border: 1px solid red;
+    border: 1px solid #53565a;
     flex-direction: column;
     position: relative;
     box-sizing: border-box;
 }
 article h1 {
-    font: 70px/70px 'Uni Sans Special';
-    margin: 0 25px 0;
-    color: red;
+    font: 4.375em/1em 'Uni Sans Special';
+    margin: 0;
+    color: #d4d8de;
 }
 article h2 {
-    font: 500 22px var(--font);
-    margin: 0 25px;
-    color: red;
+    font: 500 1.375em var(--font);
+    margin: 0;
+    color: #d4d8de;
 }
 article h3 {
-    font: 500 16px var(--font);
-    color: red;
-    margin: 5px 25px;
+    text-align: justify;
+    background: inherit;
+    font: 500 1em var(--font);
+    color: #d4d8de;
+    margin: 5px 0;
 }
-h1::selection, h2::selection, h3::selection{background:red;color:white}
-a {color: red;}
-a:hover {color: white;}
+h1::selection, h2::selection, h3::selection{background:#e02e2ebf;color:#d4d8de}
+a {color: #7b828a;}
+:not(:is(.nav, .lang)) > a:not(.install):hover {color: white;}
 hr {
-    width: calc(100% - 50px);
-    background: red;
+    width: 100%;
+    background: #53565a;
     border: 0;
     height: 1px;
-    margin: 6px 25px;
+    margin: 6px 0;
 }
 article li {
-    margin: 0 25px;
-    font: 700 16px var(--font);
-    color: red;
+    margin: 0;
+    font: 700 1em var(--font);
+    color: #d4d8de;
     text-transform: lowercase;
 }
 aside li::marker{content: '';}
 article img {
-    width: 650px;
+    width: 100% !important;
     margin: 0 auto;
     user-select: none;
 }
 article p {
-    font: 300 13px var(--font);
+    font: 300 0.815em var(--font);
     width: calc(100% - 5em);
-    margin: 3px 25px -3px;
-    color: #f00;
+    margin: 3px auto -3px;
+    color: #7b828a;
     text-align: center;
 }
 aside section {
@@ -63,7 +65,7 @@ aside section {
     flex-direction: column;
     width: 100%;
     height: fit-content;
-    border: 1px solid red;
+    border: 1px solid #53565a;
     padding: 10px;
     box-sizing: border-box;
 }
@@ -77,48 +79,42 @@ aside {
     width: 280px;
 }
 aside h1 {
-    font: 600 22px var(--font);
+    font: 700 1.375em var(--font);
     margin: 0 0 6px;
-    color: red;
+    color: #d4d8de;
 }
 aside li {margin: 0 0 6px;}
 aside li:last-child {margin: 0;}
-aside li a {font: 500 16px var(--font);}
+aside li a {font: 500 1em var(--font);}
 .install {
-    padding: 1px 5px;
+    padding: 0.05em 0.25em;
     width: 100%;
     text-align: center;
     box-sizing: border-box;
-    font: 500 24px var(--font);
-    color: white;
-    background: red;
+    font: 500 1.5em var(--font);
+    color: #d4d8de;
+    background: #e02e2e;
     border-radius: 8px;
-    border: 3px solid red;
-    text-decoration: underline red;
+    border: 0.125em solid #e02e2e;
+    text-decoration: underline #e02e2e;
     transition: 0.2s ease-in-out text-decoration-color;
     cursor: pointer;
-    letter-spacing: -0.35px;
     user-select: none;
 }
-.install:hover {text-decoration-color: white;}
+.install:hover {text-decoration-color: currentColor;}
 /*Adaptive UI*/
 @media screen and (max-width: 1030px) {
     body{flex-direction: column;}
     article {
-        width: calc(100vw - 36px);
-        min-width: calc(100vw - 36px);
+        width: calc(100vw - 30px);
+        min-width: calc(100vw - 30px);
         margin: 0 auto;
     }
-    img {width: calc(100vw - 85px) !important;}
     aside{
         margin: auto;
         position: relative;
         top: 0;
-        width: calc(100vw - 36px) !important;
+        width: calc(100vw - 30px) !important;
         flex-direction: column-reverse !important;
     }
-}
-@media screen and (orientation: portrait) {
-    .install {display: none;}
-    img {width: 75vw;margin: 0.2em calc(12.5vw - 1em);}
 }
