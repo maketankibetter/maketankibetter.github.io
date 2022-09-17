@@ -16,58 +16,62 @@
 }
 .content1{display: flex;flex-direction: column;align-items: center;}
 .support{
-    width: fit-content;
-    font: 500 30px 'Roboto';
-    color: white;
-    background: red;
-    border-radius: 8px;
-    border: 3px solid red;
-    text-decoration: underline 3px red;
+    min-width: fit-content;
+    font: 500 1.8em var(--font);
+    color: #d4d8de;
+    background: #e02e2e;
+    border-radius: 0.275em;
+    border: 0.11em solid #e02e2e;
+    text-decoration: underline #e02e2e;
     transition: 0.2s ease-in-out text-decoration-color;
     cursor: pointer;
-    min-width: max-content;
+    padding: 0.04em 0.24em;
+    text-align: center;
 }
-.support:hover {text-decoration-color: white;}
 .questions {
-    width: fit-content;
-    font: 500 30px 'Roboto';
-    color: red;
-    background: none;
-    border-radius: 8px;
-    border: 3px solid red;
+    min-width: fit-content;
+    font: 500 1.8em var(--font);
+    color: #d54737;
+    background: #0009;
+    border-radius: 0.275em;
+    border: 0.11em solid #d54737;
     text-decoration: underline #0000;
-    transition: 0.2s ease-in-out text-decoration-color;
+    transition: 0.2s ease-in-out color, 0.2s ease-in-out text-decoration-color;
     cursor: pointer;
-    margin-left: 7px;
-    min-width: max-content;
+    padding: 0.04em 0.24em;
+    text-align: center;
 }
-.questions:hover {text-decoration-color: red;}
+.buttons {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 6px;
+    height: auto;
+    max-width: calc(100vw - 32px);
+}
+.buttons a:hover {color: #d4d8de;text-decoration-color: currentColor;}
 h1 {
-    font: 50px/50px 'Uni Sans Special';
+    font: 3.5em/1em 'Uni Sans Special';
     margin: 0;
     top: 10%;
-    color: red;
+    color: #d54737;
     text-align: center;
     max-width: 100vw;
 }
-h1::selection{background:red;color:white;}
+h1::selection{background:#e02e2ebf;color:white;}
 h2 {
-    margin: 10px 0 15px;
+    height: fit-content;
+    margin: 0.25em 0;
     text-align: center;
-    color: #fffbfb;
-    font: 300 14px 'Roboto';
-    line-height: 0;
+    color: #d4d8de;
+    font: 500 1em/1em var(--font);
 }
-/*Adaptive UI for portrait screens*/
-@media screen and (orientation: portrait) {
-    h1{font-size: 30px;line-height: 30px;}
-    h2{font-size: 11px;margin-bottom: 12px;}
-    .support, .questions{
-        font-size: 20px;
-        border-width: 2px;
-        border-radius: 6px;
-        padding: 1px 3px;
+/*Adaptive UI for small screens*/
+@media (max-width: 546px){
+    [lang="ru"] .buttons > a{
+        width: 100%;
     }
 }
 /*For them who use only keyboard and for mouse hover's*/
-.support:focus-visible, .questions:focus-visible {outline: none;box-shadow: 0 0 10px 0 #f00;}
+.support:focus-visible, .questions:focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
