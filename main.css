@@ -151,8 +151,8 @@ footer a{
     #nav_mobile:target ~ footer, #lang_mobile:target ~ footer{background: #23282e;}
 }
 @media (orientation: portrait) and (max-width: 318px) {.mini_logo {display: flex;} .mini_logo + a{display:none;}}
-@media (orientation: portrait) and (max-width: 320px) {[lang="en"] footer > span {display: none;} .social{width: 100%;justify-content: space-evenly;}}
-@media (orientation: portrait) and (max-width: 340px) {[lang="ru"] footer > span {display: none;} .social{width: 100%;justify-content: space-evenly;}}
+@media (orientation: portrait) and (max-width: 320px) {[lang="en"] footer > span {display: none;} [lang="en"] .social{width: 100%;justify-content: space-evenly;}}
+@media (orientation: portrait) and (max-width: 340px) {[lang="ru"] footer > span {display: none;} [lang="ru"] .social{width: 100%;justify-content: space-evenly;}}
 /*For them who use only keyboard and for mouse hover's*/
 footer a:focus-visible{
     -webkit-mask: unset !important;
