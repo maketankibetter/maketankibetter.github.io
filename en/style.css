@@ -5,8 +5,7 @@
     width: 100vw;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(#00000080, #00000080), url(https://alternativa.games/wp-content/themes/alternativa/img/preloadworkvideo.png) center / cover;
-    -webkit-mask: linear-gradient(#fff 95%, #fff0 100%) center / cover;
+    background: content-box;
 }
 .page2 {
     height: 100vh;
@@ -14,7 +13,7 @@
     align-items: center;
     justify-content: center;
 }
-.content1{display: flex;flex-direction: column;align-items: center;}
+.content{display: flex;flex-direction: column;align-items: center;}
 .support{
     min-width: fit-content;
     font: 500 1.8em var(--font);
@@ -46,14 +45,14 @@
     flex-flow: row wrap;
     justify-content: center;
     gap: 7px;
-    margin-top: 6px;
+    margin-top: 0.25em;
     height: auto;
     max-width: calc(100vw - 32px);
 }
 .buttons a:hover {color: #d4d8de;text-decoration-color: currentColor;}
 h1 {
     font: 3.5em/1em 'Uni Sans Special';
-    margin: 0;
+    margin: 0 16px;
     top: 10%;
     color: #d54737;
     text-align: center;
@@ -62,16 +61,34 @@ h1 {
 h1::selection{background:#e02e2ebf;color:white;}
 h2 {
     height: fit-content;
-    margin: 0.25em 0;
+    margin: 0.25em 16px;
     text-align: center;
     color: #d4d8de;
     font: 500 1em/1em var(--font);
 }
-/*Adaptive UI for small screens*/
-@media (max-width: 546px){
-    [lang="ru"] .buttons > a{
-        width: 100%;
-    }
+#ytplayer {
+    border: 0;
+    aspect-ratio: 16/9;
+    pointer-events: none;
+    -webkit-mask: var(--mask);
 }
+.background {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    filter: brightness(0.25);
+    align-items: center;
+    overflow: hidden;
+    --mask: linear-gradient(180deg, #fff0 50px, #fff 56px, #fff calc(100% - 56px), #fff0 calc(100% - 50px)) center / cover;
+    -webkit-mask: var(--mask);
+}
+/*Adaptive UI for small screens*/
+@media (min-aspect-ratio: 16/9) {#ytplayer {height: 56.25vw;}}
+@media (max-aspect-ratio: 16/9) {#ytplayer {width: calc(100vh * 16 / 9);}}
+@media (orientation: portrait) {.background{--mask: none;}}
+@media (orientation: portrait) and (max-width: 446px){[lang="en"] .buttons a{width: 100%;}}
+@media (orientation: portrait) and (max-width: 546px){[lang="ru"] .buttons a{width: 100%;}}
 /*For them who use only keyboard and for mouse hover's*/
 .support:focus-visible, .questions:focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
