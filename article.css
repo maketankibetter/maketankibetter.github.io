@@ -31,7 +31,7 @@ article h3 {
     color: #d4d8de;
     margin: 5px 0;
 }
-h1::selection, h2::selection, h3::selection{background:#e02e2ebf;color:#d4d8de}
+:is(b, p, h1, h2, h3)::selection{background:#e02e2ebf;color:#d4d8de}
 a {color: #7b828a;}
 :not(:is(.nav, .lang)) > a:not(.install):hover {color: white;}
 hr {
