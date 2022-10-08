@@ -134,15 +134,22 @@ modal li {
     font: 500 1em var(--font);
     color: #d4d8de;
 }
+
 modal > a[href="#x"] {
     display: block !important;
     text-align: center;
     margin: 0.2em auto 0;
+    padding: 0.05em 0.25em;
     font: 700 1em var(--font);
-    color: #e02e2e;
+    color: #d4d8de;
+    background: #e02e2e;
+    border: 0.125em solid #e02e2e;
+    border-radius: 5px;
     width: fit-content;
     text-transform: uppercase;
+    text-decoration-color: #0000;
 }
+modal > a[href="#x"]:hover {text-decoration-color: currentColor;}
 /*Adaptive UI*/
 @media screen and (max-width: 1030px) {
     body{flex-direction: column;}
