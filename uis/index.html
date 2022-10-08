@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Automatic linker for your language</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
+    <link rel="stylesheet" href="/main.css">
+    <meta name="theme-color" content="#e02e2e">
+  </head>
+  <body>
+    <help id="nav_mobile"></help>
+    <help id="lang_mobile"></help>
+    <header>
+      <span tabindex="1" class="mtb special nocopy"># MAKETANKIBETTER</span>
+      <div class="rightside">
+        <a class="lang_mobile" href="#lang_mobile" style="">⛿</a>
+        <div class="lang nocopy">
+          <a tabindex="2" href="../en/uis/">English</a>
+          <a tabindex="3" href="../ru/uis/">Русский</a>
+          <a href="#" style=""></a>
+        </div>
+      </div>
+		</header>
+		<script>
+            var language = navigator.language || navigator.browserLanguage; //for dead IE
+            if (language.indexOf('ru') > -1) {document.location.href = window.location.href='../ru/uis/';} else {document.location.href = window.location.href='../en/uis';}
+    </script>
+		<footer style="justify-content: flex-end;">
+      <div class="social">
+        <a tabindex="4" id="vk" href="https://vk.com/maketankibetter"></a>
+        <a tabindex="5" id="youtube" href="https://youtube.com/channel/UCLTFrkBahNvQdJcIZ7Q4bSQ"></a>
+        <a tabindex="6" id="discord" href="https://discord.gg/qnQg4tZswp"></a>
+      </div>
+    </footer>
+  </body>
+</html>
