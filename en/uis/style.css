@@ -134,7 +134,8 @@ h2 {
     position: relative;
     aspect-ratio: 16/9;
 }
-#styles a:is(:hover, :focus-visible) {border-color: #d54737;box-shadow: 0 3px 12px 0 #00000040;}
+#styles [ready]{border-color: #d54737;}
+#styles a:is(:hover, :focus-visible) {border-color: #e02e2e;box-shadow: 0 3px 12px 0 #00000040;}
 #eX h3:first-letter {font-variant: small-caps;}
 h3 {
     font-size: 1.75em;
