@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>:has(?)</title>
+    <style>
+      body{
+        height: calc(100vh - 112px);
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: center;
+      }
+      div{display: contents;}
+      span{
+        background: #e02e2e;
+        padding: 0 0.2em;
+        margin: 0.2em;
+        font: 900 5em/1.1 var(--font);
+        color: #fff !important;
+        text-transform: uppercase;
+      }
+      p {
+        margin: 0;
+        color: #fff;
+        font: 500 1em var(--font);
+      }
+      body:has(span) #fail{
+        display: none;
+        color: #e02e2e;
+      }
+      #success {display: none;color: #40fd40;}
+      body:has(span) #success {display: block;}
+    </style>
+	  <script>
+      const rublock = document.querySelector('[lang=ru]');
+      const enblock = document.querySelector('[lang=en]');
+      var language = navigator.language || navigator.browserLanguage;
+      if (language.indexOf('ru') > -1) {
+        rublock.style.display = 'contents';
+        enblock.style.color = 'none';
+      }
+    </script>
+    <link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
+    <link rel="stylesheet" href="/main.css">
+    <meta name="theme-color" content="#e02e2e">
+	  </head>
+	  <body>
+      <div lang="en" style="display: contents;">
+        <span id="fail">Fail</span>
+        <span id="success">Success</span><p id="fail">Your browser does not support :has() selector</p>
+        <p id="success">Your browser supports :has() selector!</p>
+      </div>
+      <div lang="ru">
+        <span id="fail">Провал</span>
+        <span id="success">Успех</span><p id="fail">Ваш браузер не поддерживает селектор :has()</p>
+        <p id="success">Ваш браузер поддерживает селектор :has()!</p>
+      </div>
+    </body>
+</html>
