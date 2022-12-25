@@ -32,15 +32,25 @@
       }
       #success {display: none;color: #40fd40;}
       body:has(span) #success {display: block;}
+      .show{display: contents;}
     </style>
     <script>
-      const browserlang = navigator.language || navigator.browserLanguage;
-      if (browserlang.indexOf('ru') > -1) {
-        document.getElementByClassName(".ru").style["display"] = 'contents';
+      // Code by ChatGPT and edited by sn0wgit (GitHub)
+      function applyStylesByLanguage() {
+        const userLanguage = navigator.language;
+        if (userLanguage === 'ru') {
+          const elements = document.getElementsByClassName('ru');
+          for (const element of elements) {
+            element.classList.add('show');
+          }
+        } else {
+          const elements = document.getElementsByClassName('en');
+          for (const element of elements) {
+            element.classList.add('show');
+          }
+        }
       }
-      else {
-        document.getElementByClassName(".en").style["display"] = 'contents';
-      }
+      window.addEventListener('load', applyStylesByLanguage);
     </script>
     <link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
     <link rel="stylesheet" href="/main.css">
