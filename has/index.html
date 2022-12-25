@@ -34,22 +34,14 @@
       body:has(span) #success {display: block;}
     </style>
     <script>
-            const rublock = document.querySelector('.ru');
-      const enblock = document.querySelector('.en');
-      var language = navigator.language || navigator.browserLanguage;
-      function css(element, style) {
-        for (const property in style)
-        element.style[property] = style[property];
-      }
-      if (language.indexOf('ru') > -1) {
+      const browserlang = navigator.language || navigator.browserLanguage;
+      if (browserlang.indexOf('ru') > -1) {
         const langblock = document.querySelector('.ru');
       }
       else {
         const langblock = document.querySelector('.en');
       }
-      css(langblock, {
-        'display': 'contents'
-      } );
+      langblock.style.cssText = 'display:contents';
     </script>
     <link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
     <link rel="stylesheet" href="/main.css">
