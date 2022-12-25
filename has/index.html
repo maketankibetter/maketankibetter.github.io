@@ -36,12 +36,11 @@
     <script>
       const browserlang = navigator.language || navigator.browserLanguage;
       if (browserlang.indexOf('ru') > -1) {
-        const langblock = document.querySelector('.ru');
+        document.getElementByClassName(".ru").style["display"] = 'contents';
       }
       else {
-        const langblock = document.querySelector('.en');
+        document.getElementByClassName(".en").style["display"] = 'contents';
       }
-      langblock.style.cssText = 'display:contents';
     </script>
     <link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
     <link rel="stylesheet" href="/main.css">
