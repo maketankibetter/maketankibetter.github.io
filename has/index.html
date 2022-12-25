@@ -33,9 +33,9 @@
       #success {display: none;color: #40fd40;}
       body:has(span) #success {display: block;}
     </style>
-	  <script>
-      const rublock = document.querySelector('[lang="ru"]');
-      const enblock = document.querySelector('[lang="en"]');
+    <script>
+      const rublock = document.querySelector('.ru');
+      const enblock = document.querySelector('.en');
       var language = navigator.language || navigator.browserLanguage;
       if (language.indexOf('ru') > -1) {
         rublock.style.display = 'contents';
@@ -47,16 +47,18 @@
     <link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
     <link rel="stylesheet" href="/main.css">
     <meta name="theme-color" content="#e02e2e">
-	  </head>
-	  <body>
-      <div lang="en">
+    	</head>
+    <body>
+      <div class="en">
         <span id="fail">Fail</span>
-        <span id="success">Success</span><p id="fail">Your browser does not support :has() selector</p>
+        <span id="success">Success</span>
+        <p id="fail">Your browser does not support :has() selector</p>
         <p id="success">Your browser supports :has() selector!</p>
       </div>
-      <div lang="ru">
+      <div class="ru">
         <span id="fail">Провал</span>
-        <span id="success">Успех</span><p id="fail">Ваш браузер не поддерживает селектор :has()</p>
+        <span id="success">Успех</span>
+        <p id="fail">Ваш браузер не поддерживает селектор :has()</p>
         <p id="success">Ваш браузер поддерживает селектор :has()!</p>
       </div>
     </body>
