@@ -12,7 +12,7 @@
         align-items: center;
         justify-content: center;
       }
-      div{display: contents;}
+      div{display: none;}
       span{
         background: #e02e2e;
         padding: 0 0.2em;
@@ -39,7 +39,9 @@
       var language = navigator.language || navigator.browserLanguage;
       if (language.indexOf('ru') > -1) {
         rublock.style.display = 'contents';
-        enblock.style.color = 'none';
+      }
+      else {
+        enblock.style.display = 'contents';
       }
     </script>
     <link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
@@ -47,7 +49,7 @@
     <meta name="theme-color" content="#e02e2e">
 	  </head>
 	  <body>
-      <div lang="en" style="display: contents;">
+      <div lang="en">
         <span id="fail">Fail</span>
         <span id="success">Success</span><p id="fail">Your browser does not support :has() selector</p>
         <p id="success">Your browser supports :has() selector!</p>
