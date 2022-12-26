@@ -64,7 +64,7 @@ flag {background-position: left center !important;}
 :is(.flagChooseLST > a, flag).rus{--flag: url('../../resources/rus.png');}
 a.MTB {
     font-family: "Uni Sans Special";
-    background-color: red;
+    background: #e02e2e;
     text-decoration: none;
     width: min-content;
 }
