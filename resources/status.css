@@ -144,21 +144,21 @@ header{
 }
 span {display: flex;justify-content: center;font: 500 1.5em Rubik;text-align: center;}
 span:first-child{margin: auto 0 0;}
-span[id]:before{content:'Статус работы '}
+span[id]:before{content:'Статус работы\00A0'}
 [lang="en"] span[id]:before{content:'\00A0work status:\00A0';order:2;}
 [lang="en"] span[id]:after{order:3;}
 .online:after{
-    content: 'Работают';
+    content: '\00A0Работают';
     color: #76ff33;
     filter: drop-shadow(0 0 0.1em #76ff3340);
 }
 .danger:after{
-    content: 'Могут быть проблемы';
+    content: '\00A0Могут быть проблемы';
     color: #FFCC00;
     filter: drop-shadow(0 0 0.1em #FFCC0040);
 }
 .offline:after{
-    content: 'Не работают';
+    content: '\00A0Не работают';
     color: #cf2e2e;
     filter: drop-shadow(0 0 0.1em #cf2e2e40);
 }
