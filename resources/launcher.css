@@ -170,7 +170,6 @@ header{
     height: 6em;
     cursor: pointer;
     background: url('/resources/icoTankiOnline.svg') center / 8em;
-    border-right: 1px solid #ffffff40;
 }
 .status {
     display: flex;
@@ -180,9 +179,11 @@ header{
     width: 6em;
     height: 6em;
     cursor: pointer;
+    border-left: 1px solid #ffffff40;
     border-right: 1px solid #ffffff40;
+    opacity: 0.25;
+    pointer-events: none;
 }
-
 .status:before {
     content: 'STA';
     cursor: pointer;
