@@ -170,8 +170,6 @@ h1::selection{background:#e02e2ebf;color:white;}
 @media (orientation: portrait) and (max-width: 446px){[lang="en"] .buttons a{width: 100%;}}
 @media (orientation: portrait) and (max-width: 546px){[lang="ru"] .buttons a{width: 100%;}}
 @media (min-width: 1240px) and (orientation: landscape) {#medias > div{justify-content: space-between;}}
-@media (max-width: 900px) {#vk{
-    flex-flow: row wrap-reverse !important;
-}}
+@media (max-width: 900px) {#medias > :nth-child(even){flex-flow: row wrap-reverse;}}
 /*For them who use only keyboard and for mouse hover's*/
 .support:focus-visible, .questions:focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
