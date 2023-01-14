@@ -113,15 +113,15 @@ h1::selection{background:#e02e2ebf;color:white;}
     display: flex;
     gap: 16px;
     overflow: auto hidden;
-    height: 240px;
+    height: 15.25em;
     width: calc(100vw - 32px);
     max-width: 100%;
     margin: 16px 16px 0;
 }
 .project {
     display: block;
-    width: 390px;
-    height: 222px;
+    width: 24.375em;
+    height: 13.875em;
     background: #23282e;
     border: 3px solid #e02e2e;
     box-sizing: border-box;
@@ -149,7 +149,6 @@ h1::selection{background:#e02e2ebf;color:white;}
 @media (orientation: portrait) {.background{--mask: none;}}
 @media (orientation: portrait) and (max-width: 446px){[lang="en"] .buttons a{width: 100%;}}
 @media (orientation: portrait) and (max-width: 546px){[lang="ru"] .buttons a{width: 100%;}}
-@media (min-width: 1240px) and (orientation: landscape) {#medias > div{justify-content: space-between;}}
 @media (max-width: 900px) {#medias > :nth-child(even){flex-flow: row wrap-reverse;}}
 /*For them who use only keyboard and for mouse hover's*/
 :is(.support, .questions, .project):focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
