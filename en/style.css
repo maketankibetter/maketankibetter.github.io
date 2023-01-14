@@ -1,4 +1,4 @@
-.page1 {
+#promo {
     margin-top: -56px;
     display: flex;
     height: 100vh;
@@ -7,11 +7,12 @@
     justify-content: center;
     background: content-box;
 }
-.page2 {
-    height: 100vh;
+#medias {
     display: flex;
+    flex-direction: column;
+    gap: 12px 30px;
     align-items: center;
-    justify-content: center;
+    margin: 16px;
 }
 .content{display: flex;flex-direction: column;align-items: center;}
 .support{
@@ -59,7 +60,7 @@ h1 {
     max-width: 100vw;
 }
 h1::selection{background:#e02e2ebf;color:white;}
-h2 {
+#promo h2 {
     height: fit-content;
     margin: 0.25em 16px;
     text-align: center;
@@ -67,6 +68,7 @@ h2 {
     font: 500 1em/1em var(--font);
 }
 #ytplayer {
+    height: 100vh;
     border: 0;
     aspect-ratio: 16/9;
     pointer-events: none;
@@ -83,12 +85,93 @@ h2 {
     overflow: hidden;
     --mask: linear-gradient(180deg, #fff0 50px, #fff 56px, #fff calc(100% - 56px), #fff0 calc(100% - 50px)) center / cover;
     -webkit-mask: var(--mask);
+    justify-content: center;
+}
+#medias > div {
+    display: flex;
+    flex-flow: row wrap;
+    max-width: 100%;
+    width: 900px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+#medias h2 {
+    color: #d54737;
+    font: 700 1.75em/1.15em var(--font);
+    margin: 0 0 4px 0;
+}
+
+#medias a {
+    color: inherit;
+}
+
+#medias a:hover {
+    color: #d4d8de;
+}
+
+#medias span {
+    font: 500 1em/1em var(--font);
+    color: #d4d8de;
+    width: fit-content;
+}
+
+.medias-text {
+    width: 460px;
+    max-width: 100%;
+}
+
+#projects {
+    display: flex;
+    gap: 16px;
+    overflow: auto hidden;
+    height: 240px;
+    width: calc(100vw - 32px);
+    max-width: 100%;
+    margin: 16px 16px 0;
+}
+
+.project {
+    display: block;
+    width: 390px;
+    height: 222px;
+    background: #23282e;
+    border: 3px solid #e02e2e;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    position: relative;
+    aspect-ratio: 16/9;
+    cursor: pointer;
+}
+
+.project img {
+    width: 60px;
+    height: 60px;
+    float: right;
+    clear: both;
+}
+
+.project span {
+    color: #d54737;
+    font: 700 1.5em var(--font);
+}
+
+.project p {
+    color: #d4d8de;
+    font: 500 1em var(--font);
+    margin: 0.5em 0 0;
 }
 /*Adaptive UI for small screens*/
-@media (min-aspect-ratio: 16/9) {#ytplayer {height: 56.25vw;}}
-@media (max-aspect-ratio: 16/9) {#ytplayer {width: calc(100vh * 16 / 9);}}
 @media (orientation: portrait) {.background{--mask: none;}}
 @media (orientation: portrait) and (max-width: 446px){[lang="en"] .buttons a{width: 100%;}}
 @media (orientation: portrait) and (max-width: 546px){[lang="ru"] .buttons a{width: 100%;}}
+@media (min-width: 1240px) and (orientation: landscape) {#medias > div{justify-content: space-between;}}
+@media (max-width: 900px) {#vk{
+    flex-flow: row wrap-reverse !important;
+}}
 /*For them who use only keyboard and for mouse hover's*/
 .support:focus-visible, .questions:focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
