@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
+    <head>
 		<meta http-equiv="Content-Type" content="charset=UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<title>Home page</title>
@@ -11,7 +11,6 @@
 		<meta name="theme-color" content="#e02e2e">
 	</head>
 	<body>
-	    <help id="x"></help>
 	    <help id="nav_mobile"></help>
 	    <help id="lang_mobile"></help>
 		<header>
@@ -33,7 +32,7 @@
 				</div>
 			</div>
 		</header>
-		<div class="page1 promo">
+		<div class="page1" id="promo">
 			<div class="content">
 				<h1>We build future</h1>
 				<h2>Tanki Online is home for us and we want to make it better</h2>
@@ -46,10 +45,39 @@
 				<iframe id="ytplayer" type="text/html" src="https://www.youtube-nocookie.com/embed/mkno-8SBbPQ?playlist=mkno-8SBbPQ&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;showinfo=0&amp;disablekb=1" allow="autoplay; encrypted"></iframe>
 			</div>
 		</div>
-		<div class="page2" id="medias">
-			<iframe src="https://discord.com/widget?id=871359243029196850&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+		<div class="page2" id="projects">
+			<a class="project" href="uis" tabindex="10">
+				<img src="https://cdn.discordapp.com/icons/932026837901660180/d77ef1f9dd0dc969b920c26a21facb9f.webp">
+				<span>UIs (interfaces)</span>
+				<p>You do not like how looks Tanki Online? You want to try something new? UIs is that what you need! Install browser extension and play with your favourite game appearence!</p>
+			</a>
+			<a class="project" href="launcher" tabindex="11">
+				<img src="../resources/launcher.svg">
+				<span>Launcher</span>
+				<p>You will love this launcher and add it to your bookmarks! Here you can choose any game server to open - the main server or one of nine test servers!</p>
+			</a>
+			<a class="project" href="status" tabindex="12">
+				<img>
+				<span>Status</span>
+				<p>Sub-project for "Laucnher" - here you can get information about game mechanics work status. We created it earlier than Tanki Online</p>
+			</a>
 		</div>
-		<div class="page3"></div>
+        <div class="page3" id="medias">
+			<div id="discord">
+				<iframe src="https://discord.com/widget?id=871359243029196850&amp;theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+				<div class="medias-text">
+					<h2>We have own <a tabindex="13" href="https://discord.com/invite/Uq7gfDzq?utm_source=Discord%20Widget&amp;utm_medium=Connect">Discord server</a>!</h2>
+					<span>Discuss game updates, suggest your ideas and support another or simply chat with players, creators and community stuff</span>
+            	</div>
+            </div>
+		<div id="vk">
+				<div class="medias-text">
+					<h2>Also we have <a tabindex="14" href="https://vk.com/maketankibetter">VK group</a> for our community from Russia!</h2>
+					<span>Here we publish the project news, as we do it in Discord and share the news of our partners. There, the content is aimed at the Russian audience according to local laws.</span>
+            	</div>
+            	<iframe src="https://vk.com/widget_community.php?app=0&amp;_ver=1&amp;gid=209934919&amp;class_name&amp;color1=161616&amp;color2=FFFFFF&amp;color3=FFFFFF&amp;height=215&amp;width=390" style="border: 0;width: 390px;overflow: hidden;height: 215px;" scrolling="no"></iframe>
+            </div>
+        </div>
 		<footer>
 			<span class="mtb nocopy">Our social medias</span>
 			<div class="social">
