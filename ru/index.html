@@ -9,6 +9,29 @@
         <link rel="stylesheet" href="/main.css">
         <link rel="stylesheet" href="style.css">
         <meta name="theme-color" content="#e02e2e">
+	<style>
+            body::after {
+            content: "HTML BUILD - DOES NOT WORK YET";
+            position: fixed;
+            width: max-content;
+            height: fit-content;
+            inset: auto 50% 0 50%;
+            transform: translateX(-50%);
+            font-size: 1em;
+            justify-content: center;
+            padding: 0.1em 0.25em;
+            box-sizing: border-box;
+            align-items: flex-end;
+            background: #f00;
+            animation: 2s ease 0s infinite normal none running build;
+        }
+        @keyframes build{
+            0%{opacity: 1;}
+            50%{opacity: 1;}
+            51%{opacity: 0;}
+            100%{opacity: 0;}
+        }
+        </style>
     </head>
     <body>
         <help id="nav_mobile"></help>
