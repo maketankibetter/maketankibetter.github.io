@@ -96,32 +96,19 @@ h1::selection{background:#e02e2ebf;color:white;}
     align-items: center;
     gap: 16px;
 }
-
 #medias h2 {
     color: #d54737;
     font: 700 1.75em/1.15em var(--font);
     margin: 0 0 4px 0;
 }
-
-#medias a {
-    color: inherit;
-}
-
-#medias a:hover {
-    color: #d4d8de;
-}
-
+#medias a {color: inherit;}
+#medias a:is(:hover, :focus-visible) {color: #d4d8de;outline: none;}
 #medias span {
     font: 500 1em/1em var(--font);
     color: #d4d8de;
     width: fit-content;
 }
-
-.medias-text {
-    width: 460px;
-    max-width: 100%;
-}
-
+.medias-text {width: 460px;max-width: 100%;}
 #projects {
     display: flex;
     gap: 16px;
@@ -131,7 +118,6 @@ h1::selection{background:#e02e2ebf;color:white;}
     max-width: 100%;
     margin: 16px 16px 0;
 }
-
 .project {
     display: block;
     width: 390px;
@@ -147,19 +133,13 @@ h1::selection{background:#e02e2ebf;color:white;}
     aspect-ratio: 16/9;
     cursor: pointer;
 }
-
 .project img {
     width: 60px;
     height: 60px;
     float: right;
     clear: both;
 }
-
-.project span {
-    color: #d54737;
-    font: 700 1.5em var(--font);
-}
-
+.project span {color: #d54737;font: 700 1.5em var(--font);}
 .project p {
     color: #d4d8de;
     font: 500 1em var(--font);
@@ -172,4 +152,4 @@ h1::selection{background:#e02e2ebf;color:white;}
 @media (min-width: 1240px) and (orientation: landscape) {#medias > div{justify-content: space-between;}}
 @media (max-width: 900px) {#medias > :nth-child(even){flex-flow: row wrap-reverse;}}
 /*For them who use only keyboard and for mouse hover's*/
-.support:focus-visible, .questions:focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
+:is(.support, .questions, .project):focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
