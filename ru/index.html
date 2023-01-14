@@ -11,7 +11,6 @@
         <meta name="theme-color" content="#e02e2e">
     </head>
     <body>
-        <help id="x"></help>
         <help id="nav_mobile"></help>
         <help id="lang_mobile"></help>
         <header>
@@ -33,22 +32,59 @@
                 </div>
             </div>
         </header>
-        <div class="page1 promo">
-            <div class="content1">
-            <h1>Мы строим будущее</h1>
-            <h2>Танки Онлайн для нас дом и мы хотим сделать его ещё лучше</h2>
-            <div class="buttons">
-                <a tabindex="5" class="mtb nocopy support" href="#medias">Стать частью сообщества</a>
-                <a tabindex="6" class="mtb nocopy questions" href="#questions" style="opacity: 0.5;pointer-events: none;">Больше о нас</a>
-                </div>
+        <div id="promo">
+			<div class="content">
+				<h1>Мы строим будущее</h1>
+				<h2>Танки Онлайн для нас дом и мы хотим сделать его ещё лучше</h2>
+				<div class="buttons">
+					<a tabindex="5" class="mtb nocopy support" href="#medias">Стать частью сообщества</a>
+					<a tabindex="6" class="mtb nocopy questions" href="#questions" style="opacity: 0.5;pointer-events: none;">Больше о нас</a>
+				</div>
+			</div>
+			<div class="background">
+				<iframe id="ytplayer" type="text/html" src="https://www.youtube-nocookie.com/embed/mkno-8SBbPQ?playlist=mkno-8SBbPQ&amp;autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;showinfo=0&amp;disablekb=1" allow="autoplay; encrypted"></iframe>
+			</div>
+		</div>
+        <div id="projects">
+			<a class="project" href="uis" tabindex="11">
+				<img src="https://cdn.discordapp.com/icons/932026837901660180/d77ef1f9dd0dc969b920c26a21facb9f.webp">
+				<span>UIs (интерфейсы)</span>
+				<p>Вам не нравится как выглядят Танки Онлайн? Вы хотите попробовать что-нибудь новое? UIs это то, что вам нужно! Установите браузерное расширение и играйте со своим любимым игровым оформлением!</p>
+			</a>
+			<a class="project" href="launcher" tabindex="12">
+				<img src="/resources/launcher.svg">
+				<span>Лаунчер</span>
+				<p>Вы полюбите этот лаунчер и добавите его себе в заметки! Здесь вы можете выбрать и открыть любой игровой сервер - основной или один из девяти тестовых!</p>
+			</a>
+			<a class="project" href="status" tabindex="13">
+				<img src="/resources/status.png">
+				<span>Статус</span>
+				<p>Подпроект для "Лаунчер" - здесь вы можете получить информацию о статусе работ игровых механик. Мы создали этот инструмент раньше чем Танки Онлайн</p>
+			</a>
+			<a class="project" href="https://discord.gg/KvaQTETPjy" tabindex="14">
+				<img src="/resources/CVN.png">
+				<span>CVN - Уведомления о видео</span>
+				<p>Иногда YouTube не уведомляет подписчиков о новых видео их ютуберов. У нас есть решение - мы настроили бота чтобы оповещать о стримах и видео самых популярных креаторов в Дискорде и добавили возможность подписки на уведомления!</p>
+			</a>
+		</div>
+        <div class="page3" id="medias">
+			<div id="discord">
+				<iframe src="https://discord.com/widget?id=871359243029196850&amp;theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+				<div class="medias-text">
+					<h2>У нас есть свой <a tabindex="13" href="https://discord.com/invite/Uq7gfDzq?utm_source=Discord%20Widget&amp;utm_medium=Connect">Дискорд сервер</a>!</h2>
+					<span>Обсуждайте обновления игры, предлагайте свои идеи и поддерживаете другие или просто общайтесь с игроками, креаторами и персоналом сообщества</span>
+            	</div>
+            </div>
+		<div id="vk">
+				<div class="medias-text">
+					<h2>А так же у нас есть специализированная <a tabindex="14" href="https://vk.com/maketankibetter">группа ВК</a>!</h2>
+					<span>Тут мы публикуем новости, как и в Дискорде, и делимся новостями наших партнёров. Здесь контент нацелен на русскоговорящую аудиторию и соблюдает законы РФ.</span>
+            	</div>
+            	<iframe src="https://vk.com/widget_community.php?app=0&amp;_ver=1&amp;gid=209934919&amp;class_name&amp;color1=161616&amp;color2=FFFFFF&amp;color3=FFFFFF&amp;height=215&amp;width=390" style="border: 0;width: 390px;overflow: hidden;height: 215px;" scrolling="no"></iframe>
             </div>
         </div>
-        <div class="page2" id="medias">
-            <iframe src="https://vk.com/widget_community.php?app=0&amp;_ver=1&amp;gid=209934919&amp;class_name&amp;color1=161616&amp;color2=FFFFFF&amp;color3=FFFFFF&amp;height=215&amp;width=390" style="border: 0;width: 390px;overflow: hidden;height: 215px;" scrolling="no"></iframe>
-        </div>
-        <div class="page3"></div>
         <footer>
-        <span class="mtb nocopy">Наши соц. сети</span>
+            <span class="mtb nocopy">Наши соц. сети</span>
             <div class="social">
                 <a tabindex="7" id="vk" href="https://vk.com/maketankibetter"></a>
                 <a tabindex="8" id="youtube" href="https://youtube.com/channel/UCLTFrkBahNvQdJcIZ7Q4bSQ"></a>
