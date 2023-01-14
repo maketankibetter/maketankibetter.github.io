@@ -90,10 +90,10 @@ footer a{
     height: 28px;
     border: 0px solid #d54737;
 }
-#vk{-webkit-mask: url(/resources/vk.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
-#youtube{-webkit-mask: url(/resources/youtube.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
-#discord{-webkit-mask: url(/resources/discord.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
-#github{-webkit-mask: url(/resources/github.svg) center / 100% no-repeat;background: #d54737;}
+footer #vk{-webkit-mask: url(/resources/vk.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
+footer #youtube{-webkit-mask: url(/resources/youtube.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
+footer #discord{-webkit-mask: url(/resources/discord.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
+footer #github{-webkit-mask: url(/resources/github.svg) center / 100% no-repeat;background: #d54737;}
 /*Adaptive UI for portrait screens*/
 @media (orientation: portrait) {
     body{font-size: 0.85em}
