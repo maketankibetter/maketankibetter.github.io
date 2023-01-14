@@ -150,5 +150,6 @@ h1::selection{background:#e02e2ebf;color:white;}
 @media (orientation: portrait) and (max-width: 446px){[lang="en"] .buttons a{width: 100%;}}
 @media (orientation: portrait) and (max-width: 546px){[lang="ru"] .buttons a{width: 100%;}}
 @media (max-width: 900px) {#medias > :nth-child(even){flex-flow: row wrap-reverse;}}
+@media (max-width: 412px) and (orientation: portrait){a.project {min-width: calc(100vw - 80px);height: auto;}}
 /*For them who use only keyboard and for mouse hover's*/
 :is(.support, .questions, .project):focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
