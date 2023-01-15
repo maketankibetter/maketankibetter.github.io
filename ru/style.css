@@ -152,4 +152,13 @@ h1::selection{background:#e02e2ebf;color:white;}
 @media (orientation: portrait) and (max-width: 546px){[lang="ru"] .buttons a{width: 100%;}}
 @media (max-width: 412px) and (orientation: portrait){a.project {min-width: calc(100vw - 80px);height: auto;}}
 /*For them who use only keyboard and for mouse hover's*/
-:is(.support, .questions, .project):focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
+:is(.support, .questions):focus-visible {outline: none;box-shadow: 0 0 10px 0 #e02e2e;}
+.project:focus-visible {
+    outline: none;
+    box-shadow: 0 0 10px 0 #e02e2e;
+    background: #36292e;
+}
+/*Scrollbar settings*/
+#projects::-webkit-scrollbar-track {margin: 16px;}
+#projects::-webkit-scrollbar-thumb {border: 0;}
+#projects::-webkit-scrollbar {height: 7px;}
