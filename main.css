@@ -90,10 +90,11 @@ footer a{
     height: 28px;
     border: 0px solid #d54737;
 }
-footer #vk{-webkit-mask: url(/resources/vk.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
-footer #youtube{-webkit-mask: url(/resources/youtube.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
-footer #discord{-webkit-mask: url(/resources/discord.svg) center / 100% no-repeat;background: #d54737;cursor: pointer;}
-footer #github{-webkit-mask: url(/resources/github.svg) center / 100% no-repeat;background: #d54737;}
+footer #vk{--image: url(/resources/vk.svg) center / 100% no-repeat;}
+footer #youtube{--image:url(/resources/youtube.svg) center / 100% no-repeat}
+footer #discord{--image: url(/resources/discord.svg) center / 100% no-repeat;}
+footer #github{--image: url(/resources/github.svg) center / 100% no-repeat;}
+footer a{-webkit-mask: var(--image);background: #d54737;}
 /*Adaptive UI for portrait screens*/
 @media (orientation: portrait) {
     body{font-size: 0.85em}
@@ -163,9 +164,14 @@ footer a:focus-visible{
     height: 20px;
     border-width: 4px;
 }
-footer a#vk:focus-visible {background: #d54737 url(/resources/vk.svg) center / 100% no-repeat !important;}
-footer a#discord:focus-visible {background: #d54737 url(/resources/discord.svg) center / 100% no-repeat;}
-footer a#youtube:focus-visible {background: #d54737 url(/resources/youtube.svg) center / 100% no-repeat;}
-footer a#github:focus-visible {background: #d54737 url(/resources/github.svg) center / 100% no-repeat !important;}
-header a:not(.active):is(:hover, :focus-visible) {outline: 0;text-decoration-color: currentColor;}
-header > a:focus-visible {box-shadow: 0 3px 12px 0 #00000040;}
+footer a:focus-visible {background: #d54737 var(--image) !important;}
+header a:not(.active):is(:hover, :focus-visible) {outline: 0;text-decoration-color: currentColor;position: relative;}
+header > a:focus-visible {box-shadow: 0 0 12px 0 #e02e2e;}
+.rightside a:not([href="#x"]):focus-visible::before {
+    content:"";
+    position: absolute;
+    inset: 0;
+    transform: scaleY(2);
+    background: linear-gradient(#0000, #e02e2e80 calc(100% / 3), #e02e2e80 calc(100% / 3 * 2), #0000);
+    z-index: -1;
+}
