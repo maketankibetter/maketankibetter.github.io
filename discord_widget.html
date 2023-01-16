@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap');
+* {box-sizing: border-box;}
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: #23282e;
+  font-family: 'Inter', 'Roboto', sans-serif;
+}
+.wrap {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  color: #fff;
+}
+.name--header {
+  height: 3rem;
+  width: 100%;
+  background: #5865f2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  justify-content: space-between;
+}
+.name--header .name {
+  font-weight: 900;
+  font-size: 150%;
+}
+.discord--link {
+  height: auto;
+  width: 4rem;
+  transform: scale(1.5);
+  transform-origin: right center;
+}
+.users {
+  display: block;
+  flex-direction: column;
+}
+.users--header {
+  font-size: 100%;
+  font-weight: 500;
+  background: #53565a;
+  color: #fff;
+  padding: 0.25rem 1rem;
+}
+.users--body {
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-flow: column;
+}
+.user {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  font-size: 85%;
+  padding: 0.3rem;
+  position: relative;
+  width: 100%;
+}
+.user--image {
+  width: 100%;
+  border-radius: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.user .username {
+  margin: 0 0.5rem;
+  position: relative;
+}
+.user .bot--tag {
+  order: 4;
+  font-size: 50%;
+  background: #7289da;
+  padding: 0.2rem;
+  border-radius: 0.1rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+.user--status {
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.status--online {background: #43b581;}
+.status--idle {background: #faa61a;}
+.status--dnd {background: #f04747;}
+.image--wrap {
+  background: #5865f2;
+  position: relative;
+  border-radius: 100%;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.user--game {
+  order: 5;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  position: relative;
+  font-size: 75%;
+  color: rgba(255, 255, 255, 0.5);
+}
+</style>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+var wrap = document.querySelector('.wrap');
+var nameHeader = document.querySelector('.name--header');
+var channelBody = document.querySelector('.channels--body');
+var userBody = document.querySelector('.users--body');
+function discordAPI(){
+  var init = {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'reload'
+  }
+  fetch('https://discordapp.com/api/guilds/871359243029196850/widget.json', init).then(function(response){
+    if(response.status != 200){
+      console.log("it didn't work" + response.status);
+      return
+    }
+    response.json().then(function(data){
+      //var channels = data.channels;
+      var users = data.members;
+      var serverName = data.name;
+      let liWrap = document.createElement('ul');
+      liWrap.classList.add('channels--list--wrap');
+      nameHeader.children[0].innerHTML = serverName;
+      function channelsFill(){
+        for(let i = 0; i<data.channels.length; i++){
+          let li = document.createElement('li');
+          li.classList.add('channel--name');
+          li.innerText = data.channels[i].name;
+          liWrap.appendChild(li);
+          channelBody.appendChild(liWrap) ;
+        }
+      }
+      function usersFill(){
+        for(let n = 0; n < data.members.length; n++){
+          let userWrap = document.createElement('div');
+          let userName = document.createElement('span');
+          let userImage = document.createElement('img');
+          let userGame = document.createElement('span');
+          let userStatus = document.createElement('div');
+          let imageWrap = document.createElement('div');
+          let botTag = document.createElement('div');
+          userWrap.classList.add('user');
+          userName.classList.add('username');
+          userStatus.classList.add('user--status');
+          imageWrap.classList.add('image--wrap');
+          userGame.classList.add('user--game');
+          botTag.classList.add('bot--tag');
+          botTag.innerText = 'BOT';
+          if(users[n].nick === undefined){
+            userName.innerText = users[n].username;
+          }else{
+            userName.innerText = users[n].nick;
+          }
+          if(users[n].status === 'online'){
+            userStatus.classList.add('status--online')
+          }
+          if(users[n].status === 'idle'){
+            userStatus.classList.add('status--idle');
+          }
+          if(users[n].status ==='dnd'){
+            userStatus.classList.add('status--dnd');
+          }
+          if(users[n].bot === true){
+            userWrap.appendChild(botTag);
+          }
+          if(users[n].game !== undefined){
+            userGame.innerText = users[n].game.name;
+          }
+          userWrap.appendChild(userGame);
+          userImage.classList.add('user--image');
+          userImage.setAttribute('src', data.members[n].avatar_url);
+          imageWrap.appendChild(userStatus);
+          imageWrap.appendChild(userImage)
+          userWrap.appendChild(imageWrap);
+          userWrap.appendChild(userName);
+          userBody.appendChild(userWrap);
+        }
+      }      
+      channelsFill();
+      usersFill();
+    })
+  })
+    .catch(function(err){
+    console.log('fetch error: ' + err)
+  })
+}
+discordAPI()
+</script>
+</head>
+<body>
+<div class="wrap">
+  <div class="name--header">
+    <div class="name"></div>
+      <a href="https://discordapp.com/" class="discord--link" target='_blank'><img src="https://assets-global.website-files.com/6257adef93867e50d84d30e2/636e0b5493894cf60b300587_full_logo_white_RGB.svg" alt="Discord"/></a>
+  </div>
+  <div class="users">
+    <div class="users--header">Online Users</div>
+    <div class="users--body"></div>
+  </div>
+</div>
+  </body>
+</html>
