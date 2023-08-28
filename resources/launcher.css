@@ -1,4 +1,4 @@
-@font-face {font-family: "Uni Sans Special"; src:url("/resources/Uni Sans Special.ttf") format("truetype");}
+@font-face {font-family: "Uni Sans Special"; src:url("/website/resources/Uni Sans Special.ttf") format("truetype");}
 #modal {
     width:100%;
     height:0;
@@ -95,8 +95,8 @@ content {
     cursor: pointer;
 }
 flag {background-position: left center !important;}
-:is(.flagChooseLST > a, flag).usa{--flag: url('/resources/usa.png');}
-:is(.flagChooseLST > a, flag).rus{--flag: url('/resources/rus.png');}
+:is(.flagChooseLST > a, flag).usa{--flag: url('/website/resources/usa.png');}
+:is(.flagChooseLST > a, flag).rus{--flag: url('/website/resources/rus.png');}
 a.MTB {
     font-family: "Uni Sans Special";
     background: #e02e2e;
@@ -172,7 +172,7 @@ header{
     width: 6em;
     height: 6em;
     cursor: pointer;
-    background: url('/resources/icoTankiOnline.svg') center / 8em;
+    background: url('/website/resources/icoTankiOnline.svg') center / 8em;
 }
 .status {
     display: flex;
@@ -228,7 +228,7 @@ header{
 }
 .servers{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(5, auto);
     grid-template-rows: auto auto;
     gap: 1em;
     margin: 1em;
@@ -327,10 +327,10 @@ footer .social a{
     filter: invert(9%) sepia(29%) saturate(2268%) hue-rotate(183deg) brightness(106%) contrast(101%);
 }
 footer .social a:hover{filter: none;}
-#vk {--sm:url('/resources/vk.svg');}
-#youtube {--sm:url('/resources/youtube.svg');}
-#discord {--sm:url('/resources/discord.svg');}
-#github {--sm:url('/resources/github.svg');}
+#vk {--sm:url('/website/resources/vk.svg');}
+#youtube {--sm:url('/website/resources/youtube.svg');}
+#discord {--sm:url('/website/resources/discord.svg');}
+#github {--sm:url('/website/resources/github.svg');}
 @media screen and (orientation: portrait) {
     h1{
         margin-top: 2.25em;
