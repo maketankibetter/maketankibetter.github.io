@@ -9,7 +9,11 @@
 #flag:target ~ content > #modal > .flagChooseLST {display: flex;}
 #flag:target ~ content > header > #flagChooseBTN {display: none;}
 #flag:target ~ content > header > #flagChooseBTN_ACTIVE {display: flex;}
-#flagChooseBTN_ACTIVE{display:none;}
+#flagChooseBTN_ACTIVE{
+    display:none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
 .statuspage{
     display: none;
     align-items: center;
@@ -41,32 +45,38 @@ iframe {
 }
 .statuspage:before{
     content:'';
-    position:fixed;
-    height:100vh;
-    width:100vw;
-    background:#00000080;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: #00000080;
     z-index:-1;
 }
 .flagChooseLST {
-    background: #001926;
+    background: rgba(0,25,38,0.902);
+    backdrop-filter: blur(0.313em);
     display: none;
     flex-flow: column;
     gap: 1px;
     position: absolute;
     box-sizing: border-box;
-    top: 5em;
+    top: calc(4em + 3px);
     right: 1.25em;
-    width: 4.375em;
-    padding: 0.225em 0.325em;
-    border-radius: 0.25em;
+    width: 5em;
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
     border: 1px solid #ffffff40;
     z-index: 1;
 }
-.flagChooseLST > a:after{position: absolute;transform: translate(1.9em, 0.2em);}
 .flagChooseLST > a:hover{background-color: #ffffff1a;}
+.flagChooseLST > a::before {
+    content: '';
+    background: var(--flag) center / 1.5em no-repeat;
+    width: 1.5em;
+    height: 2em;
+}
 .flagChooseLST > .usa:after{content:'EN';}
 .flagChooseLST > .rus:after{content:'RU';}
-#flagChooseBTN_ACTIVE:after{transform: translateX(10%) rotate(180deg);}
+#flagChooseBTN_ACTIVE:after{transform: rotate(180deg);}
 #show{display: flex;}
 body {
     overflow: hidden;
@@ -86,15 +96,22 @@ content {
     font-size: inherit;
 }
 .flagChooseLST > a, flag {
-    display: block;
-    background: var(--flag) 0.25em center / contain no-repeat;
-    height: 1.504em;
-    width: 3.15em;
-    border-radius: 0.25em;
-    padding: 0 0.2em;
+    display: flex;
+    height: 2em;
+    width: 100%;
+    padding: 0 0.7em;
     cursor: pointer;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
 }
-flag {background-position: left center !important;}
+flag {
+    background-position: left center !important;
+    padding: 0;
+    background: var(--flag) center / 1.5em no-repeat;
+    width: 1.5em;
+    height: 2em;
+}
 :is(.flagChooseLST > a, flag).usa{--flag: url('/website/resources/usa.png');}
 :is(.flagChooseLST > a, flag).rus{--flag: url('/website/resources/rus.png');}
 a.MTB {
@@ -210,21 +227,22 @@ header{
     position: absolute;
     top: 1.6245em;
     right: 1.25em;
-    width: 4.375em;
+    width: 5em;
     height: 2.625em;
     cursor: pointer;
     border: 0.063em solid #ffffff40;
-    padding: 0 0.625em;
+    padding: 0 0.7em;
     border-radius: 0.25em;
     text-decoration: none;
+    justify-content: space-between;
 }
-.flags:hover {
-    background: #ffffff1a;
-    transition: 0.2s;
-}
+.flags:hover {background: #ffffff1a;}
 .flags:after{
-    content:'\25BC';
-    transform: translateX(10%);
+    content:'';
+    background-color: rgb(191, 213, 255);
+    width: 0.813em;
+    height: 0.75em;
+    -webkit-mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIgoJCSAgZD0iTTAuMjkyODkzIDIuNzkyODlDMC42ODM0MTcgMi40MDIzNyAxLjMxNjU4IDIuNDAyMzcgMS43MDcxMSAyLjc5Mjg5TDYgNy4wODU3OUwxMC4yOTI5IDIuNzkyODlDMTAuNjgzNCAyLjQwMjM3IDExLjMxNjYgMi40MDIzNyAxMS43MDcxIDIuNzkyODlDMTIuMDk3NiAzLjE4MzQyIDEyLjA5NzYgMy44MTY1OCAxMS43MDcxIDQuMjA3MTFMNi43MDcxMSA5LjIwNzExQzYuMzE2NTggOS41OTc2MyA1LjY4MzQyIDkuNTk3NjMgNS4yOTI4OSA5LjIwNzExTDAuMjkyODkzIDQuMjA3MTFDLTAuMDk3NjMxMSAzLjgxNjU4IC0wLjA5NzYzMTEgMy4xODM0MiAwLjI5Mjg5MyAyLjc5Mjg5WiIKCQkgIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=') center / contain no-repeat;
 }
 .servers{
     display: grid;
@@ -263,7 +281,10 @@ header{
     position: relative;
     font-size: inherit;
 }
-.servers a:hover {background-color: #76ff3326;box-shadow: #76ff33 0 0 0 0.125em;}
+.servers a:hover {
+    background-color: #76ff3326;
+    box-shadow: #76ff33 0 0 0 0.125em;
+}
 .servers a:after{
     counter-increment: count;
     content: counter(count);
@@ -272,13 +293,20 @@ header{
     text-decoration: none;
     font: 8em 'Rubik Mono One', sans-serif;
 }
-.servers a:first-child:after{counter-increment: unset;content: 'm';}
+.servers a:first-child:after{
+    counter-increment: unset;
+    content: 'm';
+}
 #offline:before{background: #ff333380;}
 #online:before{background: #76f63380;}
 #invite:before{background: #3d96ff80;}
 #invite{cursor: help;}
 #offline{cursor: not-allowed;}
-/*While server online status checker is not made*/ .servers a{cursor: pointer !important;} .servers a:before {background: #76f63380 !important;}
+
+    /*While server online status checker is not made*/
+    .servers a{cursor: pointer !important;}
+    .servers a:before {background: #76f63380 !important;}
+
 #online{cursor: pointer;}
 .servers a span {
     font: 500 1em Rubik;
@@ -364,10 +392,19 @@ footer .social a:hover{filter: none;}
         font-size: 1.25em;
     }
     content{overflow-y:scroll;}
-    content::-webkit-scrollbar {background: #0000;width: 0.5em;}
-    content::-webkit-scrollbar-thumb {background-color: rgba(255, 255, 255, 0.15);border-radius: 0.313em;}
+    content::-webkit-scrollbar {
+        background: #0000;
+        width: 0.5em;
+    }
+    content::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 0.313em;
+    }
     content::-webkit-scrollbar-track {background-size: 0.5em;}
-    .servers a:before{-webkit-mask-size: 36vw;height: 37.285vw;}
+    .servers a:before{
+        -webkit-mask-size: 36vw;
+        height: 37.285vw;
+    }
     .servers a:after{font-size: 21vw}
 }
 @media screen and (min-width: 1280px) and (orientation:landscape), (min-height: 950px) {body {font-size: 1em;}}
@@ -387,6 +424,13 @@ footer .social a:hover{filter: none;}
 @media screen and (min-width: 100px) and (max-width: 479px) and (orientation:landscape), (min-height: 0px) and (max-height: 389px) and (orientation:landscape) {body {font-size: 0.3em;}}
 @media (orientation:portrait) {
     body{font-size: 0.75em;}
-    .flags{transform: scale(1.5);transform-origin: center right;}
-    .flagChooseLST{transform: scale(1.5);transform-origin: top right;top: 7em;gap: 0.6em;}
+    .flags{
+        transform: scale(1.5);
+        transform-origin: center right;
+    }
+    .flagChooseLST{
+        transform: scale(1.5);
+        transform-origin: top right;
+        top: calc(5em - 2px);
+    }
 }
