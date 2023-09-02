@@ -263,7 +263,7 @@ header{
     position: relative;
     font-size: inherit;
 }
-.servers a:hover {background-color: rgba(118, 255, 51, 0.15);box-shadow: rgb(118 255 51) 0em 0em 0em 0.125em;}
+.servers a:hover {background-color: #76ff3326;box-shadow: #76ff33 0 0 0 0.125em;}
 .servers a:after{
     counter-increment: count;
     content: counter(count);
@@ -273,12 +273,12 @@ header{
     font: 8em 'Rubik Mono One', sans-serif;
 }
 .servers a:first-child:after{counter-increment: unset;content: 'm';}
-#offline:before{background: #fa636380;}
-#online:before{background: #76f63140;}
-#invite:before{background: #bfd5ff26;}
+#offline:before{background: #ff333380;}
+#online:before{background: #76f63380;}
+#invite:before{background: #3d96ff80;}
 #invite{cursor: help;}
 #offline{cursor: not-allowed;}
-/*While server online status checker is not made*/ .servers a{cursor: pointer !important;} .servers a:before {background: #76f63140 !important;}
+/*While server online status checker is not made*/ .servers a{cursor: pointer !important;} .servers a:before {background: #76f63380 !important;}
 #online{cursor: pointer;}
 .servers a span {
     font: 500 1em Rubik;
