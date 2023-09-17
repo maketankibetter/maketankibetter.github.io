@@ -371,28 +371,14 @@ footer .social a:hover{filter: none;}
     }
     .servers{
         margin-top: 7em;
-        grid-template-columns: calc(100vw / 2 - 1.5em) calc(100vw / 2 - 1.5em);
-        grid-template-rows: calc(100vw / 2 - 1.5em) calc(100vw / 2 - 1.5em) calc(100vw / 2 - 1.5em) calc(100vw / 2 - 1.5em) calc(100vw / 2 - 1.5em);
+        grid-template-columns: repeat(2, calc(100vw / 2 - 1.5em));
+        grid-template-rows: repeat(5, calc(100vw / 2 - 1.5em));
         height: auto;
     }
     .servers a span {display:none}
     footer{
         width: calc(100% - 2em);
-        margin: 0 1em 3em;
-    }
-    footer:after{
-        display: flex;
-        content: 'RESERVED FOR MOBILE BROWSERS';
-        position: absolute;
-        width: calc(100% + 1.75em);
-        height: 3em;
-        bottom: -3em;
-        left: -1em;
-        background: black;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        font-size: 1.25em;
+        margin: 0 1em;
     }
     content{overflow-y:scroll;}
     content::-webkit-scrollbar {
