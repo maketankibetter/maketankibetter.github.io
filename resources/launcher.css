@@ -84,7 +84,7 @@ iframe {
 #show{display: flex;}
 body {
     overflow: hidden;
-    height: 100dvh;
+    height: max(100vh, 100dvh);
     margin: 0;
     color: #fff;
     position: relative;
