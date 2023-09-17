@@ -84,12 +84,15 @@ iframe {
 #show{display: flex;}
 body {
     overflow: hidden;
-    height: max(100vh, 100dvh);
+    height: 100vh;
     margin: 0;
     color: #fff;
     position: relative;
     background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
     font-family: 'Rubik';
+}
+@supports(height: 100dvh) {
+    body {height: 100dvh;}
 }
 content {
     display: flex;
