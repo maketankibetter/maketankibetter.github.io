@@ -253,27 +253,11 @@ header{
     grid-template-columns: repeat(5, auto);
     grid-template-rows: auto auto;
     gap: 1em;
-    margin: 1em;
-    width: calc(100% - 2em);
-    height: calc(100% - 2em);
-    border-radius: 0.5em;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    counter-reset: count;
-    transition: 0.2s;
-    font-size: inherit;
-}
-.servers a:before{
-    -webkit-mask: url('/website/resources/pentagon.svg') center / 14em no-repeat;
+    padding: 1em;
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
-    position: absolute;
-    content:'';
-    color: #fff0;
-    z-index: -1;
-    user-select: none;
-    pointer-events: none;
-    font-size: inherit;
+    counter-reset: count;
 }
 .servers a {
     display: flex;
@@ -288,6 +272,18 @@ header{
 .servers a:hover {
     background-color: #76ff3326;
     box-shadow: #76ff33 0 0 0 0.125em;
+}
+.servers a:before{
+    -webkit-mask: url('/website/resources/pentagon.svg') center / 14em no-repeat;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content:'';
+    color: #fff0;
+    z-index: -1;
+    user-select: none;
+    pointer-events: none;
+    font-size: inherit;
 }
 .servers a:after{
     counter-increment: count;
