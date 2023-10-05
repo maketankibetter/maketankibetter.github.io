@@ -1,7 +1,7 @@
 /*Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Roboto:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap');
-@font-face {font-family: "Uni Sans Special"; src:url("/website/resources/Uni Sans Special.ttf") format("truetype");}
-@font-face {font-family: "Twemoji"; src:url("/website/resources/TwitterColorEmoji-SVGinOT.ttf") format("truetype");}
+@font-face {font-family: "Uni Sans Special"; src:url("/resources/Uni Sans Special.ttf") format("truetype");}
+@font-face {font-family: "Twemoji"; src:url("/resources/TwitterColorEmoji-SVGinOT.ttf") format("truetype");}
 /*
 Twemoji licenses: 
     Copyright 2020 Twitter, Inc and other contributors
@@ -99,10 +99,10 @@ footer a{
     height: 28px;
     border: 0px solid #d54737;
 }
-footer #vk{--image: url(/website/resources/vk.svg) center / 100% no-repeat;}
-footer #youtube{--image:url(/website/resources/youtube.svg) center / 100% no-repeat}
-footer #discord{--image: url(/website/resources/discord.svg) center / 100% no-repeat;}
-footer #github{--image: url(/website/resources/github.svg) center / 100% no-repeat;}
+footer #vk{--image: url(/resources/vk.svg) center / 100% no-repeat;}
+footer #youtube{--image:url(/resources/youtube.svg) center / 100% no-repeat}
+footer #discord{--image: url(/resources/discord.svg) center / 100% no-repeat;}
+footer #github{--image: url(/resources/github.svg) center / 100% no-repeat;}
 footer a{-webkit-mask: var(--image);background: #d54737;}
 /*Adaptive UI for portrait screens*/
 @media (orientation: portrait) {
