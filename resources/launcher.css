@@ -294,11 +294,12 @@ header{
     transform: translateY(10%);
     position: absolute;
     text-decoration: none;
-    font: 8em 'Rubik Mono One', sans-serif;
+    font: 900 8em 'Rubik', sans-serif;
+    font-variant: tabular-nums;
 }
 .servers a:first-child:after{
     counter-increment: unset;
-    content: 'm';
+    content: 'M';
 }
 #offline:before{background: #ff333380;}
 #online:before{background: #76f63380;}
