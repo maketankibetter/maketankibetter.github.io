@@ -178,8 +178,8 @@ h5 {
     color: white;
 }
 /*UI thumbnails*/
-[lang="en"] body {--soon:url('/resources/soon.png') 0 0 / cover;}
-[lang="ru"] body {--soon:url('/resources/skoro.png') 0 0 / cover;}
+[lang="en"] body {--soon:url('/resources/soon.svg') 0 0 / cover;}
+[lang="ru"] body {--soon:url('/resources/skoro.svg') 0 0 / cover;}
 #nui {--soon:url('/resources/nui_mini.png') center / cover;}
 [lang="en"] #wp {--soon:url('/resources/wallpapers_mini_en.png') center / cover;}
 [lang="ru"] #wp {--soon:url('/resources/wallpapers_mini_ru.png') center / cover;}
