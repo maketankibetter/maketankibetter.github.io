@@ -130,7 +130,7 @@ a.MTB {
     width: min-content;
 }
 a {
-    color: #fff !important;
+    color: #fff;
     user-select: auto;
     text-decoration: none;
 }
@@ -267,10 +267,12 @@ header{
     border-radius: 0.5em;
     position: relative;
     font-size: inherit;
+    color: #bfd5ff;
 }
 .servers a:hover {
     background-color: #76ff3326;
     box-shadow: #76ff33 0 0 0 0.125em;
+    color: #76ff33;
 }
 .servers a:before{
     -webkit-mask: url('/resources/pentagon.svg') center / 14em no-repeat;
@@ -292,6 +294,7 @@ header{
     text-decoration: none;
     font: 900 8em 'Rubik', sans-serif;
     font-variant: tabular-nums;
+    color: #fff;
 }
 .servers a:first-child:after{
     counter-increment: unset;
@@ -310,6 +313,7 @@ header{
 #online{cursor: pointer;}
 .servers a span {
     font: 500 1em Rubik;
+    color: inherit;
     position: absolute;
     margin-bottom: calc(100vh - 10.5em - 50vh);
 }
