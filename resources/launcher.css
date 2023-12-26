@@ -213,17 +213,13 @@ header{
 }
 .status:before {
     content: 'STA';
-    cursor: pointer;
-    top: 0.65em;
-    left: 3.9em;
-    font: 100 1.75em 'Rubik Mono One';
+    font: 900 1.75em/1 'Rubik';
+    letter-spacing: 0.1em;
 }
 .status:after {
     content: 'TUS';
-    cursor: pointer;
-    top: 1.65em;
-    left: 3.9em;
-    font: 100 1.75em 'Rubik Mono One';
+    font: 900 1.75em/1 'Rubik';
+    letter-spacing: 0.1em;
 }
 .flags {
     display: flex;
