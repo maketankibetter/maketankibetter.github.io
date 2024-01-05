@@ -139,7 +139,7 @@ header{
     width: 100%;
     margin: -1em;
     background: url('/resources/serverstatus.svg') center / cover no-repeat;
-    -webkit-mask: linear-gradient(#fff0, #00000040 10%, #00000040 90%, #fff0);
+    mask: linear-gradient(#fff0, #00000040 10%, #00000040 90%, #fff0);
     z-index: -1;
 }
 span {display: flex;justify-content: center;font: 500 1.5em Rubik;text-align: center;}
