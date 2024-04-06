@@ -134,7 +134,7 @@ a {
     user-select: auto;
     text-decoration: none;
 }
-h1 {
+header h1 {
     display: flex;
     place-items: center;
     place-content: center;
