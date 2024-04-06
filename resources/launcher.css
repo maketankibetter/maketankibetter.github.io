@@ -371,7 +371,7 @@ footer .social a:hover{filter: none;}
 #discord {--sm:url('/resources/discord.svg');}
 #github {--sm:url('/resources/github.svg');}
 @media screen and (orientation: portrait) {
-    h1{
+    header h1{
         margin-top: 2.25em;
         border-bottom: 1px solid #ffffff40;
         width: 100%;
