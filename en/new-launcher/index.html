@@ -11,6 +11,17 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&amp;display=swap" rel="stylesheet">
         <style>
+        body{
+            display: flex;
+            flex-flow: column;
+            place-content: space-between;
+            font-size: max(min(1.48148vh, 1vw), 3px);
+        }
+        @media (orientation:portrait) {
+            body{
+                font-size: max(min(1.77778vh, 1vw) * 1.25, 3px);
+            }
+        }
         .window {
             margin: auto;
             padding: 1em;
@@ -157,122 +168,120 @@
     </head>
     <body>
         <audio src="/resources/ambient.mp3" loop="" autoplay=""></audio>
-        <content>
-            <div id="modal">
-                <div class="statuspage" id="status">
-                    <a class="exit" href="#"></a>
-                    <iframe src="../status/#for_embed"></iframe>
+        <div id="modal">
+            <div class="statuspage" id="status">
+                <a class="exit" href="#"></a>
+                <iframe src="../status/#for_embed"></iframe>
+            </div>
+        </div>
+        <div class="preloader">
+            <style>
+                .preloader{
+                    background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    animation: 0.2s linear 1s 1 normal forwards running preloader;
+                    z-index: 11;
+                }
+                .preloader img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 128px;
+                    height: 124px;
+                    object-fit: contain;
+                }
+                .preloader .progress {
+                    position: absolute;
+                    bottom: 40px;
+                    height: 30px;
+                    width: 320px;
+                    mix-blend-mode: lighten;
+                    background: url('/resources/tanki-preloader-progress.gif') no-repeat;
+                    background-size: contain;
+                    transform: translateX(-50%);
+                    left: 50%;
+                }
+                .preloader .loading-text {
+                    position: absolute;
+                    bottom: 60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: white;
+                    font-family: Rubik;
+                    font-style: normal;
+                    line-height: 30px;
+                    text-transform: uppercase;
+                }
+                @keyframes preloader{
+                    0%{
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                    99%{
+                        opacity: 0.01;
+                        pointer-events: all;
+                    }
+                    100%{
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                }
+            </style>
+            <img src="/resources/launcher.svg">
+            <div class="progress"></div>
+            <span class="loading-text">Loading</span>
+        </div>
+        <header>
+            <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank"></a>
+            <a class="status" title="Data of servers" href="#status"></a>
+            <h1>Tanki Online Launcher</h1>
+            <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');">
+                <flag class="usa"></flag>
+                <div class="flagChooseLST">
+                    <a class="usa" href="/en/launcher/"></a>
+                    <a class="rus" href="/ru/launcher/"></a>
+                </div>
+            </span>
+        </header>
+        <div class="window">
+            <h1>Choose server and account</h1>
+            <div class="select" id="servselect" onclick="this.classList.toggle('open');" style="z-index: 10;">
+                <span class="option selected">Main server</span>
+                <div class="options">
+                    <span class="option online" link="https://tankionline.com/play">Main server</span>
+                    <span class="option offline" link="https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer">Test Server #1</span>
+                    <span class="option invite" link="https://public-deploy2.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy2.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy2.test-eu.tankionline.com/balancer">Test Server #2</span>
+                    <span class="option offline" link="https://public-deploy3.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy3.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy3.test-eu.tankionline.com/balancer">Test Server #3</span>
+                    <span class="option offline" link="https://public-deploy4.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy4.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy4.test-eu.tankionline.com/balancer">Test Server #4</span>
+                    <span class="option offline" link="https://public-deploy5.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy5.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy5.test-eu.tankionline.com/balancer">Test Server #5</span>
+                    <span class="option offline" link="https://public-deploy6.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy6.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy6.test-eu.tankionline.com/balancer">Test Server #6</span>
+                    <span class="option offline" link="https://public-deploy7.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy7.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy7.test-eu.tankionline.com/balancer">Test Server #7</span>
+                    <span class="option offline" link="https://public-deploy8.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy8.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy8.test-eu.tankionline.com/balancer">Test Server #8</span>
+                    <span class="option offline" link="https://public-deploy9.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy9.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy9.test-eu.tankionline.com/balancer">Test Server #9</span>
+                    <span class="option offline" link="https://client-review-1-public.test-ru.tankionline.com/?config-template=https://c{server}.review-1-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-1-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-1-public.test-ru.tankionline.com/balancer">client-review-1</span>
+                    <span class="option offline" link="https://client-review-2-public.test-ru.tankionline.com/?config-template=https://c{server}.review-2-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-2-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-2-public.test-ru.tankionline.com/balancer">client-review-2</span>
+                    <span class="option invite" link="https://client-review-3-public.test-ru.tankionline.com/?config-template=https://c{server}.review-3-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-3-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-3-public.test-ru.tankionline.com/balancer">client-review-3</span>
                 </div>
             </div>
-            <div class="preloader">
-                <style>
-                    .preloader{
-                        background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
-                        position: fixed;
-                        width: 100%;
-                        height: 100%;
-                        animation: 0.2s linear 1s 1 normal forwards running preloader;
-                        z-index: 11;
-                    }
-                    .preloader img {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 128px;
-                        height: 124px;
-                        object-fit: contain;
-                    }
-                    .preloader .progress {
-                        position: absolute;
-                        bottom: 40px;
-                        height: 30px;
-                        width: 320px;
-                        mix-blend-mode: lighten;
-                        background: url('/resources/tanki-preloader-progress.gif') no-repeat;
-                        background-size: contain;
-                        transform: translateX(-50%);
-                        left: 50%;
-                    }
-                    .preloader .loading-text {
-                        position: absolute;
-                        bottom: 60px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        color: white;
-                        font-family: Rubik;
-                        font-style: normal;
-                        line-height: 30px;
-                        text-transform: uppercase;
-                    }
-                    @keyframes preloader{
-                        0%{
-                            opacity: 1;
-                            pointer-events: all;
-                        }
-                        99%{
-                            opacity: 0.01;
-                            pointer-events: all;
-                        }
-                        100%{
-                            opacity: 0;
-                            pointer-events: none;
-                        }
-                    }
-                </style>
-                <img src="/resources/launcher.svg">
-                <div class="progress"></div>
-                <span class="loading-text">Loading</span>
-            </div>
-            <header>
-                <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank"></a>
-                <a class="status" title="Data of servers" href="#status"></a>
-                <h1>Tanki Online Launcher</h1>
-                <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');">
-                    <flag class="usa"></flag>
-                    <div class="flagChooseLST">
-                        <a class="usa" href="/en/launcher/"></a>
-                        <a class="rus" href="/ru/launcher/"></a>
-                    </div>
-                </span>
-            </header>
-            <div class="window">
-                <h1>Choose server and account</h1>
-                <div class="select" id="servselect" onclick="this.classList.toggle('open');" style="z-index: 10;">
-                    <span class="option selected">Main server</span>
-                    <div class="options">
-                        <span class="option online" link="https://tankionline.com/play">Main server</span>
-                        <span class="option offline" link="https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer">Test Server #1</span>
-                        <span class="option invite" link="https://public-deploy2.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy2.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy2.test-eu.tankionline.com/balancer">Test Server #2</span>
-                        <span class="option offline" link="https://public-deploy3.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy3.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy3.test-eu.tankionline.com/balancer">Test Server #3</span>
-                        <span class="option offline" link="https://public-deploy4.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy4.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy4.test-eu.tankionline.com/balancer">Test Server #4</span>
-                        <span class="option offline" link="https://public-deploy5.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy5.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy5.test-eu.tankionline.com/balancer">Test Server #5</span>
-                        <span class="option offline" link="https://public-deploy6.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy6.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy6.test-eu.tankionline.com/balancer">Test Server #6</span>
-                        <span class="option offline" link="https://public-deploy7.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy7.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy7.test-eu.tankionline.com/balancer">Test Server #7</span>
-                        <span class="option offline" link="https://public-deploy8.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy8.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy8.test-eu.tankionline.com/balancer">Test Server #8</span>
-                        <span class="option offline" link="https://public-deploy9.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy9.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy9.test-eu.tankionline.com/balancer">Test Server #9</span>
-                        <span class="option offline" link="https://client-review-1-public.test-ru.tankionline.com/?config-template=https://c{server}.review-1-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-1-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-1-public.test-ru.tankionline.com/balancer">client-review-1</span>
-                        <span class="option offline" link="https://client-review-2-public.test-ru.tankionline.com/?config-template=https://c{server}.review-2-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-2-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-2-public.test-ru.tankionline.com/balancer">client-review-2</span>
-                        <span class="option invite" link="https://client-review-3-public.test-ru.tankionline.com/?config-template=https://c{server}.review-3-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-3-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-3-public.test-ru.tankionline.com/balancer">client-review-3</span>
-                    </div>
+            <div class="select" id="accselect" onclick="this.classList.toggle('open');">
+                <span class="option selected">Main</span>
+                <div class="options">
+                    <span class="option">Main</span>
                 </div>
-                <div class="select" id="accselect" onclick="this.classList.toggle('open');">
-                    <span class="option selected">Main</span>
-                    <div class="options">
-                        <span class="option">Main</span>
-                    </div>
-                </div>
-                <div class="accadd" id="accadd"></div>
-                <button id="play">FIGHT!</button>
             </div>
-            <footer>
-                <img src="/resources/MakeTankiBetter_logo.svg" class="MTB">
-                <p><a target="_blank" class="MTB" href="/">MAKETANKIBETTER</a>We build future</p>
-                <div class="social">
-                    <a target="_blank" id="youtube" href="https://www.youtube.com/@mtb_"></a>
-                    <a target="_blank" id="discord" href="https://discord.gg/ajYBuMc5"></a>
-                    <a target="_blank" id="github" href="https://github.com/maketankibetter"></a></div>
-            </footer>
-        </content>
+            <div class="accadd" id="accadd"></div>
+            <button id="play">FIGHT!</button>
+        </div>
+        <footer>
+            <img src="/resources/MakeTankiBetter_logo.svg" class="MTB">
+            <p><a target="_blank" class="MTB" href="/">MAKETANKIBETTER</a>We build future</p>
+            <div class="social">
+                <a target="_blank" id="youtube" href="https://www.youtube.com/@mtb_"></a>
+                <a target="_blank" id="discord" href="https://discord.gg/ajYBuMc5"></a>
+                <a target="_blank" id="github" href="https://github.com/maketankibetter"></a></div>
+        </footer>
     </body>
 </html>

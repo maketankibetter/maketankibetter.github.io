@@ -11,269 +11,278 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&amp;display=swap" rel="stylesheet">
         <style>
-        .window {
-            margin: auto;
-            padding: 1em;
-            box-shadow: #ffffff40 0 0 0 1px;
-            border-radius: 0.5em;
-            width: 22.5em;
-            display: flex;
-            flex-direction: column;
-            background-color: rgba(191, 213, 255, 0.15);
-            position: relative;
-            user-select: none;
-        }
-        
-        .window h1 {
-            margin: 0;
-            font-size: 1.5em;
-        }
-        
-        .select {
-            height: 1.185em;
-            border: 1px solid #ffffff1a;
-            border-radius: 0.5em;
-            background: #ffffff1a;
-            padding: 0.5em 0.5em 0.5em 0.5em;
-            color: #fff;
-            font: 400 1em 'Rubik';
-            margin-top: 0.75em;
-            cursor: pointer;
-            position: relative;
-        }
-        
-        .select:hover, .select.open, div#accadd:hover {
-            box-shadow: #ffffff 0em 0em 0em 2px;
-        }
-        
-        .select::after {
-            content: '';
-            background-color: rgb(191, 213, 255);
-            width: 0.813em;
-            height: 0.75em;
-            mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIgoJCSAgZD0iTTAuMjkyODkzIDIuNzkyODlDMC42ODM0MTcgMi40MDIzNyAxLjMxNjU4IDIuNDAyMzcgMS43MDcxMSAyLjc5Mjg5TDYgNy4wODU3OUwxMC4yOTI5IDIuNzkyODlDMTAuNjgzNCAyLjQwMjM3IDExLjMxNjYgMi40MDIzNyAxMS43MDcxIDIuNzkyODlDMTIuMDk3NiAzLjE4MzQyIDEyLjA5NzYgMy44MTY1OCAxMS43MDcxIDQuMjA3MTFMNi43MDcxMSA5LjIwNzExQzYuMzE2NTggOS41OTc2MyA1LjY4MzQyIDkuNTk3NjMgNS4yOTI4OSA5LjIwNzExTDAuMjkyODkzIDQuMjA3MTFDLTAuMDk3NjMxMSAzLjgxNjU4IC0wLjA5NzYzMTEgMy4xODM0MiAwLjI5Mjg5MyAyLjc5Mjg5WiIKCQkgIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=') center / contain no-repeat;
-            position: absolute;
-            right: 0.5em;
-            top: 0.75em;
-        }
-        
-        .options {
-            display: none;
-            flex-flow: column wrap;
-            position: absolute;
-            top: calc(2.25em - 1px);
-            left: -1px;
-            right: -1px;
-            background: #bfd5ff1a;
-            border: 1px solid #ffffff1a;
-            border-radius: 0.5em;
-            backdrop-filter: blur(3.125em);
-            z-index: 9;
-        }
-        
-        .options span.option {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.25em;
-            margin: 0 .25em;
-            border-radius: 0.25em;
-        }
-        
-        .options span.option:first-child {
-            margin-top: 0.25em;
-        }
-        
-        .options span.option:last-child {
-            margin-bottom: .25em;
-        }
-        
-        .options span.option:hover {
-            background: #ffffff1a;
-        }
-        
-        span.offline {
-            color: #ff3333;
-        }
-        
-        span.invite{
-            color: #3d96ff;
-        }
-        
-        span.online{
-            color: #76f633;
-        }
-
-        .select.open>.options {
-            display: flex;
-        }
-        
-        div.select#accselect {
-            width: calc(100% - 4em);
-        }
-        
-        div#accadd {
-            position: absolute;
-            right: 1em;
-            bottom: 4.25em;
-            width: 2.1835em;
-            height: 2.1835em;
-            border: 1px solid #ffffff1a;
-            border-radius: 0.5em;
-            background: #ffffff1a url("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20'%3E%3Cpath fill='%23fff' d='m8 0h4v8h8v4h-20v-4h8zm4 12v8h-4v-4z'/%3E%3C/svg%3E%0A") center / 1em no-repeat;
-            cursor: pointer;
-        }
-        
-        button#play {
-            font: 500 1em 'Rubik';
-            color: #76ff33;
-            margin-top: 0.75em;
-            height: 2.5em;
-            border-radius: 0.5em;
-            background-color: #76ff3340;
-            border: 1px solid #76ff3380;
-            cursor: pointer;
-        }
-
-        button#play:hover{
-            box-shadow: #76ff33 0 0 0 2px;
-            border: 0;
-        }
-
-        .flags.open{
-            background: #ffffff1a;
-            border-radius: 0.25em 0.25em 0 0;
-        }
-
-        .flags.open>.flagChooseLST{
-            display: flex;
-        }
-
-        .flagChooseLST{
-            top: 2.5em;
-            right: -1px;
-            transform: unset;
-        }
+            body{
+                display: flex;
+                flex-flow: column;
+                place-content: space-between;
+                font-size: max(min(1.48148vh, 1vw), 3px);
+            }
+            @media (orientation:portrait) {
+                body{
+                    font-size: max(min(1.77778vh, 1vw) * 1.25, 3px);
+                }
+            }
+            .window {
+                margin: auto;
+                padding: 1em;
+                box-shadow: #ffffff40 0 0 0 1px;
+                border-radius: 0.5em;
+                width: 22.5em;
+                display: flex;
+                flex-direction: column;
+                background-color: rgba(191, 213, 255, 0.15);
+                position: relative;
+                user-select: none;
+            }
+            
+            .window h1 {
+                margin: 0;
+                font-size: 1.5em;
+            }
+            
+            .select {
+                height: 1.185em;
+                border: 1px solid #ffffff1a;
+                border-radius: 0.5em;
+                background: #ffffff1a;
+                padding: 0.5em 0.5em 0.5em 0.5em;
+                color: #fff;
+                font: 400 1em 'Rubik';
+                margin-top: 0.75em;
+                cursor: pointer;
+                position: relative;
+            }
+            
+            .select:hover, .select.open, div#accadd:hover {
+                box-shadow: #ffffff 0em 0em 0em 2px;
+            }
+            
+            .select::after {
+                content: '';
+                background-color: rgb(191, 213, 255);
+                width: 0.813em;
+                height: 0.75em;
+                mask: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxMiAxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KCTxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIgoJCSAgZD0iTTAuMjkyODkzIDIuNzkyODlDMC42ODM0MTcgMi40MDIzNyAxLjMxNjU4IDIuNDAyMzcgMS43MDcxMSAyLjc5Mjg5TDYgNy4wODU3OUwxMC4yOTI5IDIuNzkyODlDMTAuNjgzNCAyLjQwMjM3IDExLjMxNjYgMi40MDIzNyAxMS43MDcxIDIuNzkyODlDMTIuMDk3NiAzLjE4MzQyIDEyLjA5NzYgMy44MTY1OCAxMS43MDcxIDQuMjA3MTFMNi43MDcxMSA5LjIwNzExQzYuMzE2NTggOS41OTc2MyA1LjY4MzQyIDkuNTk3NjMgNS4yOTI4OSA5LjIwNzExTDAuMjkyODkzIDQuMjA3MTFDLTAuMDk3NjMxMSAzLjgxNjU4IC0wLjA5NzYzMTEgMy4xODM0MiAwLjI5Mjg5MyAyLjc5Mjg5WiIKCQkgIGZpbGw9IndoaXRlIi8+Cjwvc3ZnPgo=') center / contain no-repeat;
+                position: absolute;
+                right: 0.5em;
+                top: 0.75em;
+            }
+            
+            .options {
+                display: none;
+                flex-flow: column wrap;
+                position: absolute;
+                top: calc(2.25em - 1px);
+                left: -1px;
+                right: -1px;
+                background: #bfd5ff1a;
+                border: 1px solid #ffffff1a;
+                border-radius: 0.5em;
+                backdrop-filter: blur(3.125em);
+                z-index: 9;
+            }
+            
+            .options span.option {
+                display: flex;
+                justify-content: space-between;
+                padding: 0.25em;
+                margin: 0 .25em;
+                border-radius: 0.25em;
+            }
+            
+            .options span.option:first-child {
+                margin-top: 0.25em;
+            }
+            
+            .options span.option:last-child {
+                margin-bottom: .25em;
+            }
+            
+            .options span.option:hover {
+                background: #ffffff1a;
+            }
+            
+            span.offline {
+                color: #ff3333;
+            }
+            
+            span.invite{
+                color: #3d96ff;
+            }
+            
+            span.online{
+                color: #76f633;
+            }
+    
+            .select.open>.options {
+                display: flex;
+            }
+            
+            div.select#accselect {
+                width: calc(100% - 4em);
+            }
+            
+            div#accadd {
+                position: absolute;
+                right: 1em;
+                bottom: 4.25em;
+                width: 2.1835em;
+                height: 2.1835em;
+                border: 1px solid #ffffff1a;
+                border-radius: 0.5em;
+                background: #ffffff1a url("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20'%3E%3Cpath fill='%23fff' d='m8 0h4v8h8v4h-20v-4h8zm4 12v8h-4v-4z'/%3E%3C/svg%3E%0A") center / 1em no-repeat;
+                cursor: pointer;
+            }
+            
+            button#play {
+                font: 500 1em 'Rubik';
+                color: #76ff33;
+                margin-top: 0.75em;
+                height: 2.5em;
+                border-radius: 0.5em;
+                background-color: #76ff3340;
+                border: 1px solid #76ff3380;
+                cursor: pointer;
+            }
+    
+            button#play:hover{
+                box-shadow: #76ff33 0 0 0 2px;
+                border: 0;
+            }
+    
+            .flags.open{
+                background: #ffffff1a;
+                border-radius: 0.25em 0.25em 0 0;
+            }
+    
+            .flags.open>.flagChooseLST{
+                display: flex;
+            }
+    
+            .flagChooseLST{
+                top: 2.5em;
+                right: -1px;
+                transform: unset;
+            }
         </style>
     </head>
     <body>
         <audio src="/resources/ambient.mp3" loop="" autoplay=""></audio>
-        <content>
-            <div id="modal">
-                <div class="statuspage" id="status">
-                    <a class="exit" href="#"></a>
-                    <iframe src="../status/#for_embed"></iframe>
+        <div id="modal">
+            <div class="statuspage" id="status">
+                <a class="exit" href="#"></a>
+                <iframe src="../status/#for_embed"></iframe>
+            </div>
+        </div>
+        <div class="preloader">
+            <style>
+                .preloader{
+                    background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
+                    position: fixed;
+                    width: 100%;
+                    height: 100%;
+                    animation: 0.2s linear 1s 1 normal forwards running preloader;
+                    z-index: 11;
+                }
+                .preloader img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 128px;
+                    height: 124px;
+                    object-fit: contain;
+                }
+                .preloader .progress {
+                    position: absolute;
+                    bottom: 40px;
+                    height: 30px;
+                    width: 320px;
+                    mix-blend-mode: lighten;
+                    background: url('/resources/tanki-preloader-progress.gif') no-repeat;
+                    background-size: contain;
+                    transform: translateX(-50%);
+                    left: 50%;
+                }
+                .preloader .loading-text {
+                    position: absolute;
+                    bottom: 60px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: white;
+                    font-family: Rubik;
+                    font-style: normal;
+                    line-height: 30px;
+                    text-transform: uppercase;
+                }
+                @keyframes preloader{
+                    0%{
+                        opacity: 1;
+                        pointer-events: all;
+                    }
+                    99%{
+                        opacity: 0.01;
+                        pointer-events: all;
+                    }
+                    100%{
+                        opacity: 0;
+                        pointer-events: none;
+                    }
+                }
+            </style>
+            <img src="/resources/launcher.svg">
+            <div class="progress"></div>
+            <span class="loading-text">Загрузка</span>
+        </div>
+        <header>
+            <a class="logo" title="Главная страница Танков Онлайн" href="https://tankionline.com/" target="_blank"></a>
+            <a class="status" title="Данные о статусе серверов" href="#status"></a>
+            <h1>Лаунчер Танков Онлайн</h1>
+            <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');">
+                <flag class="rus"></flag>
+                <div class="flagChooseLST">
+                    <a class="usa" href="/en/launcher/"></a>
+                    <a class="rus" href="/ru/launcher/"></a>
+                </div>
+            </span>
+        </header>
+        <div class="window">
+            <h1>Выберите сервер и аккаунт</h1>
+            <div class="select" id="servselect" onclick="this.classList.toggle('open');" style="z-index: 10;">
+                <span class="option selected">Основной</span>
+                <div class="options">
+                    <span class="option online" link="https://tankionline.com/play">Основной</span>
+                    <span class="option offline" link="https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer">Тестовый #1</span>
+                    <span class="option invite" link="https://public-deploy2.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy2.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy2.test-eu.tankionline.com/balancer">Тестовый #2</span>
+                    <span class="option offline" link="https://public-deploy3.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy3.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy3.test-eu.tankionline.com/balancer">Тестовый #3</span>
+                    <span class="option offline" link="https://public-deploy4.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy4.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy4.test-eu.tankionline.com/balancer">Тестовый #4</span>
+                    <span class="option offline" link="https://public-deploy5.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy5.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy5.test-eu.tankionline.com/balancer">Тестовый #5</span>
+                    <span class="option offline" link="https://public-deploy6.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy6.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy6.test-eu.tankionline.com/balancer">Тестовый #6</span>
+                    <span class="option offline" link="https://public-deploy7.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy7.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy7.test-eu.tankionline.com/balancer">Тестовый #7</span>
+                    <span class="option offline" link="https://public-deploy8.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy8.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy8.test-eu.tankionline.com/balancer">Тестовый #8</span>
+                    <span class="option offline" link="https://public-deploy9.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy9.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy9.test-eu.tankionline.com/balancer">Тестовый #9</span>
+                    <span class="option offline" link="https://client-review-1-public.test-ru.tankionline.com/?config-template=https://c{server}.review-1-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-1-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-1-public.test-ru.tankionline.com/balancer">client-review-1</span>
+                    <span class="option offline" link="https://client-review-2-public.test-ru.tankionline.com/?config-template=https://c{server}.review-2-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-2-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-2-public.test-ru.tankionline.com/balancer">client-review-2</span>
+                    <span class="option invite" link="https://client-review-3-public.test-ru.tankionline.com/?config-template=https://c{server}.review-3-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-3-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-3-public.test-ru.tankionline.com/balancer">client-review-3</span>
                 </div>
             </div>
-            <div class="preloader">
-                <style>
-                    .preloader{
-                        background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
-                        position: fixed;
-                        width: 100%;
-                        height: 100%;
-                        animation: 0.2s linear 1s 1 normal forwards running preloader;
-                        z-index: 11;
-                    }
-                    .preloader img {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
-                        width: 128px;
-                        height: 124px;
-                        object-fit: contain;
-                    }
-                    .preloader .progress {
-                        position: absolute;
-                        bottom: 40px;
-                        height: 30px;
-                        width: 320px;
-                        mix-blend-mode: lighten;
-                        background: url('/resources/tanki-preloader-progress.gif') no-repeat;
-                        background-size: contain;
-                        transform: translateX(-50%);
-                        left: 50%;
-                    }
-                    .preloader .loading-text {
-                        position: absolute;
-                        bottom: 60px;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        color: white;
-                        font-family: Rubik;
-                        font-style: normal;
-                        line-height: 30px;
-                        text-transform: uppercase;
-                    }
-                    @keyframes preloader{
-                        0%{
-                            opacity: 1;
-                            pointer-events: all;
-                        }
-                        99%{
-                            opacity: 0.01;
-                            pointer-events: all;
-                        }
-                        100%{
-                            opacity: 0;
-                            pointer-events: none;
-                        }
-                    }
-                </style>
-                <img src="/resources/launcher.svg">
-                <div class="progress"></div>
-                <span class="loading-text">Загрузка</span>
-            </div>
-            <header>
-                <a class="logo" title="Главная страница Танков Онлайн" href="https://tankionline.com/" target="_blank"></a>
-                <a class="status" title="Данные о статусе серверов" href="#status"></a>
-                <h1>Лаунчер Танков Онлайн</h1>
-                <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');">
-                    <flag class="rus"></flag>
-                    <div class="flagChooseLST">
-                        <a class="usa" href="/en/launcher/"></a>
-                        <a class="rus" href="/ru/launcher/"></a>
-                    </div>
-                </span>
-            </header>
-            <div class="window">
-                <h1>Выберите сервер и аккаунт</h1>
-                <div class="select" id="servselect" onclick="this.classList.toggle('open');" style="z-index: 10;">
-                    <span class="option selected">Основной</span>
-                    <div class="options">
-                        <span class="option online" link="https://tankionline.com/play">Основной</span>
-                        <span class="option offline" link="https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer">Тестовый #1</span>
-                        <span class="option invite" link="https://public-deploy2.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy2.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy2.test-eu.tankionline.com/balancer">Тестовый #2</span>
-                        <span class="option offline" link="https://public-deploy3.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy3.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy3.test-eu.tankionline.com/balancer">Тестовый #3</span>
-                        <span class="option offline" link="https://public-deploy4.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy4.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy4.test-eu.tankionline.com/balancer">Тестовый #4</span>
-                        <span class="option offline" link="https://public-deploy5.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy5.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy5.test-eu.tankionline.com/balancer">Тестовый #5</span>
-                        <span class="option offline" link="https://public-deploy6.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy6.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy6.test-eu.tankionline.com/balancer">Тестовый #6</span>
-                        <span class="option offline" link="https://public-deploy7.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy7.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy7.test-eu.tankionline.com/balancer">Тестовый #7</span>
-                        <span class="option offline" link="https://public-deploy8.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy8.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy8.test-eu.tankionline.com/balancer">Тестовый #8</span>
-                        <span class="option offline" link="https://public-deploy9.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy9.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy9.test-eu.tankionline.com/balancer">Тестовый #9</span>
-                        <span class="option offline" link="https://client-review-1-public.test-ru.tankionline.com/?config-template=https://c{server}.review-1-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-1-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-1-public.test-ru.tankionline.com/balancer">client-review-1</span>
-                        <span class="option offline" link="https://client-review-2-public.test-ru.tankionline.com/?config-template=https://c{server}.review-2-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-2-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-2-public.test-ru.tankionline.com/balancer">client-review-2</span>
-                        <span class="option invite" link="https://client-review-3-public.test-ru.tankionline.com/?config-template=https://c{server}.review-3-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-3-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-3-public.test-ru.tankionline.com/balancer">client-review-3</span>
-                    </div>
+            <div class="select" id="accselect" onclick="this.classList.toggle('open');">
+                <span class="option selected">Основной</span>
+                <div class="options">
+                    <span class="option">Основной</span>
                 </div>
-                <div class="select" id="accselect" onclick="this.classList.toggle('open');">
-                    <span class="option selected">Основной</span>
-                    <div class="options">
-                        <span class="option">Основной</span>
-                    </div>
-                </div>
-                <div class="accadd" id="accadd"></div>
-                <button id="play">В БОЙ!</button>
             </div>
-            <footer>
-                <img src="/resources/MakeTankiBetter_logo.svg" class="MTB">
-                <p><a target="_blank" class="MTB" href="/">MAKETANKIBETTER</a>Строим будущее</p>
-                <div class="social">
-                    <a target="_blank" id="vk" href="https://vk.com/maketankibetter"></a>
-                    <a target="_blank" id="youtube" href="https://www.youtube.com/@mtb_"></a>
-                    <a target="_blank" id="discord" href="https://discord.gg/ajYBuMc5"></a>
-                    <a target="_blank" id="github" href="https://github.com/maketankibetter"></a></div>
-            </footer>
-        </content>
+            <div class="accadd" id="accadd"></div>
+            <button id="play">В БОЙ!</button>
+        </div>
+        <footer>
+            <img src="/resources/MakeTankiBetter_logo.svg" class="MTB">
+            <p><a target="_blank" class="MTB" href="/">MAKETANKIBETTER</a>Строим будущее</p>
+            <div class="social">
+                <a target="_blank" id="vk" href="https://vk.com/maketankibetter"></a>
+                <a target="_blank" id="youtube" href="https://www.youtube.com/@mtb_"></a>
+                <a target="_blank" id="discord" href="https://discord.gg/ajYBuMc5"></a>
+                <a target="_blank" id="github" href="https://github.com/maketankibetter"></a></div>
+        </footer>
     </body>
 </html>
