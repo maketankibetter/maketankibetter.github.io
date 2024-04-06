@@ -7,6 +7,7 @@
         <title>Tanki Online Launcher</title>
         <link rel="shortcut icon" href="/resources/launcher.svg" type="image/png">
         <link rel="stylesheet" href="/resources/launcher.css">
+        <link rel="stylesheet" href="/resources/serverorder.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&amp;display=swap" rel="stylesheet">
@@ -75,7 +76,7 @@
             top: calc(2.25em - 1px);
             left: -1px;
             right: -1px;
-            background: #bfd5ff1a;
+            background: #0019261a;
             border: 1px solid #ffffff1a;
             border-radius: 0.5em;
             backdrop-filter: blur(3.125em);
@@ -160,8 +161,8 @@
         }
 
         .flagChooseLST{
-            top: 2.5em;
-            right: -1px;
+            top: calc(2.5em - .063em);
+            right: -.063em;
             transform: unset;
         }
 
@@ -194,6 +195,7 @@
             z-index: 11;
         }
         </style>
+        <script src="serverstatus.js"></script>
     </head>
     <body>
         <audio src="/resources/ambient.mp3" loop="" autoplay=""></audio>
@@ -277,23 +279,9 @@
         </header>
         <div class="window">
             <h1>Choose server and account</h1>
-            <div class="select" id="servselect" onclick="this.classList.toggle('open');" style="z-index: 10;">
+            <div class="select" onclick="this.classList.toggle('open');" style="z-index: 10;">
                 <span class="option selected">Main server</span>
-                <div class="options">
-                    <span class="option online" link="https://tankionline.com/play">Main server</span>
-                    <span class="option offline" link="https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer">Test Server #1</span>
-                    <span class="option invite" link="https://public-deploy2.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy2.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy2.test-eu.tankionline.com/balancer">Test Server #2</span>
-                    <span class="option offline" link="https://public-deploy3.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy3.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy3.test-eu.tankionline.com/balancer">Test Server #3</span>
-                    <span class="option offline" link="https://public-deploy4.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy4.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy4.test-eu.tankionline.com/balancer">Test Server #4</span>
-                    <span class="option offline" link="https://public-deploy5.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy5.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy5.test-eu.tankionline.com/balancer">Test Server #5</span>
-                    <span class="option offline" link="https://public-deploy6.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy6.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy6.test-eu.tankionline.com/balancer">Test Server #6</span>
-                    <span class="option offline" link="https://public-deploy7.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy7.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy7.test-eu.tankionline.com/balancer">Test Server #7</span>
-                    <span class="option offline" link="https://public-deploy8.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy8.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy8.test-eu.tankionline.com/balancer">Test Server #8</span>
-                    <span class="option offline" link="https://public-deploy9.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy9.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy9.test-eu.tankionline.com/balancer">Test Server #9</span>
-                    <span class="option offline" link="https://client-review-1-public.test-ru.tankionline.com/?config-template=https://c{server}.review-1-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-1-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-1-public.test-ru.tankionline.com/balancer">client-review-1</span>
-                    <span class="option offline" link="https://client-review-2-public.test-ru.tankionline.com/?config-template=https://c{server}.review-2-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-2-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-2-public.test-ru.tankionline.com/balancer">client-review-2</span>
-                    <span class="option invite" link="https://client-review-3-public.test-ru.tankionline.com/?config-template=https://c{server}.review-3-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-3-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-3-public.test-ru.tankionline.com/balancer">client-review-3</span>
-                </div>
+                <div class="options" id="servselect"></div>
             </div>
             <div class="select" id="accselect" onclick="this.classList.toggle('open');">
                 <span class="option selected">Main</span>

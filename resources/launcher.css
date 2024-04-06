@@ -68,7 +68,7 @@ iframe {
     width: 5em;
     border-bottom-left-radius: 0.25em;
     border-bottom-right-radius: 0.25em;
-    border: 1px solid #ffffff40;
+    border: 0.063em solid #ffffff40;
     z-index: 1;
 }
 .flagChooseLST > a:hover{background-color: #ffffff1a;}
