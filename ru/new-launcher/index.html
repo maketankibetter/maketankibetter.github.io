@@ -187,8 +187,31 @@
 
             header h1{
                 border: 0 !important;
+                margin: 0 !important;
+            }
+
+            #modal {
+                z-index: 11;
             }
         </style>
+        <script>
+            var statusII = "404";
+            var xhr = new XMLHttpRequest();
+            fetch('https://c2.public-deploy2.test-eu.tankionline.com/config.xml')
+            .then(response => {
+                if (response.ok) {
+                console.log('Страница загружена успешно. Статус код: ' + response.status);
+                } else {
+                console.log('Произошла ошибка при загрузке страницы. Статус код: ' + response.status);
+                }
+                statusII = response.status;
+                alert(statusII);
+            })
+            .catch(error => {
+                console.log('Произошла ошибка при выполнении запроса:', error);
+            });
+            alert(statusII);
+        </script>
     </head>
     <body>
         <audio src="/resources/ambient.mp3" loop="" autoplay=""></audio>
@@ -206,7 +229,7 @@
                     width: 100%;
                     height: 100%;
                     animation: 0.2s linear 1s 1 normal forwards running preloader;
-                    z-index: 11;
+                    z-index: 12;
                 }
                 .preloader img {
                     position: absolute;
@@ -265,8 +288,8 @@
             <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');">
                 <flag class="rus"></flag>
                 <div class="flagChooseLST">
-                    <a class="usa" href="/en/launcher/"></a>
-                    <a class="rus" href="/ru/launcher/"></a>
+                    <a class="usa" href="/en/new-launcher/"></a>
+                    <a class="rus" href="/ru/new-launcher/"></a>
                 </div>
             </span>
         </header>
