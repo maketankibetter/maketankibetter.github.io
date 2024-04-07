@@ -7,7 +7,7 @@
         <title>Лаунчер Танков Онлайн</title>
         <link rel="shortcut icon" href="/resources/launcher.svg" type="image/png">
         <link rel="stylesheet" href="/resources/launcher.css">
-        <link rel="stylesheet" href="/resources/serverorder.css">
+        <link rel="stylesheet" href="/resources/launcher/serverorder.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&amp;display=swap" rel="stylesheet">
@@ -34,6 +34,16 @@
                 background-color: rgba(191, 213, 255, 0.15);
                 position: relative;
                 user-select: none;
+                z-index: 0;
+            }
+
+            .window::before {
+                content: '';
+                border-radius: 0.5em;
+                position: absolute;
+                inset: 0;
+                backdrop-filter: blur(3.125em);
+                z-index: -1;
             }
             
             .window h1 {
@@ -190,6 +200,105 @@
             #modal {
                 z-index: 11;
             }
+
+            .wallpapers {
+                pointer-events: none;
+                opacity: 0.5;
+            }
+
+            .wallpaper.first {
+                animation: 30s linear 0s infinite normal forwards running wpfirst;
+                background-image: url('/resources/launcher/background_arcade_baked.png');
+            }
+
+            .wallpaper.second {
+                animation: 30s linear 0s infinite normal forwards running wpsecond;
+                background-image: url('/resources/launcher/background_classic.webp');
+            }
+
+            .wallpaper.third {
+                animation: 30s linear 0s infinite normal forwards running wpthird;
+                background-image: url('/resources/launcher/background_summer_major.jpg');
+            }
+
+            @keyframes wpfirst{
+                0%{
+                    opacity: 1;
+                    z-index: 0;
+                }
+                33.333333%{
+                    opacity: 1;
+                    z-index: 0;
+                }
+                41.666667%{
+                    opacity: 0;
+                    z-index: 0;
+                }
+                83.333333%{
+                    opacity: 0;
+                    z-index: 0;
+                }
+                91.666667%{
+                    opacity: 0;
+                    z-index: 3;
+                }
+                100%{
+                    opacity: 1;
+                    z-index: 3;
+                }
+            }
+            @keyframes wpsecond{
+                0%{
+                    opacity: 0;
+                    z-index: 1;
+                }
+                25%{
+                    opacity: 0;
+                    z-index: 1;
+                }
+                33.333333%{
+                    opacity: 1;
+                    z-index: 1;
+                }
+                66.666667%{
+                    opacity: 1;
+                    z-index: 1;
+                }
+                75%{
+                    opacity: 0;
+                    z-index: 1;
+                }
+                100%{
+                    opacity: 0;
+                    z-index: 1;
+                }
+            }
+            @keyframes wpthird{
+                0%{
+                    opacity: 0;
+                    z-index: 2;
+                }
+                58.333333%{
+                    opacity: 0;
+                    z-index: 2;
+                }
+                66.666667%{
+                    opacity: 1;
+                    z-index: 2;
+                }
+                100%{
+                    opacity: 1;
+                    z-index: 2;
+                }
+            }
+
+            .wallpaper {
+                position: fixed;
+                inset: 0;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
         </style>
         <script src="serverstatus.js"></script>
     </head>
@@ -260,6 +369,11 @@
             <img src="/resources/launcher.svg">
             <div class="progress"></div>
             <span class="loading-text">Загрузка</span>
+        </div>
+        <div class="wallpapers">
+            <div class="wallpaper first"></div>
+            <div class="wallpaper second"></div>
+            <div class="wallpaper third"></div>
         </div>
         <header>
             <a class="logo" title="Главная страница Танков Онлайн" href="https://tankionline.com/" target="_blank"></a>
