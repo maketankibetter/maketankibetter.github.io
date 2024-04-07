@@ -43,4 +43,28 @@ window.onload = (event) => {
         else {thisserver.classList.add('offline')}
         servselect.appendChild(thisserver);
     }
+
+    const audio = document.querySelector('audio#music');
+    const button = document.querySelector('button.music');
+    if (audio.paused) {
+        button.classList.toggle("muted");
+    }
+    audio.volume = 1;
+    function toggleAudio () {
+        if (audio.paused) {
+            audio.play();
+            button.classList.toggle("muted");
+        }
+        else{
+            if (audio.volume == "0") {
+                audio.volume = 1;
+                button.classList.toggle("muted");
+            } else{
+                console.log("audio.volume = 1", audio.volume);
+                audio.volume = "0";
+                button.classList.toggle("muted");
+            }
+        }
+    }
+    button.addEventListener('click', toggleAudio);
 };

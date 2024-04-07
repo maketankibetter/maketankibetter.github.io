@@ -180,25 +180,9 @@
                 border: 0;
             }
 
-            a.status {
-                border: 0;
-            }
-
-            a.status::before {
-                content: '>_';
-            }
-
-            a.status::after {
-                content: '';
-            }
-
             header h1{
                 border: 0 !important;
                 margin: 0 !important;
-            }
-
-            #modal {
-                z-index: 11;
             }
 
             .wallpapers {
@@ -300,16 +284,9 @@
                 background-position: center;
             }
         </style>
-        <script src="serverstatus.js"></script>
+        <script src="launcher.js"></script>
     </head>
     <body>
-        <audio src="/resources/ambient.mp3" loop="" autoplay=""></audio>
-        <div id="modal">
-            <div class="statuspage" id="status">
-                <a class="exit" href="#"></a>
-                <iframe src="../status/#for_embed"></iframe>
-            </div>
-        </div>
         <div class="preloader">
             <style>
                 .preloader{
@@ -377,8 +354,29 @@
         </div>
         <header>
             <a class="logo" title="Главная страница Танков Онлайн" href="https://tankionline.com/" target="_blank"></a>
-            <a class="status" title="Данные о статусе серверов" href="#status"></a>
             <h1>Лаунчер Танков Онлайн</h1>
+            <audio src="/resources/ambient.mp3" loop="" autoplay="" id="music"></audio>
+            <button class="music"></button>
+            <style>
+                button.music {
+                    position: absolute;
+                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M10.5 1.5L4.5 7.5H0.75C0.335786 7.5 0 7.83579 0 8.25V15.75C0 16.1642 0.335787 16.5 0.75 16.5H4.5L10.5 22.5V1.5Z' fill='%23bcd2ff'/%3E%3Cpath d='M22.5 12C22.5 7.02944 18.4706 3 13.5 3V1.5C19.299 1.5 24 6.20101 24 12C24 17.799 19.299 22.5 13.5 22.5V21C18.4706 21 22.5 16.9706 22.5 12Z' fill='%23bcd2ff'/%3E%3Cpath d='M13.5 7.5C15.9853 7.5 18 9.51472 18 12C18 14.4853 15.9853 16.5 13.5 16.5V18C16.8137 18 19.5 15.3137 19.5 12C19.5 8.68629 16.8137 6 13.5 6V7.5Z' fill='%23bcd2ff'/%3E%3C/svg%3E") center / 1.5em no-repeat;
+                    right: 7em;
+                    top: 1.6245em;
+                    height: 2.625em;
+                    width: 2.5em;
+                    border: 0.063em solid rgba(255, 255, 255, 0.25);
+                    border-radius: 0.25em;
+                    padding-block: 0;
+                    padding-inline: 0;
+                    box-sizing: content-box;
+                    cursor: pointer;
+                }
+                
+                button.music.muted {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4.5 7.5L10.5 1.5V22.5L4.5 16.5H0.75C0.335787 16.5 0 16.1642 0 15.75V8.25C0 7.83579 0.335786 7.5 0.75 7.5H4.5Z' fill='%23bcd2ff'/%3E%3Cpath d='M24 8.0625L22.6875 6.75L18.75 10.6875L14.8125 6.75L13.5 8.0625L17.4375 12L13.5 15.9375L14.8125 17.25L18.75 13.3125L22.6875 17.25L24 15.9375L21.375 13.3125H18.75L24 8.0625Z' fill='%23bcd2ff'/%3E%3C/svg%3E");
+                }
+            </style>
             <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');">
                 <flag class="rus"></flag>
                 <div class="flagChooseLST">

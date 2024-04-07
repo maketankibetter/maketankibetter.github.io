@@ -31,7 +31,7 @@ for (let i = 0; i < serverdata.length; i++){
 //console.log(statuses)
 
 window.onload = (event) => {
-    let servselect = document.querySelector('div#servselect');
+    const servselect = document.querySelector('div#servselect');
     for (let i = 0; i < statuses.length; i++){
         let thisserver = document.createElement("span");
         //console.log(thisserver, statuses[i][0], statuses[i][1], statuses[i][2], statuses[i][3]);
@@ -43,4 +43,28 @@ window.onload = (event) => {
         else {thisserver.classList.add('offline')}
         servselect.appendChild(thisserver);
     }
+
+    const audio = document.querySelector('audio#music');
+    const button = document.querySelector('button.music');
+    if (audio.paused) {
+        button.classList.toggle("muted");
+    }
+    audio.volume = 1;
+    function toggleAudio () {
+        if (audio.paused) {
+            audio.play();
+            button.classList.toggle("muted");
+        }
+        else{
+            if (audio.volume == "0") {
+                audio.volume = 1;
+                button.classList.toggle("muted");
+            } else{
+                console.log("audio.volume = 1", audio.volume);
+                audio.volume = "0";
+                button.classList.toggle("muted");
+            }
+        }
+    }
+    button.addEventListener('click', toggleAudio);
 };
