@@ -93,7 +93,7 @@
                 z-index: 9;
             }
             
-            .options span.option {
+            .options .option {
                 display: flex;
                 justify-content: space-between;
                 padding: 0.25em;
@@ -101,19 +101,19 @@
                 border-radius: 0.25em;
             }
             
-            .options span.option:hover {
+            .options .option:hover {
                 background: #ffffff1a;
             }
             
-            span.offline {
+            .option.offline {
                 color: #ff3333;
             }
             
-            span.invite{
+            .option.invite{
                 color: #3d96ff;
             }
             
-            span.online{
+            .option.online{
                 color: #76f633;
             }
     
@@ -180,25 +180,9 @@
                 border: 0;
             }
 
-            a.status {
-                border: 0;
-            }
-
-            a.status::before {
-                content: '>_';
-            }
-
-            a.status::after {
-                content: '';
-            }
-
             header h1{
                 border: 0 !important;
                 margin: 0 !important;
-            }
-
-            #modal {
-                z-index: 11;
             }
 
             .wallpapers {
@@ -376,7 +360,6 @@
         </div>
         <header>
             <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank"></a>
-            <a class="status" title="Data of servers" href="#status"></a>
             <h1>Tanki Online Launcher</h1>
             <audio src="/resources/ambient.mp3" loop="" autoplay="" id="music"></audio>
             <button class="music"></button>

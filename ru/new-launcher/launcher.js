@@ -33,11 +33,11 @@ for (let i = 0; i < serverdata.length; i++){
 window.onload = (event) => {
     const servselect = document.querySelector('div#servselect');
     for (let i = 0; i < statuses.length; i++){
-        let thisserver = document.createElement("span");
+        let thisserver = document.createElement("a");
         //console.log(thisserver, statuses[i][0], statuses[i][1], statuses[i][2], statuses[i][3]);
         thisserver.textContent = statuses[i][3];
         thisserver.setAttribute('id', statuses[i][1]);
-        thisserver.setAttribute('link', statuses[i][2]);
+        thisserver.setAttribute('href', statuses[i][2]);
         thisserver.classList.add('option');
         if (statuses[i][0] == 200){thisserver.classList.add('online')}
         else {thisserver.classList.add('offline')}
