@@ -31,17 +31,17 @@
                 width: 22.5em;
                 display: flex;
                 flex-direction: column;
-                background-color: rgba(191, 213, 255, 0.15);
                 position: relative;
                 user-select: none;
                 z-index: 0;
             }
 
-            .window::before {
+            .window>:not(h1)::before {
                 content: '';
                 border-radius: 0.5em;
                 position: absolute;
                 inset: 0;
+                background: rgb(191 213 255 / 7.5%);
                 backdrop-filter: blur(3.125em);
                 z-index: -1;
             }
@@ -55,7 +55,7 @@
                 height: 1.185em;
                 border: 1px solid #ffffff1a;
                 border-radius: 0.5em;
-                background: #ffffff1a;
+                background: #ffffff0d;
                 padding: 0.5em 0.5em 0.5em 0.5em;
                 color: #fff;
                 font: 400 1em 'Rubik';
@@ -137,23 +137,24 @@
                 height: 2.1835em;
                 border: 1px solid #ffffff1a;
                 border-radius: 0.5em;
-                background: #ffffff1a url("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20'%3E%3Cpath fill='%23fff' d='m8 0h4v8h8v4h-20v-4h8zm4 12v8h-4v-4z'/%3E%3C/svg%3E%0A") center / 1em no-repeat;
+                background: #ffffff0d url("data:image/svg+xml,%3Csvg version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' width='20' height='20'%3E%3Cpath fill='%23fff' d='m8 0h4v8h8v4h-20v-4h8zm4 12v8h-4v-4z'/%3E%3C/svg%3E%0A") center / 1em no-repeat;
                 cursor: pointer;
             }
             
             button#play {
                 font: 500 1em 'Rubik';
-                color: #76ff33;
+                color: #001926;
                 margin-top: 0.75em;
                 height: 3.125em;
                 border-radius: 0.5em;
-                background-color: #76ff3340;
-                border: 1px solid #76ff3380;
+                background-color: #ffffff;
+                border: 1px solid #ffffff;
                 cursor: pointer;
+                position: relative;
             }
     
             button#play:hover{
-                box-shadow: #76ff33 0 0 0 2px;
+                box-shadow: #ffffff 0 0 0 2px;
                 border: 0;
             }
     
@@ -190,19 +191,19 @@
                 opacity: 0.5;
             }
 
-            .wallpaper.first {
+            div.wallpaper.first {
                 animation: 30s linear 0s infinite normal forwards running wpfirst;
-                background-image: url('/resources/launcher/background_arcade_baked.png');
+                background-image: url('https://media.discordapp.net/attachments/1226113197006913628/1227626008589500528/png.png?ex=662916d0&is=6616a1d0&hm=efaf97ace94f424b7e425343630414289500d0b8d9131c12bef6b10d8cc58b68&=&format=webp&quality=lossless');
             }
 
-            .wallpaper.second {
+            div.wallpaper.second {
                 animation: 30s linear 0s infinite normal forwards running wpsecond;
-                background-image: url('/resources/launcher/background_classic.webp');
+                background-image: url('https://media.discordapp.net/attachments/1226113197006913628/1227622942335041536/image_1.png?ex=662913f5&is=66169ef5&hm=761df5a5344c54f4dfe34cc4e122bacadaa208c7ed1bb7e620339bd5fb010354&=&format=webp&quality=lossless');
             }
 
-            .wallpaper.third {
+            div.wallpaper.third {
                 animation: 30s linear 0s infinite normal forwards running wpthird;
-                background-image: url('/resources/launcher/background_summer_major.jpg');
+                background-image: url('https://media.discordapp.net/attachments/1226113197006913628/1227623783054184519/VEW3O50IVBM.jpg?ex=662914be&is=66169fbe&hm=ccb885f504bdfecf502a4f62579bfb71358b89b53b206c5fe81d720765a0b568&=&format=webp&quality=lossless');
             }
 
             @keyframes wpfirst{
@@ -276,7 +277,7 @@
                 }
             }
 
-            .wallpaper {
+            div.wallpaper {
                 position: fixed;
                 inset: 0;
                 background-size: cover;
@@ -362,12 +363,12 @@
             <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank"></a>
             <h1>Tanki Online Launcher</h1>
             <audio src="/resources/ambient.mp3" loop="" autoplay="" id="music"></audio>
+            <button class="wallpaper"></button>
             <button class="music"></button>
             <style>
-                button.music {
+                header button {
+                    background-color: unset;
                     position: absolute;
-                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M10.5 1.5L4.5 7.5H0.75C0.335786 7.5 0 7.83579 0 8.25V15.75C0 16.1642 0.335787 16.5 0.75 16.5H4.5L10.5 22.5V1.5Z' fill='%23bcd2ff'/%3E%3Cpath d='M22.5 12C22.5 7.02944 18.4706 3 13.5 3V1.5C19.299 1.5 24 6.20101 24 12C24 17.799 19.299 22.5 13.5 22.5V21C18.4706 21 22.5 16.9706 22.5 12Z' fill='%23bcd2ff'/%3E%3Cpath d='M13.5 7.5C15.9853 7.5 18 9.51472 18 12C18 14.4853 15.9853 16.5 13.5 16.5V18C16.8137 18 19.5 15.3137 19.5 12C19.5 8.68629 16.8137 6 13.5 6V7.5Z' fill='%23bcd2ff'/%3E%3C/svg%3E") center / 1.5em no-repeat;
-                    right: 7em;
                     top: 1.6245em;
                     height: 2.625em;
                     width: 2.5em;
@@ -379,9 +380,18 @@
                     cursor: pointer;
                     font-size: 1em;
                 }
+
+                header button.music {
+                    right: 7em;
+                    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M10.5 1.5L4.5 7.5H0.75C0.335786 7.5 0 7.83579 0 8.25V15.75C0 16.1642 0.335787 16.5 0.75 16.5H4.5L10.5 22.5V1.5Z' fill='%23bcd2ff'/%3E%3Cpath d='M22.5 12C22.5 7.02944 18.4706 3 13.5 3V1.5C19.299 1.5 24 6.20101 24 12C24 17.799 19.299 22.5 13.5 22.5V21C18.4706 21 22.5 16.9706 22.5 12Z' fill='%23bcd2ff'/%3E%3Cpath d='M13.5 7.5C15.9853 7.5 18 9.51472 18 12C18 14.4853 15.9853 16.5 13.5 16.5V18C16.8137 18 19.5 15.3137 19.5 12C19.5 8.68629 16.8137 6 13.5 6V7.5Z' fill='%23bcd2ff'/%3E%3C/svg%3E") center / 1.5em no-repeat;
+                }
                 
-                button.music.muted {
+                header button.music.muted {
                     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4.5 7.5L10.5 1.5V22.5L4.5 16.5H0.75C0.335787 16.5 0 16.1642 0 15.75V8.25C0 7.83579 0.335786 7.5 0.75 7.5H4.5Z' fill='%23bcd2ff'/%3E%3Cpath d='M24 8.0625L22.6875 6.75L18.75 10.6875L14.8125 6.75L13.5 8.0625L17.4375 12L13.5 15.9375L14.8125 17.25L18.75 13.3125L22.6875 17.25L24 15.9375L21.375 13.3125H18.75L24 8.0625Z' fill='%23bcd2ff'/%3E%3C/svg%3E");
+                }
+
+                button.wallpaper {
+                    right: 10.25em;
                 }
             </style>
             <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');">
@@ -394,9 +404,9 @@
         </header>
         <div class="window">
             <h1>Choose server and account</h1>
-            <div class="select" onclick="this.classList.toggle('open');" style="z-index: 10;">
+            <div class="select" onclick="this.classList.toggle('open');">
                 <span class="option selected">Server</span>
-                <div class="options" id="servselect"></div>
+                <div class="options" id="servselect" style="z-index: 10;"></div>
             </div>
             <div class="select" onclick="this.classList.toggle('open');">
                 <span class="option selected">Main</span>
