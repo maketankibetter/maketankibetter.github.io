@@ -158,7 +158,24 @@
                 border: 0;
             }
     
-            .flags.open{
+            .flags {
+                border-width: 1px;
+            }
+
+            .flags:before, .flagChooseLST:before{
+                content: '';
+                position: absolute;
+                inset: 0;
+                backdrop-filter: blur(3.125em);
+                z-index: 0;
+                pointer-events: none;
+            }
+
+            flag{
+                z-index: 1;
+            }
+    
+            .flags.open {
                 background: #ffffff1a;
                 border-radius: 0.25em 0.25em 0 0;
             }
@@ -167,10 +184,15 @@
                 display: flex;
             }
     
-            .flagChooseLST{
-                top: calc(2.5em - .063em);
-                right: -.063em;
+            .flagChooseLST {
+                top: 2.5em;
+                right: -1px;
                 transform: unset;
+                width: 100%;
+                box-sizing: content-box;
+                border-width: 1px;
+                border-top: 0;
+                background: 0;
             }
 
             .logo {
