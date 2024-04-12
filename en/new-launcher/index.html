@@ -82,7 +82,7 @@
             
             .options {
                 display: none;
-                flex-flow: column wrap;
+                flex-flow: column nowrap;
                 position: absolute;
                 top: calc(2.25em - 1px);
                 left: -1px;
@@ -92,8 +92,24 @@
                 border-radius: 0.5em;
                 backdrop-filter: blur(3.125em);
                 z-index: 9;
+                max-height: 20em;
+                overflow-y: auto;
             }
-            
+            .options::-webkit-scrollbar {
+                width: 0.5em;
+                height: auto;
+                display: flex;
+            }
+            .options::-webkit-scrollbar-thumb {
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 0.5em;
+            }
+            .options::-webkit-scrollbar-track {
+                background: none;
+                background-size: 0.063em 0.25em;
+                background-clip: content-box;
+            }
+                        
             .options .option {
                 display: flex;
                 justify-content: space-between;
