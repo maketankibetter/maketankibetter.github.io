@@ -197,7 +197,7 @@
             }
 
             flag{
-                z-index: 1;
+                z-index: 0;
             }
     
             .flags.open {
@@ -352,7 +352,8 @@
                 flex-flow: column wrap;
                 padding: 1em 1em 2px;
                 gap: 1em;
-                position: fixed;
+                height: calc(100vh - 14em);
+                position: absolute;
                 inset: 6em;
                 border-radius: 0.5em;
                 border: 1px solid #ffffff40;
@@ -365,6 +366,7 @@
                 position: fixed;
                 inset: 0;
                 background: #00000080;
+                z-index: -1;
             }
 
             div.open.wpchoose{
