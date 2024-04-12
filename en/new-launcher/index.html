@@ -101,11 +101,17 @@
                 height: 2em;
                 margin: 1em;
             }
+
             .options::-webkit-scrollbar-thumb, div.wpchoose::-webkit-scrollbar-thumb {
                 background: #fff3 content-box;
                 border: 0.75em solid #0000;
                 border-radius: 1.5em;
             }
+
+            .options::-webkit-scrollbar-thumb:hover, div.wpchoose::-webkit-scrollbar-thumb:hover {
+                background-color: #ffffff40;
+            }
+
             .options::-webkit-scrollbar-track, div.wpchoose::-webkit-scrollbar-track {
                 background: none;
             }
@@ -351,8 +357,14 @@
                 border-radius: 0.5em;
                 border: 1px solid #ffffff40;
                 background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
-                box-shadow: 0 0 0 7em #00000080;
                 overflow-y: hidden;
+            }
+
+            div.wpchoose::before{
+                content: '';
+                position: fixed;
+                inset: 0;
+                background: #00000080;
             }
 
             div.open.wpchoose{
@@ -373,6 +385,7 @@
             .wpvariant>img {
                 height: 100%;
                 width: 100%;
+                object-fit: cover;
             }
 
             .wpvariant:after{
@@ -489,7 +502,7 @@
                     <button class="wptv">Фото</button>
                     <button class="wptv active">Слайдшоу</button>
                     <button class="wpup"></button>
-                    <button class="wpclose">Закрыть</button>
+                    <button class="wpclose" onclick="const wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')">Закрыть</button>
                 </div>
                 <div class="wpvariant disabled"><img src="/resources/launcher/background_arcade_baked.png"></div>
                 <div class="wpvariant disabled"><img src="/resources/launcher/background_classic.webp"></div>
