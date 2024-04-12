@@ -95,19 +95,19 @@
                 max-height: 20em;
                 overflow-y: auto;
             }
-            .options::-webkit-scrollbar {
-                width: 0.5em;
-                height: auto;
-                display: flex;
+
+            .options::-webkit-scrollbar, div.wpchoose::-webkit-scrollbar {
+                width: 2em;
+                height: 2em;
+                margin: 1em;
             }
-            .options::-webkit-scrollbar-thumb {
-                background: rgba(255, 255, 255, 0.2);
-                border-radius: 0.5em;
+            .options::-webkit-scrollbar-thumb, div.wpchoose::-webkit-scrollbar-thumb {
+                background: #fff3 content-box;
+                border: 0.75em solid #0000;
+                border-radius: 1.5em;
             }
-            .options::-webkit-scrollbar-track {
+            .options::-webkit-scrollbar-track, div.wpchoose::-webkit-scrollbar-track {
                 background: none;
-                background-size: 0.063em 0.25em;
-                background-clip: content-box;
             }
                         
             .options .option {
@@ -340,6 +340,141 @@
                 background: #fff;
                 outline: 0;
             }
+
+            div.wpchoose {
+                display: none;
+                flex-flow: column wrap;
+                padding: 1em 1em 2px;
+                gap: 1em;
+                position: fixed;
+                inset: 6em;
+                border-radius: 0.5em;
+                border: 1px solid #ffffff40;
+                background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
+                box-shadow: 0 0 0 7em #00000080;
+                overflow-y: hidden;
+            }
+
+            div.open.wpchoose{
+                display: flex;
+            }
+
+            .wpvariant {
+                aspect-ratio: 16/9;
+                height: calc((100% - 5em) / 2);
+                width: fit-content;
+                border-radius: 0.5em;
+                box-shadow: #ffffff40 0 0 0 1px;
+                overflow: hidden;
+                cursor: pointer;
+                position: relative;
+            }
+
+            .wpvariant>img {
+                height: 100%;
+                width: 100%;
+            }
+
+            .wpvariant:after{
+                content: '';
+                pointer-events: none;
+                position: absolute;
+                inset: 0;
+            }
+
+            .wpvariant.disabled:after{
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 0L24 3L12 15L3 24L0 21L9 12L0 3L3 0L12 9L21 0ZM12 15H18L24 21L21 24L12 15Z' fill='%23f33'/%3E%3C/svg%3E") calc(100% - 1.5em) calc(100% - 1.5em) / 1.5em no-repeat;
+            }
+
+            .wpvariant.enabled:after{
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 20.607L29 22.3212V35.9999L22 31.9999V37.6787L32 43.3929L42 37.6787V31.9999L35 35.9999V22.3212L32 20.607ZM46 25.7409C46 24.6643 45.4231 23.6703 44.4884 23.1362L33.4884 16.8505C32.5661 16.3234 31.4339 16.3234 30.5116 16.8505L19.5116 23.1362C18.5769 23.6703 18 24.6643 18 25.7409V38.259C18 39.3356 18.5769 40.3296 19.5116 40.8637L30.5116 47.1494C31.4339 47.6765 32.5661 47.6765 33.4884 47.1494L44.4884 40.8637C45.4231 40.3296 46 39.3356 46 38.259V25.7409Z' fill='%2376FF33'/%3E%3C/svg%3E") 100% 100% / 4em no-repeat;
+            }
+
+            .wpvariant:hover, .wpvariant:focus-visible {box-shadow: #ffffff 0 0 0 2px;}
+
+            .wpvariant:nth-child(2n) {
+                margin-top: 4em;
+            }
+
+            div.wpchoose .wptablo {
+                display: flex;
+                justify-content: center;
+                gap: 1em;
+                position: fixed;
+                top: 6em;
+                left: 6em;
+                right: 6em;
+                width: calc(100% - 12em);
+                height: 4em;
+                border-bottom: 1px solid #ffffff1a;
+            }
+
+            div.wpchoose .wptablo button.wptv {
+                background: 0;
+                border: 0;
+                color: #ffffff;
+                font: 400 1em 'Rubik';
+                text-transform: uppercase;
+                padding: 0;
+                cursor: pointer;
+            }
+
+            div.wpchoose .wptablo button.active {
+                color: #76f633;
+                position: relative;
+                overflow: hidden;
+                height: calc(100% + 1px);
+            }
+
+            div.wpchoose .wptablo button.active:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                background: #76f633;
+                bottom: 0;
+                box-shadow: rgb(118, 255, 51) 0em 0em 0.375em;
+                filter: drop-shadow(rgb(118, 255, 51) 0em 0em 0.375em);
+            }
+
+            div.wpchoose button.wpup {
+                position: absolute;
+                font-size: 1em;
+                top: 1em;
+                left: 1em;
+                width: 2.25em;
+                height: 2.25em;
+                border: 0;
+                border-radius: 0.5em;
+                background: #bfd5ff40 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.0607 7.93934C22.6464 8.52513 22.6464 9.47487 22.0607 10.0607L13.0607 19.0607C12.4749 19.6464 11.5251 19.6464 10.9393 19.0607L1.93934 10.0607C1.35355 9.47487 1.35355 8.52513 1.93934 7.93934C2.52513 7.35355 3.47487 7.35355 4.06066 7.93934L10.5 14.3787L10.5 1.5C10.5 0.671572 11.1716 -4.95181e-07 12 -4.5897e-07C12.8284 -4.22758e-07 13.5 0.671572 13.5 1.5L13.5 14.3787L19.9393 7.93934C20.5251 7.35355 21.4749 7.35355 22.0607 7.93934Z' fill='%23bfd5ff' style='&%2310; transform: rotate(180deg);&%2310; transform-origin: center 9.75px;&%2310;'/%3E%3Crect y='21' width='24' height='3' rx='1.5' fill='%23bfd5ff'/%3E%3C/svg%3E") center / 1em no-repeat;
+                box-shadow: #bfd5ff80 0 0 0 1px;
+                cursor: pointer;
+            }
+
+            div.wpchoose button.wpup:hover {
+                box-shadow: #bfd5ff 0 0 0 2px;
+            }
+
+            div.wpchoose button.wpclose {
+                position: absolute;
+                top: 0.75em;
+                right: 0.75em;
+                width: fit-content;
+                height: 2em;
+                padding: 0 1em;
+                border: 0;
+                border-radius: 0.5em;
+                background: #f33;
+                color: #fff;
+                font: 400 1.2em 'Rubik';
+                text-transform: uppercase;
+                cursor: pointer;
+                box-shadow: #f33 0 0 0 1px;
+            }
+
+            div.wpchoose button.wpclose:hover{
+                box-shadow: #f33 0 0 0 2px;
+            }
         </style>
         <script src="launcher.js"></script>
     </head>
@@ -348,6 +483,20 @@
             <div class="statuspage" id="status">
                 <a class="exit" href="#"></a>
                 <iframe src="../status/#for_embed"></iframe>
+            </div>
+            <div class="wpchoose" id="wpchoose">
+                <div class="wptablo">
+                    <button class="wptv">Фото</button>
+                    <button class="wptv active">Слайдшоу</button>
+                    <button class="wpup"></button>
+                    <button class="wpclose">Закрыть</button>
+                </div>
+                <div class="wpvariant disabled"><img src="/resources/launcher/background_arcade_baked.png"></div>
+                <div class="wpvariant disabled"><img src="/resources/launcher/background_classic.webp"></div>
+                <div class="wpvariant disabled"><img src="/resources/launcher/background_summer_major.jpg"></div>
+                <div class="wpvariant enabled"><img src="https://media.discordapp.net/attachments/1226113197006913628/1227626008589500528/png.png?ex=662916d0&is=6616a1d0&hm=efaf97ace94f424b7e425343630414289500d0b8d9131c12bef6b10d8cc58b68&=&format=webp&quality=lossless"></div>
+                <div class="wpvariant enabled"><img src="https://media.discordapp.net/attachments/1226113197006913628/1227622942335041536/image_1.png?ex=662913f5&is=66169ef5&hm=761df5a5344c54f4dfe34cc4e122bacadaa208c7ed1bb7e620339bd5fb010354&=&format=webp&quality=lossless"></div>
+                <div class="wpvariant enabled"><img src="https://media.discordapp.net/attachments/1226113197006913628/1227623783054184519/VEW3O50IVBM.jpg?ex=662914be&is=66169fbe&hm=ccb885f504bdfecf502a4f62579bfb71358b89b53b206c5fe81d720765a0b568&=&format=webp&quality=lossless"></div>
             </div>
         </div>
         <div class="preloader">
@@ -419,7 +568,7 @@
             <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
             <h1>Tanki Online Launcher</h1>
             <audio src="/resources/ambient.mp3" loop="" autoplay="" id="music"></audio>
-            <button class="wallpaper" tabindex="2"></button>
+            <button class="wallpaper" tabindex="2" onclick="const wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
             <button class="music" tabindex="3"></button>
             <style>
                 header button {
