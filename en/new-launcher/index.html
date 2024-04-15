@@ -17,11 +17,13 @@
                 place-content: space-between;
                 font-size: max(min(1.48148vh, 1vw), 3px);
             }
+
             @media (orientation:portrait) {
                 body{
                     font-size: max(min(1.77778vh, 1vw) * 1.25, 3px);
                 }
             }
+
             .window {
                 margin: auto;
                 padding: 1em;
@@ -107,13 +109,9 @@
                 border-radius: 1.5em;
             }
 
-            .options::-webkit-scrollbar-thumb:hover, div.wpchoose::-webkit-scrollbar-thumb:hover {
-                background-color: #ffffff40;
-            }
+            .options::-webkit-scrollbar-thumb:hover, div.wpchoose::-webkit-scrollbar-thumb:hover {background-color: #ffffff40;}
 
-            .options::-webkit-scrollbar-track, div.wpchoose::-webkit-scrollbar-track {
-                background: none;
-            }
+            .options::-webkit-scrollbar-track, div.wpchoose::-webkit-scrollbar-track {background: none;}
                         
             .options .option {
                 display: flex;
@@ -123,37 +121,21 @@
                 border-radius: .25em;
             }
                         
-            .options .option:first-child {
-                margin-top: .25em;
-            }
+            .options .option:first-child {margin-top: .25em;}
                         
-            .options .option:last-child {
-                margin-bottom: .25em;
-            }
+            .options .option:last-child {margin-bottom: .25em;}
             
-            .options .option:hover {
-                background: #ffffff1a;
-            }
+            .options .option:hover {background: #ffffff1a;}
             
-            .option.offline {
-                color: #ff3333;
-            }
+            .option.offline {color: #ff3333;}
             
-            .option.invite{
-                color: #3d96ff;
-            }
+            .option.invite{color: #3d96ff;}
             
-            .option.online{
-                color: #76f633;
-            }
+            .option.online{color: #76f633;}
     
-            .select.open>.options {
-                display: flex;
-            }
+            .select.open>.options {display: flex;}
             
-            div.select:nth-of-type(2) {
-                width: calc(100% - 4em);
-            }
+            div.select:nth-of-type(2) {width: calc(100% - 4em);}
 
             #accselect>:first-child{margin-top: .25em;}
 
@@ -191,6 +173,23 @@
     
             .flags {
                 border-width: 1px;
+                flex-flow: column nowrap;
+                min-height: 2.625em;
+                height: fit-content;
+                border-radius: 0.25em !important;
+            }
+
+            .flags:after {
+                position: absolute;
+                right: 0.7em;
+                top: 0.9375em;
+            }
+
+            .flags > flag {
+                position: absolute;
+                left: 0.7em;
+                top: 0.3125em;
+                z-index: 0;
             }
 
             .flags:hover{
@@ -207,38 +206,29 @@
                 pointer-events: none;
                 border-radius: 0.26em;
             }
-
-            flag{
-                z-index: 0;
-            }
     
-            .flags.open {
-                background: #ffffff1a;
-                border-radius: 0.25em 0.25em 0 0;
-            }
-    
-            .flags.open>.flagChooseLST{
-                display: flex;
-            }
+            .flags.open>.flagChooseLST{display: flex;}
     
             .flagChooseLST {
-                top: 2.5em;
-                right: -1px;
+                position: initial;
                 transform: unset;
-                width: 100%;
+                width: 4.847em;
                 box-sizing: content-box;
-                border-width: 1px;
-                border-top: 0;
+                border: unset;
+                border-top: 0.063em solid #ffffff40;
+                margin-top: 2.625em;
                 background: 0;
             }
 
-            .logo {
-                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none'%3E%3Cpath d='M59.51 30.98L52.4394 45.1213L50.5196 43.9215L54.6438 27.4246L59.51 30.98Z' fill='white'/%3E%3Cpath d='M52.59 47.8687C52.7746 47.9841 52.944 48.1178 53.0963 48.2666C53.3283 48.4933 53.5209 48.755 53.6678 49.0406C53.859 49.4124 53.9729 49.8247 53.9957 50.2527C53.9986 50.3058 54 50.3592 54 50.4127V51.775C53.9977 52.1077 53.647 52.3233 53.3488 52.1742L45.0002 48.0001L44.9998 45.7498C44.9998 45.3417 45.3258 45.0097 45.7316 45H47.1396C47.7019 45 48.2528 45.158 48.7296 45.456L52.59 47.8687Z' fill='white'/%3E%3Cpath d='M39.2535 45.1267L41.4954 43.6319C42.3579 43.0569 43.3712 42.75 44.4078 42.75H47.1396C47.8097 42.75 48.4705 42.8782 49.0875 43.1247L50.9239 24.7615C48.8966 23.6282 46.372 23.7599 44.4604 25.1566L26.4828 38.2917C24.3721 39.8338 23.489 42.5672 24.2951 45.0624L31.162 66.3154C31.9682 68.8106 34.2804 70.5 36.8893 70.5H59.1107C61.7196 70.5 64.0318 68.8106 64.838 66.3154L70.2395 49.5978L58.5 50.25L71.6855 45.1223L71.7048 45.0624C72.3039 43.2083 71.9702 41.2225 70.8931 39.6918L56.048 48.97C56.1804 49.4333 56.25 49.9183 56.25 50.4127V51.75H56.8261C57.2838 51.75 57.7355 51.8548 58.1465 52.0562L61.7768 53.8358C64.1207 54.9847 65.2644 57.6813 64.4613 60.165L62.8545 65.1344C62.254 66.9917 60.5247 68.25 58.5728 68.25H54.5435C53.9139 68.25 53.2894 68.1368 52.6999 67.9157L47.5919 66H45.4662C44.506 67.3783 42.9138 68.25 41.1572 68.25H36.8819C35.2548 68.25 33.8133 67.2007 33.3133 65.6523L30.4609 56.8191C29.9974 55.3834 30.672 53.8268 32.0367 53.1835L36.75 50.9619V48L27.4357 43.7011C27.1701 43.5785 27 43.3127 27 43.0201V40.9635C27 40.6794 27.1605 40.4197 27.4146 40.2927L28.1646 39.9177C28.3757 39.8121 28.6243 39.8121 28.8354 39.9177L39.2535 45.1267Z' fill='white'/%3E%3Cpath d='M39 51L39.0004 51.5901C39.0005 51.7053 39.0665 51.8103 39.1703 51.8603L39.5101 52.0237C40.0994 52.3073 40.4371 52.94 40.3446 53.5875L39.1414 62.01C39.0496 62.6526 38.7519 63.2481 38.2928 63.7071L36.3839 65.6159C36.2986 65.7012 36.301 65.823 36.3602 65.9064C36.5239 65.9672 36.7 66 36.8819 66H41.1572C41.6048 66 42.0337 65.901 42.4202 65.7214C43.2225 65.3486 43.8422 64.629 44.0676 63.7277L45.8703 56.5183C46.221 55.0698 45.4545 53.5816 44.0686 53.0273L39 51Z' fill='white'/%3E%3Cpath d='M55.512 66H58.5728C59.5487 66 60.4134 65.3708 60.7137 64.4422L62.3204 59.4728C62.7794 58.0535 62.1258 56.5126 60.7864 55.8561L57.1562 54.0766C57.1062 54.0521 57.0538 54.0333 57 54.0205V54.5644C57 54.678 57.0642 54.7819 57.1658 54.8327L57.3364 54.918C58.0041 55.2519 58.3247 56.0258 58.0886 56.734L55.612 64.1639C55.5383 64.3848 55.4143 64.5855 55.2496 64.7502L54.3841 65.6157C54.2424 65.7575 54.3427 65.9998 54.5432 65.9998H55.5L55.512 66Z' fill='white'/%3E%3Cpath d='M54.5921 46.5839C54.8964 46.8693 55.1638 47.1885 55.3901 47.5336L67.5745 36.8723L64.9374 34.9455L54.5921 46.5839Z' fill='white'/%3E%3Cpath d='M48.0001 54L54.1373 56.4549C54.8947 56.7578 55.2711 57.6105 54.9847 58.3743L53.6151 62.0267C53.3955 62.6121 52.8358 63 52.2106 63H46.5001L48.0001 57C48.2463 56.0151 48.2463 54.9848 48.0001 54Z' fill='white'/%3E%3C/svg%3E") center / cover no-repeat;
+            .flagChooseLST::before {
+                content: unset;
             }
 
-            header {
-                border: 0;
+            .flagChooseLST > a::after {
+                content: unset !important;
             }
+
+            header {border: 0;}
 
             header h1{
                 border: 0 !important;
@@ -270,18 +260,22 @@
                     opacity: 1;
                     z-index: 0;
                 }
+
                 33.333333%{
                     opacity: 1;
                     z-index: 0;
                 }
+
                 41.666667%{
                     opacity: 0;
                     z-index: 0;
                 }
+
                 83.333333%{
                     opacity: 0;
                     z-index: 0;
                 }
+
                 91.666667%{
                     opacity: 0;
                     z-index: 3;
@@ -291,45 +285,55 @@
                     z-index: 3;
                 }
             }
+
             @keyframes wpsecond{
                 0%{
                     opacity: 0;
                     z-index: 1;
                 }
+
                 25%{
                     opacity: 0;
                     z-index: 1;
                 }
+
                 33.333333%{
                     opacity: 1;
                     z-index: 1;
                 }
+
                 66.666667%{
                     opacity: 1;
                     z-index: 1;
                 }
+
                 75%{
                     opacity: 0;
                     z-index: 1;
                 }
+
                 100%{
                     opacity: 0;
                     z-index: 1;
                 }
             }
+
             @keyframes wpthird{
                 0%{
                     opacity: 0;
                     z-index: 2;
                 }
+
                 58.333333%{
                     opacity: 0;
                     z-index: 2;
                 }
+
                 66.666667%{
                     opacity: 1;
                     z-index: 2;
                 }
+
                 100%{
                     opacity: 1;
                     z-index: 2;
@@ -344,9 +348,21 @@
                 background-position: center;
             }
 
-            footer .social a{
-                filter: unset;
+            img.MTB {
+                width: 0;
+                height: 0;
+                padding: 1.5em;
+                background: url("/resources/MakeTankiBetter_logo.svg") center / 3.25em no-repeat;
+                border-radius: 0;
             }
+
+            a.MTB {
+                line-height: 1.2;
+            }
+
+            p {line-height: 1;}
+
+            footer .social a{filter: unset;}
 
             a.logo:focus-visible, footer .social a:focus-visible {
                 outline: 0;
@@ -381,9 +397,7 @@
                 z-index: -1;
             }
 
-            div.open.wpchoose{
-                display: flex;
-            }
+            div.open.wpchoose{display: flex;}
 
             .wpvariant {
                 aspect-ratio: 16/9;
@@ -409,19 +423,13 @@
                 inset: 0;
             }
 
-            .wpvariant.disabled:after{
-                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 0L24 3L12 15L3 24L0 21L9 12L0 3L3 0L12 9L21 0ZM12 15H18L24 21L21 24L12 15Z' fill='%23f33'/%3E%3C/svg%3E") calc(100% - 1.5em) calc(100% - 1.5em) / 1.5em no-repeat;
-            }
+            .wpvariant.disabled:after{background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 0L24 3L12 15L3 24L0 21L9 12L0 3L3 0L12 9L21 0ZM12 15H18L24 21L21 24L12 15Z' fill='%23f33'/%3E%3C/svg%3E") calc(100% - 1.5em) calc(100% - 1.5em) / 1.5em no-repeat;}
 
-            .wpvariant.enabled:after{
-                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 20.607L29 22.3212V35.9999L22 31.9999V37.6787L32 43.3929L42 37.6787V31.9999L35 35.9999V22.3212L32 20.607ZM46 25.7409C46 24.6643 45.4231 23.6703 44.4884 23.1362L33.4884 16.8505C32.5661 16.3234 31.4339 16.3234 30.5116 16.8505L19.5116 23.1362C18.5769 23.6703 18 24.6643 18 25.7409V38.259C18 39.3356 18.5769 40.3296 19.5116 40.8637L30.5116 47.1494C31.4339 47.6765 32.5661 47.6765 33.4884 47.1494L44.4884 40.8637C45.4231 40.3296 46 39.3356 46 38.259V25.7409Z' fill='%2376FF33'/%3E%3C/svg%3E") 100% 100% / 4em no-repeat;
-            }
+            .wpvariant.enabled:after{background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 20.607L29 22.3212V35.9999L22 31.9999V37.6787L32 43.3929L42 37.6787V31.9999L35 35.9999V22.3212L32 20.607ZM46 25.7409C46 24.6643 45.4231 23.6703 44.4884 23.1362L33.4884 16.8505C32.5661 16.3234 31.4339 16.3234 30.5116 16.8505L19.5116 23.1362C18.5769 23.6703 18 24.6643 18 25.7409V38.259C18 39.3356 18.5769 40.3296 19.5116 40.8637L30.5116 47.1494C31.4339 47.6765 32.5661 47.6765 33.4884 47.1494L44.4884 40.8637C45.4231 40.3296 46 39.3356 46 38.259V25.7409Z' fill='%2376FF33'/%3E%3C/svg%3E") 100% 100% / 4em no-repeat;}
 
             .wpvariant:hover, .wpvariant:focus-visible {box-shadow: #ffffff 0 0 0 2px;}
 
-            .wpvariant:nth-child(2n) {
-                margin-top: 4em;
-            }
+            .wpvariant:nth-child(2n) {margin-top: 4em;}
 
             div.wpchoose .wptablo {
                 display: flex;
@@ -478,9 +486,7 @@
                 cursor: pointer;
             }
 
-            div.wpchoose button.wpup:hover {
-                box-shadow: #bfd5ff 0 0 0 2px;
-            }
+            div.wpchoose button.wpup:hover {box-shadow: #bfd5ff 0 0 0 2px;}
 
             div.wpchoose button.wpclose {
                 position: absolute;
@@ -491,17 +497,14 @@
                 padding: 0 1em;
                 border: 0;
                 border-radius: 0.5em;
-                background: #f33;
+                background: #eb5757;
                 color: #fff;
                 font: 400 1.2em 'Rubik';
                 text-transform: uppercase;
                 cursor: pointer;
-                box-shadow: #f33 0 0 0 1px;
             }
 
-            div.wpchoose button.wpclose:hover{
-                box-shadow: #f33 0 0 0 2px;
-            }
+            div.wpchoose button.wpclose:hover{background: #ee8484;}
         </style>
         <script src="launcher.js"></script>
     </head>
@@ -516,7 +519,7 @@
                     <button class="wptv">Фото</button>
                     <button class="wptv active">Слайдшоу</button>
                     <button class="wpup"></button>
-                    <button class="wpclose" onclick="const wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')">Закрыть</button>
+                    <button class="wpclose" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')">Закрыть</button>
                 </div>
                 <div class="wpvariant disabled"><img src="/resources/launcher/background_arcade_baked.png"></div>
                 <div class="wpvariant disabled"><img src="/resources/launcher/background_classic.webp"></div>
@@ -595,7 +598,7 @@
             <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
             <h1>Tanki Online Launcher</h1>
             <audio src="/resources/ambient.mp3" loop="" autoplay="" id="music"></audio>
-            <button class="wallpaper" tabindex="2" onclick="const wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
+            <button class="wallpaper" tabindex="2" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
             <button class="music" tabindex="3"></button>
             <style>
                 header button {

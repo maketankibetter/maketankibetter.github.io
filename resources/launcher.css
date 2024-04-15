@@ -196,7 +196,7 @@ header{
     width: 6em;
     height: 6em;
     cursor: pointer;
-    background: url('/resources/icoTankiOnline.svg') center / 8em;
+    background: url('/resources/icoTankiOnline.svg') center / 6em;
 }
 .status {
     display: flex;
@@ -343,6 +343,7 @@ img.MTB {
     border-radius: 50%;
     user-select: none;
     -moz-user-select: none;
+    pointer-events: none;
 }
 p {
     display: flex;
