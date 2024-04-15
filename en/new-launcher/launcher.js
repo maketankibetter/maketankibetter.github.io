@@ -32,20 +32,21 @@ for (let i = 0; i < serverdata.length; i++){
         let thisserverdata = [servstatus, serverdata[i][1], serverdata[i][2], serverdata[i][3]];
         statuses.push(thisserverdata)
     });
-    //console.log(i, serverdata[i][0])
 }
-//console.log(statuses)
 
 window.onload = (event) => {
     let servselect = document.querySelector('div#servselect');
     for (let i = 0; i < statuses.length; i++){
         let thisserver = document.createElement("a");
-        //console.log(thisserver, statuses[i][0], statuses[i][1], statuses[i][2], statuses[i][3]);
-        thisserver.textContent = statuses[i][3];
-        thisserver.setAttribute('id', statuses[i][1]);
-        thisserver.setAttribute('href', statuses[i][2]);
+        thisserver.textContent = serverdata[i][3];
+        thisserver.setAttribute('id', serverdata[i][1]);
+        thisserver.setAttribute('href', serverdata[i][2]);
         thisserver.classList.add('option');
-        if (statuses[i][0] == 200){thisserver.classList.add('online')}
+        let jndex = 0;
+        for (let j = 0; serverdata[i][1] != statuses[j][1]; j+=1){
+            jndex+=1;
+        };
+        if (statuses[jndex][0] == 200){thisserver.classList.add('online')}
         else {thisserver.classList.add('offline')}
         servselect.appendChild(thisserver);
     }

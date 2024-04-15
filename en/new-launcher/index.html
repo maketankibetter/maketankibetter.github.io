@@ -7,7 +7,6 @@
         <title>Tanki Online Launcher</title>
         <link rel="shortcut icon" href="/resources/launcher.svg" type="image/png">
         <link rel="stylesheet" href="/resources/launcher.css">
-        <link rel="stylesheet" href="/resources/launcher/serverorder.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
         <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&amp;display=swap" rel="stylesheet">
@@ -119,9 +118,17 @@
             .options .option {
                 display: flex;
                 justify-content: space-between;
-                padding: 0.25em;
+                padding: .25em .25em;
                 margin: 0 .25em;
-                border-radius: 0.25em;
+                border-radius: .25em;
+            }
+                        
+            .options .option:first-child {
+                margin-top: .25em;
+            }
+                        
+            .options .option:last-child {
+                margin-bottom: .25em;
             }
             
             .options .option:hover {
@@ -165,25 +172,30 @@
             }
             
             button#play {
-                font: 500 1em 'Rubik';
+                font: 700 1em 'Rubik';
                 color: #001926;
                 margin-top: 0.75em;
-                height: 3.125em;
+                height: 3em;
                 border-radius: 0.5em;
                 background-color: #ffffff;
-                border: 1px solid #ffffff;
+                border: 1px solid #bfd5ff80;
                 cursor: pointer;
                 position: relative;
                 outline: 0 !important;
             }
     
             button#play:hover, button#play:focus-visible{
-                box-shadow: #ffffff 0 0 0 2px;
-                border: 0;
+                background-color: #76f633;
+                border-color: #76f63380;
             }
     
             .flags {
                 border-width: 1px;
+            }
+
+            .flags:hover{
+                box-shadow: #ffffff 0 0 0 2px;
+                background: none;
             }
 
             .flags:before, .flagChooseLST:before{
@@ -604,7 +616,8 @@
                 }
 
                 header button:hover, header button:focus-visible, span.flags:focus-visible{
-                    background-color: #ffffff1a;
+                    box-shadow: #ffffff 0 0 0 2px;
+                    background: none;
                     outline: 0;
                 }
 
