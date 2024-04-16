@@ -35,19 +35,26 @@ for (let i = 0; i < serverdata.length; i++){
 }
 
 window.onload = (event) => {
-    let servselect = document.querySelector('div#servselect');
+    const servselect = document.querySelector('div#servselect');
     for (let i = 0; i < statuses.length; i++){
-        let thisserver = document.createElement("a");
+        let thisserver = document.createElement("span");
         thisserver.textContent = serverdata[i][3];
         thisserver.setAttribute('id', serverdata[i][1]);
-        thisserver.setAttribute('href', serverdata[i][2]);
+        thisserver.setAttribute('link', serverdata[i][2]);
+        thisserver.setAttribute('i', i);
         thisserver.classList.add('option');
         let jndex = 0;
         for (let j = 0; serverdata[i][1] != statuses[j][1]; j+=1){
             jndex+=1;
         };
-        if (statuses[jndex][0] == 200){thisserver.classList.add('online')}
-        else {thisserver.classList.add('offline')}
+        if (statuses[jndex][0] == 200){
+            thisserver.classList.add('online');
+            thisserver.setAttribute('status', 'online');
+        }
+        else {
+            thisserver.classList.add('offline');
+            thisserver.setAttribute('status', 'offline');
+        }
         servselect.appendChild(thisserver);
     }
 
@@ -74,4 +81,20 @@ window.onload = (event) => {
         }
     }
     button.addEventListener('click', toggleAudio);
+
+    const serveri = servselect.querySelectorAll('span');
+    const fight = document.querySelector('a#play');
+    const servselecttext = document.querySelector('div.select:nth-of-type(1)>span.selected');
+    serveri.forEach(serveris => {
+        serveris.addEventListener('click', () => {
+            const id = serveris.getAttribute('id');
+            const index = serveris.getAttribute('i');
+            const statusis = serveris.getAttribute('status');
+            fight.setAttribute('href', serverdata[index][2]);
+            servselecttext.textContent = serverdata[index][3];
+            servselecttext.classList.remove("online");
+            servselecttext.classList.remove("offline");
+            servselecttext.classList.add(statusis);
+        });
+    });
 };
