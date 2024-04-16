@@ -89,12 +89,12 @@ window.onload = (event) => {
         serveris.addEventListener('click', () => {
             const id = serveris.getAttribute('id');
             const index = serveris.getAttribute('i');
-            const statusis = serveris.getAttribute('status');
+            const statuss = serveris.getAttribute('status');
             fight.setAttribute('href', serverdata[index][2]);
             servselecttext.textContent = serverdata[index][3];
             servselecttext.classList.remove("online");
             servselecttext.classList.remove("offline");
-            servselecttext.classList.add(statusis);
+            servselecttext.classList.add(statuss);
         });
     });
 };
