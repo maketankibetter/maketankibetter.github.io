@@ -1,3 +1,4 @@
+//server processor
 const serverdata = [["https://balancer.eu.tankionline.com/balancer/", "main", "https://tankionline.com/play", "Main server"], 
                   ["https://balancer.public-deploy1.test-eu.tankionline.com/balancer", "test1", "https://public-deploy1.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy1.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy1.test-eu.tankionline.com/balancer", "Test Server #1"],
                   ["https://balancer.public-deploy2.test-eu.tankionline.com/balancer", "test2", "https://public-deploy2.test-eu.tankionline.com/browser-public/index.html?config-template=https://c{server}.public-deploy2.test-eu.tankionline.com/config.xml&amp;resources=../resources&amp;balancer=https://balancer.public-deploy2.test-eu.tankionline.com/balancer", "Test Server #2"],
@@ -16,8 +17,8 @@ const serverdata = [["https://balancer.eu.tankionline.com/balancer/", "main", "h
                   ["https://balancer.review-6-public.test-ru.tankionline.com/balancer", "review6", "https://client-review-6-public.test-ru.tankionline.com/?config-template=https://c{server}.review-6-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-6-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-6-public.test-ru.tankionline.com/balancer", "Client Review #6"],
                   ["https://balancer.review-7-public.test-ru.tankionline.com/balancer", "review7", "https://client-review-7-public.test-ru.tankionline.com/?config-template=https://c{server}.review-7-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-7-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-7-public.test-ru.tankionline.com/balancer", "Client Review #7"],
                   ["https://balancer.review-8-public.test-ru.tankionline.com/balancer", "review8", "https://client-review-8-public.test-ru.tankionline.com/?config-template=https://c{server}.review-8-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-8-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-8-public.test-ru.tankionline.com/balancer", "Client Review #8"],
-                  ["https://balancer.review-9-public.test-ru.tankionline.com/balancer", "review9", "https://client-review-9-public.test-ru.tankionline.com/?config-template=https://c{server}.review-9-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-9-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-9-public.test-ru.tankionline.com/balancer", "Client Review #9"]];
-
+                  ["https://balancer.review-9-public.test-ru.tankionline.com/balancer", "review9", "https://client-review-9-public.test-ru.tankionline.com/?config-template=https://c{server}.review-9-public.test-ru.tankionline.com/config.xml&amp;resources=https://resources-review-9-public.test-ru.tankionline.com&amp;balancer=https://balancer.review-9-public.test-ru.tankionline.com/balancer", "Client Review #9"],
+                  ["https://balancer.3dtank.com/balancer/", "3dtank", "https://3dtank.com/play/", "3D坦克"]];
 let statuses = [];
 for (let i = 0; i < serverdata.length; i++){
     let servstatus = 404;
@@ -33,7 +34,6 @@ for (let i = 0; i < serverdata.length; i++){
         statuses.push(thisserverdata)
     });
 }
-
 window.onload = (event) => {
     const servselect = document.querySelector('div#servselect');
     for (let i = 0; i < statuses.length; i++){
@@ -57,34 +57,13 @@ window.onload = (event) => {
         }
         servselect.appendChild(thisserver);
     }
-
-    const audio = document.querySelector('audio#music');
-    const button = document.querySelector('button.music');
-    if (audio.paused) {
-        button.classList.toggle("muted");
-    }
-    audio.volume = 1;
-    function toggleAudio () {
-        if (audio.paused) {
-            audio.play();
-            button.classList.toggle("muted");
-        }
-        else{
-            if (audio.volume == "0") {
-                audio.volume = 1;
-                button.classList.toggle("muted");
-            } else{
-                console.log("audio.volume = 1", audio.volume);
-                audio.volume = "0";
-                button.classList.toggle("muted");
-            }
-        }
-    }
-    button.addEventListener('click', toggleAudio);
-
     const serveri = servselect.querySelectorAll('span');
     const fight = document.querySelector('a#play');
     const servselecttext = document.querySelector('div.select:nth-of-type(1)>span.selected');
+    const date = new Date(); 
+    const month = date.getMonth();
+    const day = date.getDate(); 
+    console.log(month); 
     serveri.forEach(serveris => {
         serveris.addEventListener('click', () => {
             const id = serveris.getAttribute('id');
@@ -92,9 +71,53 @@ window.onload = (event) => {
             const statuss = serveris.getAttribute('status');
             fight.setAttribute('href', serverdata[index][2]);
             servselecttext.textContent = serverdata[index][3];
+            if (id == "3dtank" && month == 3 && day == 1){
+                fight.textContent = "Bĭnggìlìng!"
+            }
+            else{
+                fight.textContent = "FIGHT!"
+            }
             servselecttext.classList.remove("online");
             servselecttext.classList.remove("offline");
             servselecttext.classList.add(statuss);
         });
     });
+    //musicprocessor
+    const audio = document.querySelector('audio#music');
+    const audiobutton = document.querySelector('button.music');
+    if (localStorage.getItem("mtb_soundstatus") != "off"){
+        console.log("if")
+        if (audio.paused) {
+            console.log("if2");
+            audio.play();
+        }
+    } else {
+        console.log("else")
+        if (!audio.paused == false) {
+            console.log("if2");
+            audio.pause();
+            audiobutton.classList.add("muted");
+        }
+    }
+    audio.volume = 1;
+    function toggleAudio () {
+        if (audio.paused) {
+            audio.play();
+            audiobutton.classList.remove("muted");
+            localStorage.setItem("mtb_soundstatus", "on");
+        }
+        else{
+            if (audio.volume == "0") {
+                audio.volume = 1;
+                audiobutton.classList.remove("muted");
+                localStorage.setItem("mtb_soundstatus", "on");
+            } else{
+                console.log("audio.volume = 1", audio.volume);
+                audio.volume = "0";
+                audiobutton.classList.add("muted");
+                localStorage.setItem("mtb_soundstatus", "off");
+            }
+        }
+    }
+    audiobutton.addEventListener('click', toggleAudio);
 };
