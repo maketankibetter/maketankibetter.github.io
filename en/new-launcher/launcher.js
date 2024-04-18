@@ -73,7 +73,7 @@ window.onload = (event) => {
             const index = serveris.getAttribute('i');
             const statuss = serveris.getAttribute('status');
             fight.setAttribute('href', serverdata[index][2]);
-            servselecttext.textContent = serverdata[index][3];
+            servselecttext.innerHTML = serverdata[index][3];
             if (id == "3dtank" && month == 3 && day == 1){
                 fight.textContent = "Bĭnggìlìng!"
             }
