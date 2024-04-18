@@ -4,7 +4,7 @@
         <meta http-equiv="Content-Type" content="charset=UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta name="theme-color" content="#001926">
-        <title>Tanki Online Launcher</title>
+        <title>Tanki Launcher</title>
         <link rel="shortcut icon" href="/resources/launcher.svg" type="image/png">
         <link rel="stylesheet" href="/resources/launcher.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -123,7 +123,6 @@
                         
             .options .option {
                 display: flex;
-                justify-content: space-between;
                 padding: 0.25em;
                 margin: 0 0.25em;
                 border-radius: 0.25em;
@@ -140,6 +139,8 @@
             .option.invite{color: #3d96ff;}
             
             .option.online{color: #76f633;}
+
+            .option.unknown{color: #3d96ff;}
     
             .select.open>.options {display: flex;}
 
@@ -602,8 +603,8 @@
         </div>
         <header>
             <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
-            <h1>Tanki Online Launcher</h1>
-            <audio src="/resources/ambient.mp3" loop="" autoplay="" id="music"></audio>
+            <h1>Tanki Launcher</h1>
+            <audio src="/resources/ambient.mp3" loop="" id="music"></audio>
             <button class="wallpaper" tabindex="2" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
             <button class="music" tabindex="3"></button>
             <style>
