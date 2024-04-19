@@ -16,8 +16,17 @@
         <div id="modal">
             <div class="wpchoose" id="wpchoose">
                 <div class="wptablo">
-                    <button class="wpup"></button>
+                    <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
                     <h1 class="wptext">Choose your wallpapers</h1>
+                    <button class="wpup" tabindex="2"></button>
+                    <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');" tabindex="3">
+                        <flag class="usa"></flag>
+                        <div class="flagChooseLST">
+                            <a class="usa" href="/en/new-launcher/"></a>
+                            <a class="rus" href="/ru/new-launcher/"></a>
+                        </div>
+                    </span>
+                    <button class="music" tabindex="4"></button>
                     <button class="wpclose" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
                 </div>
                 <div class="wpvariant disabled"><img src="/resources/launcher/background_arcade_baked.png"></div>
@@ -42,15 +51,15 @@
             <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
             <h1>Tanki Launcher</h1>
             <audio src="/resources/ambient.mp3" loop="" id="music"></audio>
-            <button class="wallpaper" tabindex="2" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
-            <button class="music" tabindex="3"></button>
-            <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');" tabindex="4">
+            <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');" tabindex="2">
                 <flag class="usa"></flag>
                 <div class="flagChooseLST">
                     <a class="usa" href="/en/new-launcher/"></a>
                     <a class="rus" href="/ru/new-launcher/"></a>
                 </div>
             </span>
+            <button class="music" tabindex="3"></button>
+            <button class="wallpaper" tabindex="4" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
         </header>
         <div class="window">
             <h1>Choose server and account</h1>

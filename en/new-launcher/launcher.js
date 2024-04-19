@@ -118,4 +118,12 @@ window.onload = (event) => {
         }
     }
     audiobutton.addEventListener('click', toggleAudio);
+    //wallpapers
+    window.onkeyup = function(e) {
+        var event = e.which || e.keyCode || 0;
+        if (event == 27) {
+            const wpchoose = document.querySelector("div#wpchoose");
+            wpchoose.classList.remove("open")
+        }
+    }
 };
