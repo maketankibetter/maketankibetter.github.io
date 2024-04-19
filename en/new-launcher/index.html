@@ -108,7 +108,6 @@
             .options::-webkit-scrollbar, div.wpchoose::-webkit-scrollbar {
                 width: 1.5em;
                 height: 1.5em;
-                margin: 1em;
             }
 
             .options::-webkit-scrollbar-thumb, div.wpchoose::-webkit-scrollbar-thumb {
@@ -119,7 +118,10 @@
 
             .options::-webkit-scrollbar-thumb:hover, div.wpchoose::-webkit-scrollbar-thumb:hover {background-color: #ffffff40;}
 
-            .options::-webkit-scrollbar-track, div.wpchoose::-webkit-scrollbar-track {background: none;}
+            .options::-webkit-scrollbar-track, div.wpchoose::-webkit-scrollbar-track {
+                background: none;
+                margin: 0 0.5em;
+            }
                         
             .options .option {
                 display: flex;
@@ -385,30 +387,80 @@
             div.wpchoose {
                 display: none;
                 flex-flow: column wrap;
-                padding: 1em 1em 0.125em;
+                padding: 1em 1em 0.25em;
                 gap: 1em;
-                height: calc(100vh - 14em);
-                position: absolute;
-                inset: 6em;
-                border-radius: 0.5em;
-                border: 0.0625em solid #ffffff40;
+                height: calc(100vh - 1.5em);
                 background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
+                background-attachment: fixed;
                 overflow-y: hidden;
+                border-bottom: 0.25em solid #0000;
             }
 
-            div.wpchoose::before{
-                content: '';
+            div.wpchoose.open{
+                display: flex;
+            }
+
+            div.wpchoose .wptablo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1em;
                 position: fixed;
-                inset: 0;
-                background: #00000080;
-                z-index: -1;
+                top: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 6em;
+                border-bottom: 0.0625em solid #ffffff1a;
+                box-sizing: border-box;
             }
 
-            div.open.wpchoose{display: flex;}
+            div.wpchoose button.wpup {
+                font-size: 1em;
+                width: 6em;
+                height: 100%;
+                border: 0;
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.0607 7.93934C22.6464 8.52513 22.6464 9.47487 22.0607 10.0607L13.0607 19.0607C12.4749 19.6464 11.5251 19.6464 10.9393 19.0607L1.93934 10.0607C1.35355 9.47487 1.35355 8.52513 1.93934 7.93934C2.52513 7.35355 3.47487 7.35355 4.06066 7.93934L10.5 14.3787L10.5 1.5C10.5 0.671572 11.1716 -4.95181e-07 12 -4.5897e-07C12.8284 -4.22758e-07 13.5 0.671572 13.5 1.5L13.5 14.3787L19.9393 7.93934C20.5251 7.35355 21.4749 7.35355 22.0607 7.93934Z' fill='%23fff' style='&%2310; transform: rotate(180deg);&%2310; transform-origin: center 9.75px;&%2310;'/%3E%3Crect y='21' width='24' height='3' rx='1.5' fill='%23fff'/%3E%3C/svg%3E") center / 1.5em no-repeat;
+                border-right: 0.0625em solid #ffffff1a;
+                cursor: pointer;
+                padding: 0;
+            }
 
+            .wptablo h1.wptext {
+                display: flex;
+                place-items: center;
+                place-content: center;
+                position: absolute;
+                font: 700 2.5em 'Rubik';
+                text-align: center;
+                color: #fff;
+                width: 100%;
+                padding: 0.608em 0;
+                margin: 0;
+                cursor: default;
+                user-select: none;
+                pointer-events: none;
+            }
+            div.wpchoose button.wpclose {
+                width: 6em;
+                height: 6em;
+                padding: 0;
+                border: 0;
+                border-left: 0.0625em solid #ffffff1a;
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.2' viewBox='0 0 18 18' width='18' height='18'%3E%3Cpath d='m15 0.5l2.8 2.8-5.7 5.7 5.7 5.7-2.8 2.8-14.2-14.2 2.8-2.8 5.7 5.7zm-5.7 11.3l-5.6 5.6-2.8-2.8 2.8-2.8z' fill='%23fff'/%3E%3C/svg%3E") center / 1.5em no-repeat;
+                color: #fff;
+                font: 400 1em 'Rubik';
+                text-transform: uppercase;
+                cursor: pointer;
+            }
+            div.wptablo button:hover {
+                background-color: #ffffff1a;
+                height: 6em;
+                border-bottom: 0.0625em solid #ffffff1a;
+            }
             .wpvariant {
-                aspect-ratio: 16/9;
-                height: calc((100% - 5em) / 2);
+                aspect-ratio: 16 / 9;
+                height: calc((100% - 7em) / 2);
                 width: fit-content;
                 border-radius: 0.5em;
                 box-shadow: #ffffff40 0 0 0 0.0625em;
@@ -416,102 +468,29 @@
                 cursor: pointer;
                 position: relative;
             }
-
+            .wpvariant:nth-child(2n) {
+                margin-top: 6em;
+            }
+            .wpvariant:hover, .wpvariant:focus-visible {
+                box-shadow: #fff 0 0 0 0.125em;
+            }
             .wpvariant>img {
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
             }
-
             .wpvariant:after{
                 content: '';
                 pointer-events: none;
                 position: absolute;
                 inset: 0;
             }
-
-            .wpvariant.disabled:after{background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 0L24 3L12 15L3 24L0 21L9 12L0 3L3 0L12 9L21 0ZM12 15H18L24 21L21 24L12 15Z' fill='%23f33'/%3E%3C/svg%3E") calc(100% - 1.5em) calc(100% - 1.5em) / 1.5em no-repeat;}
-
-            .wpvariant.enabled:after{background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 20.607L29 22.3212V35.9999L22 31.9999V37.6787L32 43.3929L42 37.6787V31.9999L35 35.9999V22.3212L32 20.607ZM46 25.7409C46 24.6643 45.4231 23.6703 44.4884 23.1362L33.4884 16.8505C32.5661 16.3234 31.4339 16.3234 30.5116 16.8505L19.5116 23.1362C18.5769 23.6703 18 24.6643 18 25.7409V38.259C18 39.3356 18.5769 40.3296 19.5116 40.8637L30.5116 47.1494C31.4339 47.6765 32.5661 47.6765 33.4884 47.1494L44.4884 40.8637C45.4231 40.3296 46 39.3356 46 38.259V25.7409Z' fill='%2376FF33'/%3E%3C/svg%3E") 100% 100% / 4em no-repeat;}
-
-            .wpvariant:hover, .wpvariant:focus-visible {box-shadow: #fff 0 0 0 0.125em;}
-
-            .wpvariant:nth-child(2n) {margin-top: 4em;}
-
-            div.wpchoose .wptablo {
-                display: flex;
-                justify-content: center;
-                gap: 1em;
-                position: fixed;
-                top: 6em;
-                left: 6em;
-                right: 6em;
-                width: calc(100% - 12em);
-                height: 4em;
-                border-bottom: 0.0625em solid #ffffff1a;
+            .wpvariant.disabled:after {
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 0L24 3L12 15L3 24L0 21L9 12L0 3L3 0L12 9L21 0ZM12 15H18L24 21L21 24L12 15Z' fill='%23f33'/%3E%3C/svg%3E") calc(100% - 1.5em) calc(100% - 1.5em) / 1.5em no-repeat;
             }
-
-            div.wpchoose .wptablo button.wptv {
-                background: 0;
-                border: 0;
-                color: #ffffff;
-                font: 400 1em 'Rubik';
-                text-transform: uppercase;
-                padding: 0;
-                cursor: pointer;
+            .wpvariant.enabled:after {
+                background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 20.607L29 22.3212V35.9999L22 31.9999V37.6787L32 43.3929L42 37.6787V31.9999L35 35.9999V22.3212L32 20.607ZM46 25.7409C46 24.6643 45.4231 23.6703 44.4884 23.1362L33.4884 16.8505C32.5661 16.3234 31.4339 16.3234 30.5116 16.8505L19.5116 23.1362C18.5769 23.6703 18 24.6643 18 25.7409V38.259C18 39.3356 18.5769 40.3296 19.5116 40.8637L30.5116 47.1494C31.4339 47.6765 32.5661 47.6765 33.4884 47.1494L44.4884 40.8637C45.4231 40.3296 46 39.3356 46 38.259V25.7409Z' fill='%2376FF33'/%3E%3C/svg%3E") 100% 100% / 4em no-repeat;
             }
-
-            div.wpchoose .wptablo button.active {
-                color: #76f633;
-                position: relative;
-                overflow: hidden;
-                height: calc(100% + 0.0625em);
-            }
-
-            div.wpchoose .wptablo button.active:before {
-                content: '';
-                position: absolute;
-                width: 100%;
-                height: 0.0625em;
-                background: #76f633;
-                bottom: 0;
-                box-shadow: #76ff33 0 0 0.375em;
-                filter: drop-shadow(#76ff33 0 0 0.375em);
-            }
-
-            div.wpchoose button.wpup {
-                position: absolute;
-                font-size: 1em;
-                top: 1em;
-                left: 1em;
-                width: 2.25em;
-                height: 2.25em;
-                border: 0;
-                border-radius: 0.5em;
-                background: #bfd5ff40 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.0607 7.93934C22.6464 8.52513 22.6464 9.47487 22.0607 10.0607L13.0607 19.0607C12.4749 19.6464 11.5251 19.6464 10.9393 19.0607L1.93934 10.0607C1.35355 9.47487 1.35355 8.52513 1.93934 7.93934C2.52513 7.35355 3.47487 7.35355 4.06066 7.93934L10.5 14.3787L10.5 1.5C10.5 0.671572 11.1716 -4.95181e-07 12 -4.5897e-07C12.8284 -4.22758e-07 13.5 0.671572 13.5 1.5L13.5 14.3787L19.9393 7.93934C20.5251 7.35355 21.4749 7.35355 22.0607 7.93934Z' fill='%23bfd5ff' style='&%2310; transform: rotate(180deg);&%2310; transform-origin: center 9.75px;&%2310;'/%3E%3Crect y='21' width='24' height='3' rx='1.5' fill='%23bfd5ff'/%3E%3C/svg%3E") center / 1em no-repeat;
-                box-shadow: #bfd5ff80 0 0 0 0.0625em;
-                cursor: pointer;
-            }
-
-            div.wpchoose button.wpup:hover {box-shadow: #bfd5ff 0 0 0 0.125em;}
-
-            div.wpchoose button.wpclose {
-                position: absolute;
-                top: 0.75em;
-                right: 0.75em;
-                width: fit-content;
-                height: 2em;
-                padding: 0 1em;
-                border: 0;
-                border-radius: 0.5em;
-                background: #eb5757;
-                color: #fff;
-                font: 400 1.2em 'Rubik';
-                text-transform: uppercase;
-                cursor: pointer;
-            }
-
-            div.wpchoose button.wpclose:hover{background: #ee8484;}
         </style>
         <script src="launcher.js"></script>
     </head>
@@ -523,10 +502,9 @@
             </div>
             <div class="wpchoose" id="wpchoose">
                 <div class="wptablo">
-                    <button class="wptv">Фото</button>
-                    <button class="wptv active">Слайдшоу</button>
                     <button class="wpup"></button>
-                    <button class="wpclose" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')">Закрыть</button>
+                    <h1 class="wptext">Choose your wallpapers</h1>
+                    <button class="wpclose" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
                 </div>
                 <div class="wpvariant disabled"><img src="/resources/launcher/background_arcade_baked.png"></div>
                 <div class="wpvariant disabled"><img src="/resources/launcher/background_classic.webp"></div>
