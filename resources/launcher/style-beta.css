@@ -29,6 +29,7 @@ body {
 div.wpchoose {
     display: none;
     flex-flow: column wrap;
+    align-content: flex-start;
     padding: 1em 1em 0.25em;
     gap: 1em;
     height: calc(100vh - 1.5em);
