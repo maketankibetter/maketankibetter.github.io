@@ -36,7 +36,9 @@ div.wpchoose {
     align-content: flex-start;
     padding: 1em 1em 0.25em;
     gap: 1em;
-    height: calc(100vh - 1.5em);
+    position: fixed;
+    top: 0;
+    bottom: 0;
     background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
     background-attachment: fixed;
     overflow-y: hidden;
@@ -476,7 +478,7 @@ flag {
     width: 1.5em;
     position: absolute;
     left: 0.7em;
-    top: 0.3125em;
+    top: 0.15625em;
     z-index: 0;
 }
 
