@@ -21,7 +21,7 @@ const serverdata = [["https://balancer.eu.tankionline.com/balancer/",           
                     ["https://balancer.3dtank.com/balancer/",                             "3dtank",  "https://3dtank.com/play/", '3D<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 14 8" fill="currentColor" style="height: 0.8em;display: inline;margin-top: 0.15em;"><path fill-rule="evenodd" d="m11.3 0c0.1 0 0.2 0.1 0.2 0.3v0.7h2.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2.2v1h2.2c0.2 0 0.3 0.1 0.3 0.3v2.5c0 0.1-0.1 0.2-0.3 0.2h-1.2v1h1.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2c-0.1 0-0.2-0.1-0.2-0.2v-1.8h-1v0.5c0 0.8-0.7 1.5-1.5 1.5h-0.8c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h0.8c0.3 0 0.5-0.2 0.5-0.5v-0.5h-1.3c-0.1 0-0.2-0.1-0.2-0.2v-2.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-1h-2.3c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-0.7c0-0.2 0.1-0.3 0.2-0.3zm1.8 5v-1h-4v1z"/><path fill-rule="evenodd" d="m3 7.3c0-0.2 0.1-0.3 0.3-0.3h3.5c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-3.5c-0.1 0-0.2-0.1-0.2-0.2zm3.8-6.3c0.1 0 0.2 0.1 0.2 0.3v4.5c0 0.1-0.1 0.2-0.2 0.2h-3.5c-0.2 0-0.3-0.1-0.3-0.3v-4.5c0-0.1 0.1-0.2 0.3-0.2zm-0.8 4v-1h-2v1zm-2-2h2v-1h-2zm-2.8-2c0.2 0 0.3 0.1 0.3 0.3v0.7h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-0.3v4h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-1.5c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-4h-0.2c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-0.8c0-0.1 0.1-0.2 0.3-0.2z"/></svg>']];
 let statuses = {};
 for (let i = 0; i < serverdata.length; i++){
-    console.log(i)
+    //console.log(i)
     let servstatus = 404;
     let xhr = new XMLHttpRequest();
     fetch(serverdata[i][0])
@@ -35,8 +35,8 @@ for (let i = 0; i < serverdata.length; i++){
         statuses[serverdata[i][1]] = servstatus
     });
 }
-console.log(statuses)
-console.log(statuses["3dtank"])
+//console.log(statuses)
+//console.log(statuses["3dtank"])
 window.onload = (event) => {
     const servselect = document.querySelector('div#servselect');
     for (let i = 0; i < serverdata.length; i++){
@@ -61,9 +61,45 @@ window.onload = (event) => {
         if (thisserver.getAttribute('status') == "unknown"){thisserver.setAttribute('title', "Error: could not get info about server status")}
         servselect.appendChild(thisserver);
     }
-    const serveri = servselect.querySelectorAll('span');
+    //accounts
+    // structure: ["account1", "account2"]
+    let mtb_accounts = []
+    if (localStorage.getItem("mtb_accounts") === null){
+        localStorage.setItem("mtb_accounts", '["Main"]'); // @EWED_Ending said, he will send Tanki's alphabet later
+    }
+    mtb_accounts = localStorage.getItem("mtb_accounts")
+    console.log(mtb_accounts)
+    console.log(JSON.parse(mtb_accounts))
+    let accounts = JSON.parse(mtb_accounts);
+    const accselect = document.querySelector('div#accselect');
+    const accselecttext = document.querySelector('div.select:nth-of-type(2)>span.selected');
     const fight = document.querySelector('a#play');
+    let izvelets = ""
+    let saite = ""
+    accounts.forEach(account => {
+        console.log("Kaut kas notika! 1")
+        let konts = document.createElement("span");
+        konts.innerHTML = account;
+        konts.classList.add("option");
+        accselect.appendChild(konts);
+        konts.addEventListener('click', () => {
+            console.log("Kaut kas notika! 2")
+            izvelets = account.toLowerCase();
+            saite = "https://"+izvelets+".tankionline.com/play/"
+            accselecttext.innerHTML = account;
+            if (izvelets == "main"){
+                console.log("Main")
+                fight.setAttribute('href', "https://tankionline.com/play/");
+            }
+            else {
+                console.log(izvelets)
+                fight.setAttribute('href', saite);
+            }
+        })
+    })
+    const serveri = servselect.querySelectorAll('span');
     const servselecttext = document.querySelector('div.select:nth-of-type(1)>span.selected');
+    const serverlist = document.querySelector('div.select:nth-of-type(1)');
     const date = new Date(); 
     const month = date.getMonth();
     const day = date.getDate(); 
@@ -72,7 +108,25 @@ window.onload = (event) => {
             const id = serveris.getAttribute('id');
             const index = serveris.getAttribute('i');
             const statuss = serveris.getAttribute('status');
-            fight.setAttribute('href', serverdata[index][2]);
+            console.log(id, izvelets)
+            let saite = "";
+            if (id != "main"){
+                fight.setAttribute('href', serverdata[index][2]);
+                console.log("Not main")
+                serverlist.classList.remove("selected")
+                accselecttext.innerHTML = "Available only for main servers";
+            } else{
+                serverlist.classList.add("selected")
+                accselecttext.innerHTML = "Choose the account";
+                if (izvelets == "main"){
+                    console.log("Main")
+                    fight.setAttribute('href', "https://tankionline.com/play/");
+                }
+                else {
+                    console.log(izvelets)
+                    fight.setAttribute('href', saite);
+                }
+            }
             servselecttext.innerHTML = serverdata[index][3];
             if (id == "3dtank" && month == 3 && day == 1){
                 fight.textContent = "Bĭnggìlìng!"
@@ -126,4 +180,5 @@ window.onload = (event) => {
             wpchoose.classList.remove("open")
         }
     }
+
 };

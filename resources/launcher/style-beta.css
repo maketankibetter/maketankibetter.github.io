@@ -216,17 +216,17 @@ div.wptablo button.wpclose:hover {
 
 div.wallpaper.first {
     animation: 30s linear 0s infinite normal forwards running wpfirst;
-    background-image: url('https://media.discordapp.net/attachments/1226113197006913628/1227626008589500528/png.png?ex=662916d0&is=6616a1d0&hm=efaf97ace94f424b7e425343630414289500d0b8d9131c12bef6b10d8cc58b68&=&format=webp&quality=lossless');
+    background-image: url('/resources/launcher/background_spacetanx.webp');
 }
 
 div.wallpaper.second {
     animation: 30s linear 0s infinite normal forwards running wpsecond;
-    background-image: url('https://media.discordapp.net/attachments/1226113197006913628/1227622942335041536/image_1.png?ex=662913f5&is=66169ef5&hm=761df5a5344c54f4dfe34cc4e122bacadaa208c7ed1bb7e620339bd5fb010354&=&format=webp&quality=lossless');
+    background-image: url('/resources/launcher/background_old.webp');
 }
 
 div.wallpaper.third {
     animation: 30s linear 0s infinite normal forwards running wpthird;
-    background-image: url('https://media.discordapp.net/attachments/1226113197006913628/1227623783054184519/VEW3O50IVBM.jpg?ex=662914be&is=66169fbe&hm=ccb885f504bdfecf502a4f62579bfb71358b89b53b206c5fe81d720765a0b568&=&format=webp&quality=lossless');
+    background-image: url('/resources/launcher/background_lasershark.webp');
 }
 
 @keyframes wpfirst{
@@ -570,6 +570,11 @@ flag {
     grid-column: 1 / 2;
 }
 
+.select:nth-of-type(1):not(.selected)~:is(.select, div#accadd){
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 .select:hover, .select:focus-visible, .select.open, div#accadd:hover, div#accadd:focus-visible {
     box-shadow: #fff 0 0 0 0.125em;
     outline: 0;
@@ -673,12 +678,12 @@ div#accadd {
     text-transform: uppercase;
 }
 
-[href]#play:hover, [href]#play:focus-visible{
+:not(:is(:not([href]), [href=""]))#play:hover, :not(:is(:not([href]), [href=""]))#play:focus-visible{
     background-color: #76f633;
     box-shadow: #76f63380 0 0 0 0.0625em;
 }
 
-:not([href])#play {
+:is(:not([href]), [href=""])#play {
     opacity: 0.5;
     cursor: default;
 }
