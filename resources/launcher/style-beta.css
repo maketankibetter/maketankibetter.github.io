@@ -177,7 +177,7 @@ div.wptablo button.wpclose:hover {
     height: 30px;
     width: 320px;
     mix-blend-mode: lighten;
-    background: url('/resources/tanki-preloader-progress.gif') no-repeat;
+    background: url('/resources/launcher/tanki-preloader-progress.gif') no-repeat;
     background-size: contain;
     transform: translateX(-50%);
     left: 50%;
