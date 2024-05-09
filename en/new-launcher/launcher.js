@@ -84,16 +84,13 @@ window.onload = (event) => {
         konts.classList.add("option");
         accselect.appendChild(konts);
         konts.addEventListener('click', () => {
-            console.log("Kaut kas notika! 2")
             izvelets = name.toLowerCase();
             saite = "https://"+izvelets+".tankionline.com/play/"
             if (izvelets == "."){
-                console.log("PAMATA")
                 fight.setAttribute('href', "https://tankionline.com/play/");
                 accselecttext.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 404 100" width="404" height="100" style="margin-top: 0.125em;max-height: 1em;width: fit-content;"><style>.a{stroke:#fff;stroke-width: 0.5em;stroke-miterlimit:100;fill: #fff;}</style><path fill-rule="evenodd" class="a" d="m7.9 2q0 35.9 0 47.9 31.5 0 42.1 0 0-35.8 0-47.9c2.8 0 4.6 0 5.9 0.1 0 0 0.2 6.5 0.1 19.4-0.1 13 0 24.5 0 34.5q-36 0-48.1 0 0 27.9 0 42c0 0-4.7 0-5.5 0q0-71.9 0-96c2.8-0.1 4.7 0 5.5 0zm117.2 0q0 24.1 0 96c-9 0-27-0.1-54 0 0-7.5 0-22.5 0-45 8-0.1 23.9 0 48-0.1 0-7.5 0-22.3 0-44.9-8 0.1-24.2-0.1-48.2 0 0-0.9 0-3.1 0-6 0 0 27.2 0.1 54.2 0zm-48.1 57q0 8.2 0 33c7.1 0 21.1 0.1 42.1 0 0-5.5 0-16.6 0-33.1q-10.6 0-42.1 0.1zm81.2-4.9c0-2.3 0-5.9 0-7.9 13.5-18 24.7-32.2 29.1-38.2-22.5 0-39.7 0.1-47.2 0.1q0-4.6 0-6.1 36 0 48.1 0 3.9 4 6 6.1-22.6 31.4-30.1 41.8 22.6 31.5 30.1 42.1-4.6 4.5-6 6-36.1 0-48.1 0 0-4.5 0-6c22.6 0 39.8 0 47.3 0-13.6-17.9-29.2-37.9-29.2-37.9zm51-52.1c9.1 0 27.1 0.1 54 0q0 24.1 0 96c-8.9 0-27-0.1-54 0 0-7.5 0.1-22.6 0.1-45.1 8.1-0.1 23.9 0.1 47.9 0 0-7.5 0-22.3 0-44.8-8 0.1-24-0.1-48 0q0-1.5 0-5.9zm6 56.9c0 5.4 0 16.6 0 33.1 7 0 21 0.1 42 0 0-5.4 0-16.6 0-33.1-7 0-21-0.1-42 0zm63 33.1c9.1 0 18.2 0 26.6 0q12.7 0 21.6 0 0-30 0-90 1.5 0 5.9 0 0 24.1 0 96-13.5 0-54.1 0c0-2.5 0.1-3.9 0-6zm123.2-90q0 24.1 0 96c-9 0-27.1-0.2-54.1-0.1 0-7.5 0-22.4 0-44.9 8.1-0.1 24 0.2 48 0.1 0-7.6 0-22.6 0-45.1-8 0.1-24 0-48 0 0-0.9 0-3 0-6 0 0 27.1 0.1 54.1 0zm-48.1 57q0 8.2 0 33c7.1 0 21 0.2 42 0.1 0-5.5 0.1-16.5 0.1-33-7 0-21.1-0.2-42.1-0.1z"></path></svg>';
             }
             else {
-                console.log(izvelets)
                 fight.setAttribute('href', saite);
                 accselecttext.innerHTML = name;
             }
@@ -102,26 +99,17 @@ window.onload = (event) => {
     accounts.forEach(pievienot)
     const addacc = document.querySelector('div#accadd');
     const inputacc = document.querySelector('input.accinput');
-    inputacc.addEventListener('input', function(event) {
-        const inputValue = event.target.value;
-        const regex = /^[A-Za-zА-Яа-яЁёЙйא-תآ-یԱ-և٤٥۰-۹\s_ ]*$/;// Регулярное выражение для проверки на латинские буквы
-    
-        if (!regex.test(inputValue)) {
-            event.target.value = inputValue.slice(0, -1);
-        }
+    inputacc.addEventListener('input', function() {
+        this.value = this.value.replace(/[^\x20-\x7E\u0080-\u02AF\u0400-\u04FF\u0590-\u05FF\u0600-\u06FF\u0530-\u058F0-9_ ]/g, '');
     });
     acc = document.querySelector('div#accadd');
     addacc.addEventListener('click', () => {
         // if inputacc <input> is empty input
         if (inputacc.value != ""){
-            console.log(accounts);
             if (JSON.stringify(accounts) == JSON.stringify(['.'])){
-                console.log("Jā, ['.'] =", accounts);
                 accounts = '["'+inputacc.value+'"]';
-                console.log(accounts)
                 localStorage.setItem("mtb_accounts", accounts);
             } else {
-                console.log("Nē, ['.'] !=", accounts);
                 accounts.push(inputacc.value);
                 localStorage.setItem("mtb_accounts", JSON.stringify(accounts));
             }
@@ -141,22 +129,18 @@ window.onload = (event) => {
             const id = serveris.getAttribute('id');
             const index = serveris.getAttribute('i');
             const statuss = serveris.getAttribute('status');
-            console.log(id, izvelets)
             let saite = "";
             if (id != "main"){
                 fight.setAttribute('href', serverdata[index][2]);
-                console.log("Not main")
                 serverlist.classList.remove("selected")
                 accselecttext.innerHTML = "Available only for main servers";
             } else{
                 serverlist.classList.add("selected")
                 accselecttext.innerHTML = "Choose the account";
                 if (izvelets == "main"){
-                    console.log("Main")
                     fight.setAttribute('href', "https://tankionline.com/play/");
                 }
                 else {
-                    console.log(izvelets)
                     fight.setAttribute('href', saite);
                 }
             }
@@ -213,5 +197,4 @@ window.onload = (event) => {
             wpchoose.classList.remove("open")
         }
     }
-
 };
