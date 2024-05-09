@@ -773,15 +773,6 @@ a {
     text-decoration: none;
 }
 
-a.MTB {
-    font-family: "Uni Sans Special";
-    background: #e02e2e;
-    text-decoration: none;
-    -moz-user-select: none;
-    user-select: none;
-    width: min-content;
-}
-
 footer {
     display: flex;
     height: 6em;
@@ -814,7 +805,29 @@ img.MTB {
     border-radius: 0;
 }
 
-a.MTB {line-height: 1.2;}
+footer p {
+    display: grid;
+    gap: 0 0.25em;
+    grid-auto-flow: dense;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+    font: 500 1.3em Rubik;
+    line-height: 1;
+    margin: 0 0 0 3em;
+    user-select: none;
+    -moz-user-select: none;
+}
+
+a.MTB {
+    grid-column: 1 / 4;
+    font-family: "Uni Sans Special";
+    line-height: 1.2;
+    background: #e02e2e;
+    text-decoration: none;
+    -moz-user-select: none;
+    user-select: none;
+    width: min-content;
+}
 
 a.MTB:focus-visible {
     color: #e02e2e;
@@ -822,14 +835,10 @@ a.MTB:focus-visible {
     outline: 0;
 }
 
-footer p {
-    display: flex;
-    flex-direction: column;
-    font: 500 1.3em Rubik;
-    line-height: 1;
-    margin: 0 0 0 3em;
-    user-select: none;
-    -moz-user-select: none;
+footer p :not(.MTB){
+    font-weight: 400;
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 footer .social {
