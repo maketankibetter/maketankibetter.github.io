@@ -99,6 +99,7 @@ window.onload = (event) => {
     accounts.forEach(pievienot)
     const addacc = document.querySelector('div#accadd');
     const inputacc = document.querySelector('input.accinput');
+    const errorlist = document.querySelector("div.errors")
     inputacc.addEventListener('input', function() {
         this.value = this.value.replace(/[^\x20-\x7E\u0080-\u02AF\u0400-\u04FF\u0590-\u05FF\u0600-\u06FF\u0530-\u058F0-9_ ]/g, '');
     });
@@ -106,14 +107,20 @@ window.onload = (event) => {
     addacc.addEventListener('click', () => {
         // if inputacc <input> is empty input
         if (inputacc.value != ""){
-            if (JSON.stringify(accounts) == JSON.stringify(['.'])){
-                accounts = '["'+inputacc.value+'"]';
-                localStorage.setItem("mtb_accounts", accounts);
-            } else {
-                accounts.push(inputacc.value);
-                localStorage.setItem("mtb_accounts", JSON.stringify(accounts));
+            if (['game', 'space', 'test', 'new-ru', 'pages', 'ratings'].includes(inputacc.value)){
+                console.log("Invalid name. Try another")
+                errorlist.innerHTML += "<div class='error'><h2>Error</h2><p>Invalid name. Try another</p></div>"
+            } else{
+                console.log("else")
+                if (JSON.stringify(accounts) == JSON.stringify(['.'])){
+                    accounts = '["'+inputacc.value+'"]';
+                    localStorage.setItem("mtb_accounts", accounts);
+                } else {
+                    accounts.push(inputacc.value);
+                    localStorage.setItem("mtb_accounts", JSON.stringify(accounts));
+                }
+                pievienot(inputacc.value);
             }
-            pievienot(inputacc.value);
             inputacc.value = "";
         }
         inputacc.classList.toggle("open");

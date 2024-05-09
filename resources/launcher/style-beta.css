@@ -151,6 +151,54 @@ div.wptablo button.wpclose:hover {
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 20.607L29 22.3212V35.9999L22 31.9999V37.6787L32 43.3929L42 37.6787V31.9999L35 35.9999V22.3212L32 20.607ZM46 25.7409C46 24.6643 45.4231 23.6703 44.4884 23.1362L33.4884 16.8505C32.5661 16.3234 31.4339 16.3234 30.5116 16.8505L19.5116 23.1362C18.5769 23.6703 18 24.6643 18 25.7409V38.259C18 39.3356 18.5769 40.3296 19.5116 40.8637L30.5116 47.1494C31.4339 47.6765 32.5661 47.6765 33.4884 47.1494L44.4884 40.8637C45.4231 40.3296 46 39.3356 46 38.259V25.7409Z' fill='%2376FF33'/%3E%3C/svg%3E") 100% 100% / 4em no-repeat;
 }
 
+#modal .errors{
+    display: flex;
+    flex-flow: column-reverse wrap;
+    gap: 0.9375em;
+    position: fixed;
+    bottom: 2em;
+    right: 1.875em;
+}
+
+#modal .error {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0.6em;
+    background: rgb(255, 102, 102);
+    width: 22.75em;
+    height: auto;
+    border-radius: 0.5em;
+    padding: 0.6em 0.45em;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    animation: 1s linear 2s 1 normal forwards running error;
+}
+
+@keyframes error{
+    from{
+        opacity: 1;
+        pointer-events: all;
+    }
+    to{
+        opacity: 0;
+        pointer-events: none;
+        display: none;
+    }
+}
+
+#modal .error h2 {
+    color: black;
+    font: 500 1.125em 'Rubik';
+    text-transform: uppercase;
+    margin: 0;
+}
+
+#modal .error p {
+    color: black;
+    font: 400 1em 'Rubik';
+    margin: 0;
+}
+
 .preloader{
     background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
     position: fixed;
@@ -559,7 +607,7 @@ flag {
     background: #ffffff0d;
     padding: 0.5em;
     color: #fff;
-    font: 400 1em 'Rubik';
+    font: 500 1em 'Rubik';
     margin-top: 0;
     cursor: pointer;
     position: relative;
@@ -662,7 +710,7 @@ input.accinput {
     backdrop-filter: blur(3.125em);
     padding: 0.5em;
     color: #fff;
-    font: 400 1em 'Rubik';
+    font: 500 1em 'Rubik';
     margin-top: 0;
     cursor: text;
     position: relative;
@@ -745,7 +793,9 @@ footer {
     transition: 0.2s;
     position: relative;
 }
+
 footer a {cursor: alias;}
+
 img.MTB {
     position: absolute;
     width: 3em;
@@ -772,7 +822,7 @@ a.MTB:focus-visible {
     outline: 0;
 }
 
-p {
+footer p {
     display: flex;
     flex-direction: column;
     font-size: 1.3em;
