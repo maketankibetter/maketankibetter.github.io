@@ -107,7 +107,7 @@ window.onload = (event) => {
     addacc.addEventListener('click', () => {
         // if inputacc <input> is empty input
         if (inputacc.value != ""){
-            if (['game', 'space', 'test', 'new-ru', 'pages', 'ratings'].includes(inputacc.value)){
+            if (['game', 'space', 'test', 'new-ru', 'new-en', 'new-de', 'new-pl', 'pages', 'ratings', 'help', 'public-deploy1.test-eu', 'public-deploy2.test-eu', 'public-deploy3.test-eu', 'public-deploy4.test-eu', 'public-deploy5.test-eu', 'public-deploy6.test-eu', 'public-deploy7.test-eu', 'public-deploy8.test-eu', 'public-deploy9.test-eu', 'client-review-1-public.test-ru', 'client-review-2-public.test-ru', 'client-review-3-public.test-ru', 'client-review-4-public.test-ru', 'client-review-5-public.test-ru', 'client-review-6-public.test-ru', 'client-review-7-public.test-ru', 'client-review-8-public.test-ru', 'client-review-9-public.test-ru'].includes(inputacc.value)){
                 console.log("Invalid name. Try another")
                 errorlist.innerHTML += "<div class='error'><h2>Error</h2><p>Invalid name. Try another</p></div>"
             } else{
