@@ -652,6 +652,37 @@ flag {
 
 #accselect>:last-child{margin-bottom: 0.25em;}
 
+input.accinput {
+    display: none;
+    grid-column: 1 / 2;
+    height: 1.185em;
+    border: 0.0625em solid #ffffff1a;
+    border-radius: 0.5em;
+    background: linear-gradient(rgb(191 213 255 / 7.5%), rgb(191 213 255 / 7.5%)) #ffffff0d;
+    backdrop-filter: blur(3.125em);
+    padding: 0.5em;
+    color: #fff;
+    font: 400 1em 'Rubik';
+    margin-top: 0;
+    cursor: text;
+    position: relative;
+    box-shadow: #fff 0 0 0 0.125em;
+    outline: 0;
+}
+
+input.accinput.open{
+    display: flex;
+}
+
+input.accinput.open+.select{
+    display: none;
+}
+
+input.accinput.open~#play{
+    opacity: 0.5 !important;
+    pointer-events: none !important;
+}
+
 div#accadd {
     position: relative;
     border: 0.0625em solid #ffffff1a;
