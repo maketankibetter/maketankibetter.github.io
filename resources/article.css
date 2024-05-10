@@ -31,8 +31,9 @@ article p {
     color: #d4d8de;
     margin: 5px 0;
 }
-article :is(b, h1, h2, p, li)::selection{background:#d4d8de40;color:#d4d8de;}
 a {color: #7b828a;}
+article h1::selection{background:#e02e2ebf;color:#d4d8de;}
+article :is(b, h2, p, li)::selection{background:#d4d8de40;color:#d4d8de;}
 article :is(figcaption, a)::selection{background:#7b828a40;color:#d4d8de;}
 :not(:is(.nav, .lang)) > a:not(.install):hover {color: white;}
 hr {
@@ -49,7 +50,6 @@ article li {
     margin: 0;
     font: 500 1em var(--font);
     color: #d4d8de;
-    text-transform: lowercase;
 }
 aside li::marker{content: '';}
 article figure{
