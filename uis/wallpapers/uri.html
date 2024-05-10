@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta http-equiv="Content-Type" content="charset=UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Automatic linker for your language</title>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<link rel="shortcut icon" href="/resources/MakeTankiBetter_logo.svg">
+		<link rel="stylesheet" href="/main.css">
+    <meta name="theme-color" content="#e02e2e">
+	</head>
+	<body>
+	    <help id="nav_mobile"></help>
+	    <help id="lang_mobile"></help>
+		<header>
+		    <span tabindex="1" class="mtb special nocopy"># MAKETANKIBETTER</span>
+		    <div class="rightside"></div>
+		</header>
+        <style>
+        .container {
+            display: flex;
+            flex-flow: column wrap;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 112px);
+            gap: 0.5em;
+        }
+        
+        input[type="file"] {
+            display: flex;
+            text-align: center;
+            font: 500 1.2em var(--font);
+            color: #d4d8de;
+            user-select: none;
+        }
+        
+        input[type="file" i]::-webkit-file-upload-button {
+            min-width: fit-content;
+            font: 500 1.2em var(--font);
+            color: #d4d8de;
+            background: #e02e2e;
+            border-radius: 0.275em;
+            border: 0.11em solid #e02e2e;
+            text-decoration: underline #e02e2e;
+            transition: 0.2s ease-in-out text-decoration-color;
+            cursor: pointer;
+            padding: 0.04em 0.24em;
+            text-align: center;
+        }
+        
+        input[type="file" i]::-webkit-file-upload-button:hover {
+            color: #d4d8de;
+            text-decoration-color: currentColor;
+        }
+        
+        textarea {
+            color: #d4d8de;
+            font: 300 0.85em monospace;
+            border-radius: 0;
+            width: 800px !important;
+            max-width: 100%;
+            border: 1px solid #53565a;
+            background: #000;
+            outline: 0 !important;
+            overflow-x: hidden;
+            height: calc(100% - 4.35em) !important;
+            resize: none;
+        }
+        
+        textarea:empty {
+            display: none;
+        }
+        </style>
+        <div class="container">
+            <input type="file" tabindex="2">
+            <textarea tabindex="3"></textarea>
+        </div>
+		<script>
+            const inputarea = document.querySelector('input');
+            const textarea = document.querySelector('textarea');
+
+            inputarea.addEventListener('change', function() {
+            const file = inputarea.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(event) {
+                const dataURI = event.target.result;
+                textarea.innerHTML = '"'+dataURI+'"';
+            }
+
+            reader.readAsDataURL(file);
+            });
+        </script>
+	    <footer style="justify-content: flex-end;">
+            <div class="social">
+                <a tabindex="4" id="vk" href="https://vk.com/maketankibetter"></a>
+                <a tabindex="5" id="youtube" href="https://www.youtube.com/@mtb_"></a>
+                <a tabindex="6" id="discord" href="https://discord.gg/qnQg4tZswp"></a>
+            	<a tabindex="7" id="github" href="https://github.com/maketankibetter"></a>
+            </div>
+        </footer>
+    </body>
+</html>
