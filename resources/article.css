@@ -24,15 +24,16 @@ article h2 {
     margin: 0;
     color: #d4d8de;
 }
-article h3 {
+article p {
     text-align: justify;
     background: inherit;
     font: 500 1em var(--font);
     color: #d4d8de;
     margin: 5px 0;
 }
-:is(b, p, h1, h2, h3)::selection{background:#e02e2ebf;color:#d4d8de}
+article :is(b, h1, h2, p, li)::selection{background:#d4d8de40;color:#d4d8de;}
 a {color: #7b828a;}
+article :is(figcaption, a)::selection{background:#7b828a40;color:#d4d8de;}
 :not(:is(.nav, .lang)) > a:not(.install):hover {color: white;}
 hr {
     width: 100%;
@@ -41,19 +42,26 @@ hr {
     height: 1px;
     margin: 6px 0;
 }
+article ul {
+    margin-block: 0;
+}
 article li {
     margin: 0;
-    font: 700 1em var(--font);
+    font: 500 1em var(--font);
     color: #d4d8de;
     text-transform: lowercase;
 }
 aside li::marker{content: '';}
-article img {
-    width: 100% !important;
+article figure{
+    width: 100%;
+    margin: 0;
+}
+article figure img{
+    width: 100%;
     margin: 0 auto;
     user-select: none;
 }
-article p {
+article figcaption {
     font: 300 0.815em var(--font);
     width: calc(100% - 5em);
     margin: 3px auto -3px;
