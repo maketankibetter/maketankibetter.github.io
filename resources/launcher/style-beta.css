@@ -621,6 +621,7 @@ flag {
 .select:nth-of-type(1):not(.selected)~:is(.select, div#accadd){
     opacity: 0.5;
     pointer-events: none;
+    box-shadow: none;
 }
 
 .select:hover, .select:focus-visible, .select.open, div#accadd:hover, div#accadd:focus-visible {
