@@ -24,6 +24,11 @@ article h2 {
     margin: 0;
     color: #d4d8de;
 }
+article h3 {
+    font: 600 1.2em var(--font);
+    margin: 0.5em 0;
+    color: #d4d8de;
+}
 article p {
     text-align: justify;
     background: inherit;
@@ -33,7 +38,7 @@ article p {
 }
 a {color: #7b828a;}
 article h1::selection{background:#e02e2ebf;color:#d4d8de;}
-article :is(b, h2, p, li)::selection{background:#d4d8de40;color:#d4d8de;}
+article :is(b, h2, h3, p, li)::selection{background:#d4d8de40;color:#d4d8de;}
 article :is(figcaption, a)::selection{background:#7b828a40;color:#d4d8de;}
 :not(:is(.nav, .lang)) > a:not(.install):hover {color: white;}
 hr {
@@ -43,7 +48,7 @@ hr {
     height: 1px;
     margin: 6px 0;
 }
-article ul {
+article :is(ol, ul) {
     margin-block: 0;
 }
 article li {
@@ -94,70 +99,6 @@ aside h1 {
 aside li {margin: 0 0 6px;}
 aside li:last-child {margin: 0;}
 aside li a {font: 500 1em var(--font);}
-.install {
-    padding: 0.05em 0.25em;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
-    font: 500 1.5em var(--font);
-    color: #d4d8de;
-    background: #e02e2e;
-    border-radius: 8px;
-    border: 0.125em solid #e02e2e;
-    text-decoration: underline #e02e2e;
-    transition: 0.2s ease-in-out text-decoration-color;
-    cursor: pointer;
-    user-select: none;
-}
-.install:hover {text-decoration-color: currentColor;}
-modal#modal_how-to-install {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    position: fixed;
-    background: #23282e;
-    border: 1px solid #53565a;
-    box-shadow: 0 0 0 100vw #00000080;
-    inset: 0;
-    width: fit-content;
-    max-width: calc(100% - 48px);
-    height: fit-content;
-    margin: auto;
-    padding: 0.4em 0.6em;
-    z-index: 9;
-}
-
-modal#modal_how-to-install:target {display: flex;}
-
-modal:before {content: '';position: fixed;inset: 0;/* background: #00000080; */z-index: -1;}
-
-modal h3 {
-    text-align: center;
-    font: 700 1.375em var(--font);
-    margin: 0;
-    color: #d4d8de;
-}
-modal li {
-    margin: 0;
-    font: 500 1em var(--font);
-    color: #d4d8de;
-}
-
-modal > a[href="#x"] {
-    display: block !important;
-    text-align: center;
-    margin: 0.2em auto 0;
-    padding: 0.05em 0.25em;
-    font: 700 1em var(--font);
-    color: #d4d8de;
-    background: #e02e2e;
-    border: 0.125em solid #e02e2e;
-    border-radius: 5px;
-    width: fit-content;
-    text-transform: uppercase;
-    text-decoration-color: #0000;
-}
-modal > a[href="#x"]:hover {text-decoration-color: currentColor;}
 /*Adaptive UI*/
 @media screen and (max-width: 1030px) {
     body{flex-direction: column;}

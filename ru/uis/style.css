@@ -178,18 +178,17 @@ h5 {
     color: white;
 }
 /*UI thumbnails*/
-[lang="en"] body {--soon:url('/resources/soon.svg') 0 0 / cover;}
-[lang="ru"] body {--soon:url('/resources/skoro.svg') 0 0 / cover;}
-#nui {--soon:url('/resources/nui_mini.png') center / cover;}
-[lang="en"] #wp {--soon:url('/resources/wallpapers_mini_en.png') center / cover;}
-[lang="ru"] #wp {--soon:url('/resources/wallpapers_mini_ru.png') center / cover;}
-[lang="en"] #dejavu {--soon:url('/resources/deja_vu_mini_en.png') center / cover;}
-[lang="ru"] #dejavu {--soon:url('/resources/deja_vu_mini_ru.png') center / cover;}
-[lang="en"] #legacy {--soon:url('/resources/legacy_mini.png') center / cover;image-rendering: pixelated;}
-[lang="ru"] #legacy {--soon:url('/resources/legacy_mini_ru.png') center / cover;image-rendering: pixelated;}
-#eX {--soon:radial-gradient(328px 232px at 30% 0%, #000 0%, #0000 100%), url('/resources/xui_demo.png') center / cover;}
-#rocket {--soon:url('/resources/rocket_mini.png') center / cover;}
-#lui {--soon:radial-gradient(328px 232px at 30% 0%, #000 0%, #0000 100%), url('/resources/lui_demo.png') center / cover;}
+[lang="en"] body            {--soon:url('/resources/soon.svg') 0 0 / cover;}
+[lang="ru"] body            {--soon:url('/resources/skoro.svg') 0 0 / cover;}
+            #nui            {--soon:url('/resources/nui_mini.png') center / cover;}
+[lang="en"] #wp             {--soon:url('/resources/wallpapers_mini_en.png') center / cover;}
+[lang="ru"] #wp             {--soon:url('/resources/wallpapers_mini_ru.png') center / cover;}
+[lang="en"] #dejavu         {--soon:url('/resources/deja_vu_mini_en.png') center / cover;}
+[lang="ru"] #dejavu         {--soon:url('/resources/deja_vu_mini_ru.png') center / cover;}
+[lang="en"] #legacy         {--soon:url('/resources/legacy_mini.png') center / cover;image-rendering: pixelated;}
+[lang="ru"] #legacy         {--soon:url('/resources/legacy_mini_ru.png') center / cover;image-rendering: pixelated;}
+            #rocket         {--soon:url('/resources/rocket_mini.png') center / cover;}
+            #material-float {--soon: url('/resources/material-float.svg') center / cover;}
 /*Adaptive UI for portrait screens*/
 @media screen and (orientation: portrait) {
     .page1 {font-size: 0.8em;}
