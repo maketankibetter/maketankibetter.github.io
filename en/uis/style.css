@@ -64,7 +64,7 @@ h2 {
     height: auto;
     max-width: calc(100% - 32px);
 }
-.support{
+.choose{
     min-width: fit-content;
     font: 500 1.85em var(--font);
     color: #d4d8de;
@@ -77,8 +77,11 @@ h2 {
     padding: 0.04em 0.24em;
     text-align: center;
 }
-.support:hover{text-decoration-color: currentColor;transition: text-decoration-color 0.2s ease-in-out 0s;}
-.choose {
+.choose:hover{
+    text-decoration-color: currentColor;
+    transition: text-decoration-color 0.2s ease-in-out 0s;
+}
+.support {
     min-width: fit-content;
     font: 500 1.85em var(--font);
     color: #d54737;
@@ -90,8 +93,11 @@ h2 {
     cursor: pointer;
     padding: 0.04em 0.24em;
     text-align: center;
+    /*Until server is off*/
+    opacity: 0.5;
+    pointer-events: none;
 }
-.choose:hover {
+.support:hover {
     color: #d4d8de;
     transition: 0.2s ease-in-out color, 0.2s ease-in-out text-decoration-color;
     text-decoration-color: #d4d8de;
