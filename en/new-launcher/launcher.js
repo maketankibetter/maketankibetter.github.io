@@ -19,48 +19,45 @@ const serverdata = [["https://balancer.eu.tankionline.com/balancer/",           
                     ["https://balancer.review-8-public.test-ru.tankionline.com/balancer", "review8", "https://client-review-8-public.test-ru.tankionline.com/?config-template=https://c{server}.review-8-public.test-ru.tankionline.com/config.xml&resources=https://resources-review-8-public.test-ru.tankionline.com&balancer=https://balancer.review-8-public.test-ru.tankionline.com/balancer", "Client Review #8"],
                     ["https://balancer.review-9-public.test-ru.tankionline.com/balancer", "review9", "https://client-review-9-public.test-ru.tankionline.com/?config-template=https://c{server}.review-9-public.test-ru.tankionline.com/config.xml&resources=https://resources-review-9-public.test-ru.tankionline.com&balancer=https://balancer.review-9-public.test-ru.tankionline.com/balancer", "Client Review #9"],
                     ["https://balancer.3dtank.com/balancer/",                             "3dtank",  "https://3dtank.com/play/", '3D<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 14 8" fill="currentColor" style="height: 0.8em;display: inline;margin-top: 0.15em;"><path fill-rule="evenodd" d="m11.3 0c0.1 0 0.2 0.1 0.2 0.3v0.7h2.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2.2v1h2.2c0.2 0 0.3 0.1 0.3 0.3v2.5c0 0.1-0.1 0.2-0.3 0.2h-1.2v1h1.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2c-0.1 0-0.2-0.1-0.2-0.2v-1.8h-1v0.5c0 0.8-0.7 1.5-1.5 1.5h-0.8c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h0.8c0.3 0 0.5-0.2 0.5-0.5v-0.5h-1.3c-0.1 0-0.2-0.1-0.2-0.2v-2.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-1h-2.3c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-0.7c0-0.2 0.1-0.3 0.2-0.3zm1.8 5v-1h-4v1z"/><path fill-rule="evenodd" d="m3 7.3c0-0.2 0.1-0.3 0.3-0.3h3.5c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-3.5c-0.1 0-0.2-0.1-0.2-0.2zm3.8-6.3c0.1 0 0.2 0.1 0.2 0.3v4.5c0 0.1-0.1 0.2-0.2 0.2h-3.5c-0.2 0-0.3-0.1-0.3-0.3v-4.5c0-0.1 0.1-0.2 0.3-0.2zm-0.8 4v-1h-2v1zm-2-2h2v-1h-2zm-2.8-2c0.2 0 0.3 0.1 0.3 0.3v0.7h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-0.3v4h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-1.5c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-4h-0.2c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-0.8c0-0.1 0.1-0.2 0.3-0.2z"/></svg>']];
-let statuses = {};
-for (let i = 0; i < serverdata.length; i++){
-    //console.log(i)
-    let servstatus = 404;
-    let xhr = new XMLHttpRequest();
-    fetch(serverdata[i][0])
-    .then(response => {
-        servstatus = response.status;
-        let thisserverdata = [servstatus, serverdata[i][1]];
-        statuses[serverdata[i][1]] = servstatus
-    })
-    .catch(error => {
-        let thisserverdata = [servstatus, serverdata[i][1]];
-        statuses[serverdata[i][1]] = servstatus
+let statuses = [];
+serverdata.forEach(serveradats => {
+    fetch(serveradats[0]).then(response => {
+        statuses.push([response.status, serveradats[1], serveradats[2], serveradats[3]])
+    }).catch(error => {
+        statuses.push([404, serveradats[1], serveradats[2], serveradats[3]])
     });
-}
-//console.log(statuses)
-//console.log(statuses["3dtank"])
+})
+console.log(statuses)
 window.onload = (event) => {
     const servselect = document.querySelector('div#servselect');
-    for (let i = 0; i < serverdata.length; i++){
+    const servselecttext = document.querySelector('div.select:nth-of-type(1)>span.selected');
+    serverdata.forEach(serveradats => {
         let thisserver = document.createElement("span");
-        thisserver.innerHTML += serverdata[i][3];
-        thisserver.setAttribute('id', serverdata[i][1]);
-        thisserver.setAttribute('link', serverdata[i][2]);
-        thisserver.setAttribute('i', i);
+        thisserver.innerHTML += serveradats[3];
+        thisserver.setAttribute('id', serveradats[1]);
+        thisserver.setAttribute('link', serveradats[2]);
+        thisserver.setAttribute('i', serverdata.indexOf(serveradats));
         thisserver.classList.add('option');
-        thisserver.setAttribute('status', 'unknown');
         thisserver.classList.toggle('unknown');
-        if (statuses[serverdata[i][1]] == 200){
-            thisserver.classList.add('online');
-            thisserver.setAttribute('status', 'online');
-            thisserver.classList.toggle('unknown');
-        }
-        else if (statuses[serverdata[i][1]] == 404){
-            thisserver.classList.add('offline');
-            thisserver.setAttribute('status', 'offline');
-            thisserver.classList.toggle('unknown');
-        }
+        thisserver.setAttribute('status', 'unknown');
+        statuses.forEach(status => {
+            if (serveradats[1] == status[1]){
+                console.log(status[0])
+                if (status[0] == 200){
+                    thisserver.classList.add('online');
+                    thisserver.setAttribute('status', 'online');
+                    thisserver.classList.toggle('unknown');
+                }
+                else if (status[0] == 404){
+                    thisserver.classList.add('offline');
+                    thisserver.setAttribute('status', 'offline');
+                    thisserver.classList.toggle('unknown');
+                }
+            }
+        })
         if (thisserver.getAttribute('status') == "unknown"){thisserver.setAttribute('title', "Error: could not get info about server status")}
         servselect.appendChild(thisserver);
-    }
+    })
     //accounts
     // structure: ["account1", "account2"]
     let mtb_accounts = []
@@ -101,6 +98,8 @@ window.onload = (event) => {
         })
     }
     accounts.forEach(pievienot)
+    const preloader = document.querySelector('.preloader');
+    preloader.setAttribute('style', 'animation-play-state: running;');
     const addacc = document.querySelector('div#accadd');
     const errorlist = document.querySelector("div.errors");
     const inputacc = document.querySelector('input.accinput');
@@ -135,7 +134,6 @@ window.onload = (event) => {
         inputacc.classList.toggle("open");
     })
     const serveri = servselect.querySelectorAll('span');
-    const servselecttext = document.querySelector('div.select:nth-of-type(1)>span.selected');
     const serverlist = document.querySelector('div.select:nth-of-type(1)');
     const date = new Date(); 
     const month = date.getMonth();
@@ -173,17 +171,19 @@ window.onload = (event) => {
         });
     });
     //fullscreen
-    const fsb = document.querySelector('button.fsb');
+    const fsb = document.querySelectorAll('button.fsb');
     function toggleFullScreen() {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
             fsb.classList.add("full");
+            console.log("FSB")
         } else if (document.exitFullscreen) {
             document.exitFullscreen();
             fsb.classList.remove("full");
+            console.log("!FSB")
         }
     }
-    fsb.addEventListener('click', toggleFullScreen);
+    fsb.forEach(anfsb => {anfsb.addEventListener('click', toggleFullScreen)})
     //wallpapers
     window.onkeyup = function(e) {
         var event = e.which || e.keyCode || 0;
