@@ -127,9 +127,11 @@ window.onload = (event) => {
                 if (JSON.stringify(accounts) == JSON.stringify(['.'])){
                     accounts = '["'+inputacc.value+'"]';
                     localStorage.setItem("mtb_accounts", accounts);
+                    accounts = JSON.parse(accounts);
                     document.querySelector('span[name="."]').remove();
                     accselecttext.innerHTML = inputacc.value;
                 } else {
+                    console.log(accounts)
                     accounts.push(inputacc.value);
                     localStorage.setItem("mtb_accounts", JSON.stringify(accounts));
                 }
