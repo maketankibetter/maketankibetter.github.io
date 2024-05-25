@@ -796,12 +796,12 @@ div#accadd {
     text-transform: uppercase;
 }
 
-.select:not(.open) ~ .select:not(.open) ~ :not(:is(:not([href]), [href=""]))#play:hover, :not(:is(:not([href]), [href=""]))#play:focus-visible{
+:is(div:nth-of-type(1):not(.open), div:nth-of-type(1):not(.selected) ~ div:nth-of-type(3).open) ~ #play:not([href=""]):is(:hover, :focus-visible){
     background-color: #76f633;
     box-shadow: #76f63380 0 0 0 0.0625em;
 }
 
-.select.open ~ #play{
+.select.selected ~ .select.open ~ #play, .select.open:not(.selected) ~ .select ~ #play{
     pointer-events: none !important;
 }
 
