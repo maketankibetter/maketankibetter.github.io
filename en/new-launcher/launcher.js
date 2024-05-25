@@ -63,6 +63,23 @@ window.onload = (event) => {
     const fight = document.querySelector('a#play');
     let izvelets = ""
     let saite = ""
+    function izveletieskontu(name){
+        console.log("??");
+        izvelets = name.toLowerCase();
+        saite = "https://"+izvelets+".tankionline.com/play/"
+        if (izvelets == "."){
+            console.log("?");
+            fight.setAttribute('href', "https://tankionline.com/play/");
+            accselecttext.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 1056 213" fill="currentColor" style="height: 1em;display: inline;margin: auto 0;"><path fill-rule="evenodd" d="m1014.9 178v-55.7h-67.1v55.7zm0-89.1v-53.9h-100.1q-3.3 0-5.4-2.1-2.2-2.2-2.2-5.2v-20.1q0-3.3 2.2-5.5 2.1-2.1 5.4-2.1h133.9q3.1 0 5.2 2.1 2.1 2.2 2.1 5.5v198.1q0 3-2.1 5.2-2.1 2.1-5.2 2.1h-136.7q-3.1 0-5.2-2.1-2.1-2.2-2.1-5.2v-109.5q0-3 2.1-5.1c1.4-1.5 3.2-2.2 5.2-2.2zm-282.3 122q-2.1-2.1-2.1-5.2v-21.3q0-3.3 2.1-5.4 2.1-2.2 5.5-2.2h96.3v-169.3q0-3 2.2-5.2 2.1-2.1 5.1-2.1h28.3q3 0 5.2 2.1 2.1 2.2 2.1 5.2v198.2q0 3.1-2.1 5.2-2.2 2.1-5.2 2.1h-131.9q-3.4 0-5.5-2.1zm-69.7-32.9v-55.7h-67v55.7zm0-89.1v-53.9h-100.2q-3.3 0-5.4-2.1-2.2-2.2-2.2-5.2v-20.1q0-3.3 2.2-5.5 2.1-2.1 5.4-2.1h133.9q3.1 0 5.2 2.1 2.1 2.2 2.1 5.5v198.1q0 3-2.1 5.2-2.1 2.1-5.2 2.1h-136.7q-3 0-5.2-2.1-2.1-2.2-2.1-5.2v-109.5q0-3 2.1-5.1c1.5-1.5 3.2-2.2 5.2-2.2zm-281.1 121.5q-2.2-1.6-2.2-4v-19q0-2.4 2.2-4 2.1-1.7 5.1-1.7h81.5l-82.1-62.8q-2.7-1.9-4.5-3.7-2.2-2.2-2.2-5v-8q0-2.8 2.2-4.7 1.8-2.1 4.5-4l82.1-62.8h-81.5q-3 0-5.1-1.6-2.2-1.7-2.2-4v-19.1q0-2.3 2.2-4 2.1-1.6 5.1-1.6h131.4q3 0 5.1 1.6 2.2 1.7 2.2 4v17.2q0 2.8-1.9 4.9-1.8 1.9-4.5 4l-95.2 72.9v2.4l95.2 72.9q2.7 2.1 4.5 4 1.9 1.9 1.9 4.9v17.2q0 2.4-2.2 4-2.1 1.7-5.1 1.7h-131.4q-3 0-5.1-1.7zm-69.9-32.4v-55.7h-67v55.7zm0-89.1v-53.9h-100.1q-3.4 0-5.5-2.1-2.1-2.2-2.1-5.2v-20.1q0-3.3 2.1-5.5 2.1-2.1 5.5-2.1h133.8q3.1 0 5.2 2.1 2.2 2.2 2.2 5.5v198.1q0 3.1-2.2 5.2-2.1 2.1-5.2 2.1h-136.7q-3 0-5.1-2.1-2.2-2.1-2.2-5.2v-109.5q0-3 2.2-5.1c1.4-1.5 3.1-2.2 5.1-2.2zm-268.7 35.1v81.4q0 3.1-2.2 5.2-1.8 2.1-5.1 2.1h-27.7q-3 0-5.1-1.8-2.2-2.1-2.2-5.5v-197.8q0-3.3 2.2-5.4 2.1-2.2 5.1-2.2h27.7q3.3 0 5.1 2.2 2.2 2.1 2.2 5.4v78.4h89.6v-78.4q0-3.3 2.1-5.4 2.2-2.2 5.2-2.2h27.3q3.4 0 5.5 2.2 2.1 2.1 2.1 5.4c0 0 0 107.4 0 108.9 0 2.1-6 7.5-8.4 7.5-1.6 0-123.4 0-123.4 0z"/></svg>';
+        }
+        else if (izvelets == accounts[0].toLowerCase()) {
+            fight.setAttribute('href', "https://tankionline.com/play/");
+            accselecttext.innerHTML = name;
+        } else {
+            fight.setAttribute('href', saite);
+            accselecttext.innerHTML = name;
+        }
+    }
     function pievienot (name) {
         let konts = document.createElement("span");
         if (name == "."){
@@ -71,21 +88,7 @@ window.onload = (event) => {
         konts.setAttribute("name", name)
         konts.classList.add("option");
         accselect.appendChild(konts);
-        konts.addEventListener('click', () => {
-            izvelets = name.toLowerCase();
-            saite = "https://"+izvelets+".tankionline.com/play/"
-            if (izvelets == "."){
-                fight.setAttribute('href', "https://tankionline.com/play/");
-                accselecttext.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 1056 213" fill="currentColor" style="height: 1em;display: inline;margin: auto 0;"><path fill-rule="evenodd" d="m1014.9 178v-55.7h-67.1v55.7zm0-89.1v-53.9h-100.1q-3.3 0-5.4-2.1-2.2-2.2-2.2-5.2v-20.1q0-3.3 2.2-5.5 2.1-2.1 5.4-2.1h133.9q3.1 0 5.2 2.1 2.1 2.2 2.1 5.5v198.1q0 3-2.1 5.2-2.1 2.1-5.2 2.1h-136.7q-3.1 0-5.2-2.1-2.1-2.2-2.1-5.2v-109.5q0-3 2.1-5.1c1.4-1.5 3.2-2.2 5.2-2.2zm-282.3 122q-2.1-2.1-2.1-5.2v-21.3q0-3.3 2.1-5.4 2.1-2.2 5.5-2.2h96.3v-169.3q0-3 2.2-5.2 2.1-2.1 5.1-2.1h28.3q3 0 5.2 2.1 2.1 2.2 2.1 5.2v198.2q0 3.1-2.1 5.2-2.2 2.1-5.2 2.1h-131.9q-3.4 0-5.5-2.1zm-69.7-32.9v-55.7h-67v55.7zm0-89.1v-53.9h-100.2q-3.3 0-5.4-2.1-2.2-2.2-2.2-5.2v-20.1q0-3.3 2.2-5.5 2.1-2.1 5.4-2.1h133.9q3.1 0 5.2 2.1 2.1 2.2 2.1 5.5v198.1q0 3-2.1 5.2-2.1 2.1-5.2 2.1h-136.7q-3 0-5.2-2.1-2.1-2.2-2.1-5.2v-109.5q0-3 2.1-5.1c1.5-1.5 3.2-2.2 5.2-2.2zm-281.1 121.5q-2.2-1.6-2.2-4v-19q0-2.4 2.2-4 2.1-1.7 5.1-1.7h81.5l-82.1-62.8q-2.7-1.9-4.5-3.7-2.2-2.2-2.2-5v-8q0-2.8 2.2-4.7 1.8-2.1 4.5-4l82.1-62.8h-81.5q-3 0-5.1-1.6-2.2-1.7-2.2-4v-19.1q0-2.3 2.2-4 2.1-1.6 5.1-1.6h131.4q3 0 5.1 1.6 2.2 1.7 2.2 4v17.2q0 2.8-1.9 4.9-1.8 1.9-4.5 4l-95.2 72.9v2.4l95.2 72.9q2.7 2.1 4.5 4 1.9 1.9 1.9 4.9v17.2q0 2.4-2.2 4-2.1 1.7-5.1 1.7h-131.4q-3 0-5.1-1.7zm-69.9-32.4v-55.7h-67v55.7zm0-89.1v-53.9h-100.1q-3.4 0-5.5-2.1-2.1-2.2-2.1-5.2v-20.1q0-3.3 2.1-5.5 2.1-2.1 5.5-2.1h133.8q3.1 0 5.2 2.1 2.2 2.2 2.2 5.5v198.1q0 3.1-2.2 5.2-2.1 2.1-5.2 2.1h-136.7q-3 0-5.1-2.1-2.2-2.1-2.2-5.2v-109.5q0-3 2.2-5.1c1.4-1.5 3.1-2.2 5.1-2.2zm-268.7 35.1v81.4q0 3.1-2.2 5.2-1.8 2.1-5.1 2.1h-27.7q-3 0-5.1-1.8-2.2-2.1-2.2-5.5v-197.8q0-3.3 2.2-5.4 2.1-2.2 5.1-2.2h27.7q3.3 0 5.1 2.2 2.2 2.1 2.2 5.4v78.4h89.6v-78.4q0-3.3 2.1-5.4 2.2-2.2 5.2-2.2h27.3q3.4 0 5.5 2.2 2.1 2.1 2.1 5.4c0 0 0 107.4 0 108.9 0 2.1-6 7.5-8.4 7.5-1.6 0-123.4 0-123.4 0z"/></svg>';
-            }
-            else if (izvelets == accounts[0].toLowerCase()) {
-                fight.setAttribute('href', "https://tankionline.com/play/");
-                accselecttext.innerHTML = name;
-            } else {
-                fight.setAttribute('href', saite);
-                accselecttext.innerHTML = name;
-            }
-        })
+        konts.addEventListener('click', () => {izveletieskontu(name)})
     }
     accounts.forEach(pievienot)
     const preloader = document.querySelector('.preloader');
@@ -121,6 +124,7 @@ window.onload = (event) => {
                 }
                 pievienot(inputacc.value);
                 accselecttext.innerHTML = inputacc.value;
+                izveletieskontu(inputacc.value)
                 addacc.setAttribute("style", "")
             }
             inputacc.value = "";
