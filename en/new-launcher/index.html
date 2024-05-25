@@ -19,7 +19,7 @@
                     <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
                     <h1 class="wptext">Wallpapers</h1>
                     <button class="wpup" tabindex="2"></button>
-                    <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');" tabindex="3">
+                    <span class="flags" id="flagChooseBTN" onclick="document.querySelectorAll('span.flags#flagChooseBTN').forEach(e => {e.classList.toggle('open')})" tabindex="3">
                         <flag class="usa"></flag>
                         <div class="flagChooseLST">
                             <a class="usa" href="/en/new-launcher/"></a>
@@ -48,7 +48,7 @@
         <header>
             <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
             <h1>Tanki Launcher</h1>
-            <span class="flags" id="flagChooseBTN" onclick="this.classList.toggle('open');" tabindex="2">
+            <span class="flags" id="flagChooseBTN" onclick="document.querySelectorAll('span.flags#flagChooseBTN').forEach(e => {e.classList.toggle('open')})" tabindex="2">
                 <flag class="usa"></flag>
                 <div class="flagChooseLST">
                     <a class="usa" href="/en/new-launcher/"></a>
@@ -64,21 +64,22 @@
                 <span class="option selected">Servers</span>
                 <div class="options" id="servselect" style="z-index: 10;"></div>
             </div>
-            <input class="accinput" tabindex="6">
-            <div class="select" onclick="this.classList.toggle('open');" tabindex="6">
+            <div class="reset" id="reset" tabindex="6"></div>
+            <input class="accinput" type="text" maxlength="21" tabindex="7">
+            <div class="select" onclick="this.classList.toggle('open');" tabindex="7">
                 <span class="option selected">Available only for main server</span>
                 <div class="options" id="accselect"></div>
             </div>
-            <div class="accadd" id="accadd" tabindex="7"></div>
-            <a id="play" tabindex="8">FIGHT!</a>
+            <div class="accadd" id="accadd" tabindex="8"></div>
+            <a id="play" tabindex="9">FIGHT!</a>
         </div>
         <footer>
             <img src="/resources/MakeTankiBetter_logo.svg" class="MTB">
-            <p><a target="_blank" class="MTB" href="/" tabindex="9">MAKETANKIBETTER</a>We build future. <a href="/resources/launcher/documentation.pdf">Product documentation.</a></p>
+            <p><a target="_blank" class="MTB" href="/" tabindex="10">MAKETANKIBETTER</a>We build future. <a href="/resources/launcher/documentation.pdf">Product documentation.</a></p>
             <div class="social">
-                <a target="_blank" id="youtube" href="https://www.youtube.com/@mtb_" tabindex="10"></a>
-                <a target="_blank" id="discord" href="https://discord.gg/qnQg4tZswp" tabindex="11"></a>
-                <a target="_blank" id="github" href="https://github.com/maketankibetter" tabindex="12"></a></div>
+                <a target="_blank" id="youtube" href="https://www.youtube.com/@mtb_" tabindex="11"></a>
+                <a target="_blank" id="discord" href="https://discord.gg/qnQg4tZswp" tabindex="12"></a>
+                <a target="_blank" id="github" href="https://github.com/maketankibetter" tabindex="13"></a></div>
         </footer>
     </body>
 </html>
