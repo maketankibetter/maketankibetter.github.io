@@ -53,7 +53,7 @@ window.onload = (event) => {
     }
     let mtb_accounts = localStorage.getItem("mtb_accounts")
     if (localStorage.getItem("mtb_last_profile") === null){
-        localStorage.setItem("mtb_last_profile", '');
+        localStorage.setItem("mtb_last_profile", '/');
     }
     let mtb_last_profile = localStorage.getItem("mtb_last_profile")
     let accounts = JSON.parse(mtb_accounts);
