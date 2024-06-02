@@ -390,7 +390,6 @@ header {
     flex-flow: row nowrap;
     justify-content: flex-end;
     align-items: center;
-    transition: width 0.2s, height 0.2s;
     height: 6em;
     position: relative;
 }
@@ -827,7 +826,6 @@ footer {
     place-items: center;
     width: calc(100% - 5em);
     margin: 0 2.5em;
-    transition: 0.2s;
     position: relative;
 }
 
