@@ -48,11 +48,14 @@ window.onload = (event) => {
     })
     //accounts
     // structure: ["account1", "account2"]
-    let mtb_accounts = []
     if (localStorage.getItem("mtb_accounts") === null){
         localStorage.setItem("mtb_accounts", '["."]');
     }
-    mtb_accounts = localStorage.getItem("mtb_accounts")
+    let mtb_accounts = localStorage.getItem("mtb_accounts")
+    if (localStorage.getItem("mtb_last_profile") === null){
+        localStorage.setItem("mtb_last_profile", '');
+    }
+    let mtb_last_profile = localStorage.getItem("mtb_last_profile")
     let accounts = JSON.parse(mtb_accounts);
     const addacc = document.querySelector('div#accadd');
     if (accounts[0] == "."){
@@ -64,7 +67,7 @@ window.onload = (event) => {
     let izvelets = ""
     let saite = ""
     function izveletieskontu(name){
-        console.log("??");
+        console.log("??", name);
         izvelets = name.toLowerCase();
         saite = "https://"+izvelets+".tankionline.com/play/"
         if (izvelets == "."){
@@ -75,9 +78,11 @@ window.onload = (event) => {
         else if (izvelets == accounts[0].toLowerCase()) {
             fight.setAttribute('href', "https://tankionline.com/play/");
             accselecttext.innerHTML = name;
+            localStorage.setItem("mtb_last_profile", name);
         } else {
             fight.setAttribute('href', saite);
             accselecttext.innerHTML = name;
+            localStorage.setItem("mtb_last_profile", name);
         }
     }
     function pievienot (name) {
@@ -110,7 +115,7 @@ window.onload = (event) => {
         if (inputacc.value == "" && accounts[0] == "." && inputacc.getAttribute("class") == "accinput"){
             kluda("Pay attention!", "First time you add profile, you actually add name to the first (general) profile. After renaming you can add more profiles.", "warning")
         } else if (inputacc.value != ""){
-            if (['.', 'game', 'space', 'test', 'new-ru', 'new-en', 'new-de', 'new-pl', 'pages', 'ratings', 'help', 'public-deploy1.test-eu', 'public-deploy2.test-eu', 'public-deploy3.test-eu', 'public-deploy4.test-eu', 'public-deploy5.test-eu', 'public-deploy6.test-eu', 'public-deploy7.test-eu', 'public-deploy8.test-eu', 'public-deploy9.test-eu', 'client-review-1-public.test-ru', 'client-review-2-public.test-ru', 'client-review-3-public.test-ru', 'client-review-4-public.test-ru', 'client-review-5-public.test-ru', 'client-review-6-public.test-ru', 'client-review-7-public.test-ru', 'client-review-8-public.test-ru', 'client-review-9-public.test-ru', 's.eu', 'helpdesk.eu', 'auth', 'war', 'event', 'helper', 'shop', 'mail'].includes(inputacc.value)){
+            if (['.', 'game', 'space', 'test', 'new-ru', 'new-en', 'new-de', 'new-pl', 'pages', 'ratings', 'help', 'public-deploy1.test-eu', 'public-deploy2.test-eu', 'public-deploy3.test-eu', 'public-deploy4.test-eu', 'public-deploy5.test-eu', 'public-deploy6.test-eu', 'public-deploy7.test-eu', 'public-deploy8.test-eu', 'public-deploy9.test-eu', 'client-review-1-public.test-ru', 'client-review-2-public.test-ru', 'client-review-3-public.test-ru', 'client-review-4-public.test-ru', 'client-review-5-public.test-ru', 'client-review-6-public.test-ru', 'client-review-7-public.test-ru', 'client-review-8-public.test-ru', 'client-review-9-public.test-ru', 's.eu', 'helpdesk.eu', 'auth', 'war', 'event', 'helper', 'shop', 'mail', 'web-cdn', 'cdn'].includes(inputacc.value)){
                 kluda("Error", "Invalid name. Try another", "error");
             } else{
                 if (JSON.stringify(accounts) == JSON.stringify(['.'])){
@@ -148,12 +153,17 @@ window.onload = (event) => {
                 accselecttext.innerHTML = "Available only for main servers";
             } else{
                 serverlist.classList.add("selected")
-                accselecttext.innerHTML = "Choose your profile";
-                if (izvelets == "main"){
+                if (accounts[0] == "." || accounts.length == 1){
+                    izveletieskontu(accounts[0])
                     fight.setAttribute('href', "https://tankionline.com/play/");
-                }
-                else {
-                    fight.setAttribute('href', saite);
+                } else {
+                    if (mtb_accounts.includes(mtb_last_profile)){
+                        accselecttext.innerHTML = mtb_last_profile;
+                        izveletieskontu(mtb_last_profile)
+                        console.log("glaggle")
+                    } else {
+                        accselecttext.innerHTML = "Choose your profile";
+                    }
                 }
             }
             servselecttext.innerHTML = serverdata[index][3];
