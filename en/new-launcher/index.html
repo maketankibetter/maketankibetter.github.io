@@ -20,7 +20,6 @@
                 <div class="wptablo">
                     <a class="logo" title="Main Tanki Online page" href="https://tankionline.com/" target="_blank" tabindex="1"></a>
                     <h1 class="wptext">Wallpapers</h1>
-                    <button class="wpup" tabindex="2"></button>
                     <span class="flags" id="flagChooseBTN" onclick="document.querySelectorAll('span.flags#flagChooseBTN').forEach(e => {e.classList.toggle('open')})" tabindex="3">
                         <flag class="usa"></flag>
                         <div class="flagChooseLST">
@@ -31,9 +30,17 @@
                     <button class="fsb" tabindex="4"></button>
                     <button class="wpclose" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
                 </div>
-                <div class="wpvariant enabled"><img src="/resources/launcher/background_spacetanx.webp"></div>
-                <div class="wpvariant enabled"><img src="/resources/launcher/background_old.webp"></div>
-                <div class="wpvariant enabled"><img src="/resources/launcher/background_lasershark.webp"></div>
+                <div class="wpsequence">
+                    <div class="wpzaglushka"></div>
+                    <div class="wpzaglushka"></div>
+                    <div class="wpzaglushka"></div>
+                </div>
+                <div class="wpgallery">
+                    <img src="/resources/launcher/background_lasershark.webp" draggable="true">
+                    <img src="/resources/launcher/background_spacetanx.webp" draggable="true">
+                    <img src="/resources/launcher/background_old.webp" draggable="true">
+                    <div class="upload" draggable="true"></div>
+                </div>
             </div>
             <div class="errors"></div>
         </div>

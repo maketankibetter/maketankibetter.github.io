@@ -35,14 +35,12 @@ div.wpchoose {
     display: none;
     flex-flow: column wrap;
     align-content: flex-start;
-    padding: 1em 1em 0.25em;
-    gap: 1em;
+    padding: 0 0 0.25em;
     position: fixed;
     inset: 0;
     background: radial-gradient(50% 100% at 50% 100%, #395673 0%, #001926 100%);
     background-attachment: fixed;
     overflow-y: hidden;
-    border-bottom: 0.5em solid #0000;
 }
 
 div.wpchoose.open{
@@ -53,32 +51,10 @@ div.wpchoose .wptablo {
     display: flex;
     justify-content: end;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     width: 100%;
     height: 6em;
     box-sizing: border-box;
     z-index: 1;
-}
-
-div.wpchoose button.wpup {
-    font-size: 1em;
-    width: 2.5em;
-    height: 2.5em;
-    padding: 0;
-    border: 0;
-    border-radius: 0.25em;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.0607 7.93934C22.6464 8.52513 22.6464 9.47487 22.0607 10.0607L13.0607 19.0607C12.4749 19.6464 11.5251 19.6464 10.9393 19.0607L1.93934 10.0607C1.35355 9.47487 1.35355 8.52513 1.93934 7.93934C2.52513 7.35355 3.47487 7.35355 4.06066 7.93934L10.5 14.3787L10.5 1.5C10.5 0.671572 11.1716 -4.95181e-07 12 -4.5897e-07C12.8284 -4.22758e-07 13.5 0.671572 13.5 1.5L13.5 14.3787L19.9393 7.93934C20.5251 7.35355 21.4749 7.35355 22.0607 7.93934Z' fill='%23bfd5ff' style='&%2310; transform: rotate(180deg);&%2310; transform-origin: center 9.75px;&%2310;'/%3E%3Crect y='21' width='24' height='3' rx='1.5' fill='%23bfd5ff'/%3E%3C/svg%3E") center / 1em no-repeat;
-    cursor: pointer;
-    border: 0.0625em solid #ffffff40;
-    position: absolute;
-    right: 15em;
-}
-
-div.wpchoose button.wpup:hover{
-    box-shadow: #bfd5ff 0 0 0 0.125em;
 }
 
 .wptablo h1.wptext {
@@ -111,44 +87,59 @@ div.wptablo button.wpclose:hover {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96' fill='none'%3E%3Cpath d='M60 32L64 36L48 52L36 64L32 60L44 48L32 36L36 32L48 44L60 32Z' fill='white'/%3E%3Cpath d='M48 52H56L64 60L60 64L48 52Z' fill='white'/%3E%3C/svg%3E");
 }
 
-.wpvariant {
-    aspect-ratio: 16 / 9;
-    height: calc((100% - 6em) / 2);
-    width: fit-content;
+div.wpsequence {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row wrap;
+    height: calc(50% - 3.125em);
+    border-bottom: #ffffff40 solid 0.125em;
+}
+
+.wpzaglushka {
+    aspect-ratio: 16/9;
+    width: 20%;
+    height: fit-content;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.2' viewBox='0 0 100 48' width='100' height='48'%3E%3Cpath fill='%2300d4ff' d='m47.3 14h4v8h8v4h-20v-4h8zm4 12v8h-4v-4z'/%3E%3C/svg%3E") center / 50% no-repeat;
+    border: 0.125em dashed #bfd5ff80;
     border-radius: 0.5em;
-    box-shadow: #ffffff40 0 0 0 0.0625em;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
 }
 
-.wpvariant:nth-child(2n) {
-    margin-top: 5em;
-}
-
-.wpvariant:hover, .wpvariant:focus-visible {
-    box-shadow: #fff 0 0 0 0.125em;
-}
-
-.wpvariant>img {
-    height: 100%;
+.wpgallery {
+    display: flex;
+    gap: 1em;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-flow: row nowrap;
+    overflow-x: auto;
+    height: calc(50% - 3.125em);
     width: 100%;
-    object-fit: cover;
 }
 
-.wpvariant:after{
-    content: '';
-    pointer-events: none;
-    position: absolute;
-    inset: 0;
+.wpgallery * {
+    width: fit-content;
+    height: calc(100% - 1.5em);
+    margin-top: 0.5em;
+    border: #bfd5ff80 solid 0.125em;
+    aspect-ratio: 16/9;
+    border-radius: 0.5em;
 }
 
-.wpvariant.disabled:after {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M21 0L24 3L12 15L3 24L0 21L9 12L0 3L3 0L12 9L21 0ZM12 15H18L24 21L21 24L12 15Z' fill='%23f33'/%3E%3C/svg%3E") calc(100% - 1.5em) calc(100% - 1.5em) / 1.5em no-repeat;
+.wpgallery *:first-child {
+    margin-left: 1em;
 }
 
-.wpvariant.enabled:after {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 20.607L29 22.3212V35.9999L22 31.9999V37.6787L32 43.3929L42 37.6787V31.9999L35 35.9999V22.3212L32 20.607ZM46 25.7409C46 24.6643 45.4231 23.6703 44.4884 23.1362L33.4884 16.8505C32.5661 16.3234 31.4339 16.3234 30.5116 16.8505L19.5116 23.1362C18.5769 23.6703 18 24.6643 18 25.7409V38.259C18 39.3356 18.5769 40.3296 19.5116 40.8637L30.5116 47.1494C31.4339 47.6765 32.5661 47.6765 33.4884 47.1494L44.4884 40.8637C45.4231 40.3296 46 39.3356 46 38.259V25.7409Z' fill='%2376FF33'/%3E%3C/svg%3E") 100% 100% / 4em no-repeat;
+.wpgallery *:last-child {
+    margin-right: 1em;
+}
+
+div.wpchoose div.wpgallery div.upload {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.0607 7.93934C22.6464 8.52513 22.6464 9.47487 22.0607 10.0607L13.0607 19.0607C12.4749 19.6464 11.5251 19.6464 10.9393 19.0607L1.93934 10.0607C1.35355 9.47487 1.35355 8.52513 1.93934 7.93934C2.52513 7.35355 3.47487 7.35355 4.06066 7.93934L10.5 14.3787L10.5 1.5C10.5 0.671572 11.1716 -4.95181e-07 12 -4.5897e-07C12.8284 -4.22758e-07 13.5 0.671572 13.5 1.5L13.5 14.3787L19.9393 7.93934C20.5251 7.35355 21.4749 7.35355 22.0607 7.93934Z' fill='%23bfd5ff' style='&%2310; transform: rotate(180deg);&%2310; transform-origin: center 9.75px;&%2310;'/%3E%3Crect y='21' width='24' height='3' rx='1.5' fill='%23bfd5ff'/%3E%3C/svg%3E") center / 5% no-repeat;
+    cursor: pointer;
+}
+
+div.wpchoose div.wpgallery :hover{
+    box-shadow: #bfd5ff 0 0 0 0.0625em;
 }
 
 #modal .errors{
@@ -686,12 +677,12 @@ div.off#reset{
     overflow-y: auto;
 }
 
-.options::-webkit-scrollbar, div.wpchoose::-webkit-scrollbar {
+.options::-webkit-scrollbar, div.wpgallery::-webkit-scrollbar {
     width: 1.5em;
     height: 1.5em;
 }
 
-.options::-webkit-scrollbar-thumb, div.wpchoose::-webkit-scrollbar-thumb {
+.options::-webkit-scrollbar-thumb, div.wpgallery::-webkit-scrollbar-thumb {
     background: #fff3 content-box;
     border: 0.5em solid #0000;
     border-radius: 1.5em;
@@ -699,7 +690,7 @@ div.off#reset{
 
 .options::-webkit-scrollbar-thumb:hover, div.wpchoose::-webkit-scrollbar-thumb:hover {background-color: #ffffff40;}
 
-.options::-webkit-scrollbar-track, div.wpchoose::-webkit-scrollbar-track {
+.options::-webkit-scrollbar-track, div.wpgallery::-webkit-scrollbar-track {
     background: none;
     margin: 0 0.5em;
 }
