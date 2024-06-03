@@ -20,6 +20,29 @@ window.onload = (event) => {
                         ["https://balancer.review-8-public.test-ru.tankionline.com/balancer", "review8", "https://client-review-8-public.test-ru.tankionline.com/?config-template=https://c{server}.review-8-public.test-ru.tankionline.com/config.xml&resources=https://resources-review-8-public.test-ru.tankionline.com&balancer=https://balancer.review-8-public.test-ru.tankionline.com/balancer", "Client Review #8"],
                         ["https://balancer.review-9-public.test-ru.tankionline.com/balancer", "review9", "https://client-review-9-public.test-ru.tankionline.com/?config-template=https://c{server}.review-9-public.test-ru.tankionline.com/config.xml&resources=https://resources-review-9-public.test-ru.tankionline.com&balancer=https://balancer.review-9-public.test-ru.tankionline.com/balancer", "Client Review #9"],
                         ["https://balancer.3dtank.com/balancer/",                             "3dtank",  "https://3dtank.com/play/", '3D<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 14 8" fill="currentColor" style="height: 0.8em;display: inline;margin-top: 0.15em;"><path fill-rule="evenodd" d="m11.3 0c0.1 0 0.2 0.1 0.2 0.3v0.7h2.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2.2v1h2.2c0.2 0 0.3 0.1 0.3 0.3v2.5c0 0.1-0.1 0.2-0.3 0.2h-1.2v1h1.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2c-0.1 0-0.2-0.1-0.2-0.2v-1.8h-1v0.5c0 0.8-0.7 1.5-1.5 1.5h-0.8c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h0.8c0.3 0 0.5-0.2 0.5-0.5v-0.5h-1.3c-0.1 0-0.2-0.1-0.2-0.2v-2.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-1h-2.3c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-0.7c0-0.2 0.1-0.3 0.2-0.3zm1.8 5v-1h-4v1z"></path><path fill-rule="evenodd" d="m3 7.3c0-0.2 0.1-0.3 0.3-0.3h3.5c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-3.5c-0.1 0-0.2-0.1-0.2-0.2zm3.8-6.3c0.1 0 0.2 0.1 0.2 0.3v4.5c0 0.1-0.1 0.2-0.2 0.2h-3.5c-0.2 0-0.3-0.1-0.3-0.3v-4.5c0-0.1 0.1-0.2 0.3-0.2zm-0.8 4v-1h-2v1zm-2-2h2v-1h-2zm-2.8-2c0.2 0 0.3 0.1 0.3 0.3v0.7h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-0.3v4h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-1.5c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-4h-0.2c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-0.8c0-0.1 0.1-0.2 0.3-0.2z"></path></svg>']];
+    
+    let pay_attention = "Pay attention!"
+    let first_time_you_add_profile = "First time you add profile, you actually add name to the first (general) profile. After renaming you can add more profiles."
+    let errorname = "Error"
+    let errortimeout = "Error: could not get info about server status"
+    let invalid_name = "Invalid name. Try another"
+    let fighttext = "FIGHT!"
+    let onlymain = "Available only for main servers"
+    let choose_profile = "Choose your profile"
+    if (document.querySelector("html").getAttribute("lang") == "ru"){
+        serverdata[0][3] = "Основной";
+        for (let i = 1; i < 10; i++){
+            serverdata[i][3] = serverdata[i][3].replace("Test Server", "Тестовый")
+        }
+        pay_attention = "Обрати внимание!"
+        first_time_you_add_profile = "При первом добавлении профиля вы фактически присваиваете имя первому (главному) профилю. После переименования вы можете добавить больше профилей."
+        errorname = "Ошибка"
+        errortimeout = "Ошибка: не удалось получить информацию о состоянии сервера"
+        invalid_name = "Некорректное имя. Попробуйте другое"
+        fighttext = "В БОЙ!"
+        onlymain = "Доступно только для основного"
+        choose_profile = "Выберите профиль"
+    }
     const servselect = document.querySelector('div#servselect');
     const servselecttext = document.querySelector('div.select:nth-of-type(1)>span.selected');
     serverdata.forEach(serveradats => {
@@ -33,7 +56,7 @@ window.onload = (event) => {
         thisserver.setAttribute('status', 'unknown');
         servselect.appendChild(thisserver);
         console.log(thisserver, serveradats[0])
-        thisserver.setAttribute('title', "Error: could not get info about server status")
+        thisserver.setAttribute('title', errortimeout)
         fetch(serveradats[0]).then(response => {
             thisserver.classList.toggle('unknown');
             thisserver.classList.add('online');
@@ -113,10 +136,10 @@ window.onload = (event) => {
     }
     addacc.addEventListener('click', () => {
         if (inputacc.value == "" && accounts[0] == "." && inputacc.getAttribute("class") == "accinput"){
-            kluda("Pay attention!", "First time you add profile, you actually add name to the first (general) profile. After renaming you can add more profiles.", "warning")
+            kluda(pay_attention, first_time_you_add_profile, "warning")
         } else if (inputacc.value != ""){
             if (['.', 'game', 'space', 'test', 'new-ru', 'new-en', 'new-de', 'new-pl', 'pages', 'ratings', 'help', 'public-deploy1.test-eu', 'public-deploy2.test-eu', 'public-deploy3.test-eu', 'public-deploy4.test-eu', 'public-deploy5.test-eu', 'public-deploy6.test-eu', 'public-deploy7.test-eu', 'public-deploy8.test-eu', 'public-deploy9.test-eu', 'client-review-1-public.test-ru', 'client-review-2-public.test-ru', 'client-review-3-public.test-ru', 'client-review-4-public.test-ru', 'client-review-5-public.test-ru', 'client-review-6-public.test-ru', 'client-review-7-public.test-ru', 'client-review-8-public.test-ru', 'client-review-9-public.test-ru', 's.eu', 'helpdesk.eu', 'auth', 'war', 'event', 'helper', 'shop', 'mail', 'web-cdn'].includes(inputacc.value)){
-                kluda("Error", "Invalid name. Try another", "error");
+                kluda(errorname, invalid_name, "error");
             } else{
                 if (JSON.stringify(accounts) == JSON.stringify(['.'])){
                     accounts = '["'+inputacc.value+'"]';
@@ -150,7 +173,7 @@ window.onload = (event) => {
             if (id != "main"){
                 fight.setAttribute('href', serverdata[index][2]);
                 serverlist.classList.remove("selected")
-                accselecttext.innerHTML = "Available only for main servers";
+                accselecttext.innerHTML = onlymain
             } else{
                 serverlist.classList.add("selected")
                 if (accounts[0] == "." || accounts.length == 1){
@@ -162,7 +185,7 @@ window.onload = (event) => {
                         izveletieskontu(mtb_last_profile)
                         console.log("glaggle")
                     } else {
-                        accselecttext.innerHTML = "Choose your profile";
+                        accselecttext.innerHTML = choose_profile;
                     }
                 }
             }
@@ -171,7 +194,7 @@ window.onload = (event) => {
                 fight.textContent = "Bĭnggìlìng!"
             }
             else{
-                fight.textContent = "FIGHT!"
+                fight.textContent = fighttext
             }
             servselecttext.classList.remove("online");
             servselecttext.classList.remove("offline");
