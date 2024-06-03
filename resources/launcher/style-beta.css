@@ -92,7 +92,7 @@ div.wpsequence {
     justify-content: space-evenly;
     align-items: center;
     flex-flow: row wrap;
-    height: calc(50% - 5.625em);
+    height: calc(50% - 5.75em);
     border-bottom: #ffffff40 solid 0.125em;
 }
 
@@ -112,7 +112,7 @@ div.wpsequence {
     align-items: center;
     flex-flow: row nowrap;
     overflow-x: auto;
-    height: calc(50% - 5.625em);
+    height: calc(50% - 5.75em);
     width: 100%;
 }
 
