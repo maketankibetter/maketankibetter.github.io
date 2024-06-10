@@ -879,12 +879,13 @@ footer p :not(.MTB){
 }
 
 footer .social {
-    width: 10em;
-    height: 6em;
     display: flex;
-    justify-content: space-around;
+    gap: 2em;
+    justify-content: flex-end;
     align-items: center;
+    height: 6em;
 }
+
 footer .social a{
     background: var(--sm) center / 100% no-repeat;
     width: 1.5em;
