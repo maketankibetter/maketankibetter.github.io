@@ -818,6 +818,8 @@ span.option.selected {
     overflow: hidden;
     text-overflow: ellipsis;
     overflow-wrap: anywhere;
+    line-height: 1;
+    align-items: center;
 }
 
 input.accinput {
