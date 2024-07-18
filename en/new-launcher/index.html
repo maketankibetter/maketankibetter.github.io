@@ -31,16 +31,34 @@
                     <button class="wpclose" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
                 </div>
                 <div class="wpsequence">
-                    <div class="wpzaglushka"></div>
-                    <div class="wpzaglushka"></div>
-                    <div class="wpzaglushka"></div>
+                    <div class="wpzaglushka" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="wpzaglushka" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+                    <div class="wpzaglushka" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
                 </div>
                 <div class="wpgallery">
-                    <img src="/resources/launcher/background_lasershark.webp" draggable="true">
-                    <img src="/resources/launcher/background_spacetanx.webp" draggable="true">
-                    <img src="/resources/launcher/background_old.webp" draggable="true">
-                    <div class="upload" draggable="true"></div>
+                    <img id="wp1" src="/resources/launcher/background_lasershark.webp" draggable="true" ondragstart="drag(event)">
+                    <img id="wp2" src="/resources/launcher/background_spacetanx.webp" draggable="true" ondragstart="drag(event)">
+                    <img id="wp3" src="/resources/launcher/background_old.webp" draggable="true" ondragstart="drag(event)">
+                    <div class="upload"></div>
                 </div>
+                <script>
+                    function allowDrop(ev) {
+                        ev.preventDefault();
+                    }
+
+                    function drag(ev) {
+                        ev.dataTransfer.setData("src", ev.target.src);
+                    }
+
+                    function drop(ev) {
+                        ev.preventDefault();
+                        let data = ev.dataTransfer.getData("src");
+                        let cellimg = document.createElement("img");
+                        cellimg.src = data;
+                        ev.target.innerHTML = "";
+                        ev.target.appendChild(cellimg);
+                    }
+                </script>
             </div>
             <div class="errors"></div>
         </div>
@@ -68,10 +86,10 @@
             <button class="wallpaper" tabindex="4" onclick="wpchoose = document.getElementById('wpchoose');wpchoose.classList.toggle('open')"></button>
         </header>
         <div class="window">
-            <h1>Choose server and profile</h1>
+            <h1>Choose application and profile</h1>
             <div class="select" onclick="this.classList.toggle('open');" tabindex="5">
                 <span class="option selected">Servers</span>
-                <div class="options" id="servselect" style="z-index: 10;"></div>
+                <div class="options" id="servoptions" style="z-index: 10;"></div>
             </div>
             <div class="reset" id="reset" tabindex="6"></div>
             <input class="accinput" type="text" maxlength="21" tabindex="7">

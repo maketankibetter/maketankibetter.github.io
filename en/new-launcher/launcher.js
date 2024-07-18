@@ -21,56 +21,31 @@ window.onload = (event) => {
                         ["https://balancer.review-9-public.test-ru.tankionline.com/balancer", "review9", "https://client-review-9-public.test-ru.tankionline.com/?config-template=https://c{server}.review-9-public.test-ru.tankionline.com/config.xml&resources=https://resources-review-9-public.test-ru.tankionline.com&balancer=https://balancer.review-9-public.test-ru.tankionline.com/balancer", "Client Review #9"],
                         ["https://balancer.3dtank.com/balancer/",                             "3dtank",  "https://3dtank.com/play/", '3D<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 14 8" fill="currentColor" style="height: 0.8em;display: inline;margin-top: 0.15em;"><path fill-rule="evenodd" d="m11.3 0c0.1 0 0.2 0.1 0.2 0.3v0.7h2.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2.2v1h2.2c0.2 0 0.3 0.1 0.3 0.3v2.5c0 0.1-0.1 0.2-0.3 0.2h-1.2v1h1.2c0.2 0 0.3 0.1 0.3 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-2c-0.1 0-0.2-0.1-0.2-0.2v-1.8h-1v0.5c0 0.8-0.7 1.5-1.5 1.5h-0.8c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h0.8c0.3 0 0.5-0.2 0.5-0.5v-0.5h-1.3c-0.1 0-0.2-0.1-0.2-0.2v-2.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-1h-2.3c-0.1 0-0.2-0.1-0.2-0.2v-0.5c0-0.2 0.1-0.3 0.2-0.3h2.3v-0.7c0-0.2 0.1-0.3 0.2-0.3zm1.8 5v-1h-4v1z"></path><path fill-rule="evenodd" d="m3 7.3c0-0.2 0.1-0.3 0.3-0.3h3.5c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.3 0.2h-3.5c-0.1 0-0.2-0.1-0.2-0.2zm3.8-6.3c0.1 0 0.2 0.1 0.2 0.3v4.5c0 0.1-0.1 0.2-0.2 0.2h-3.5c-0.2 0-0.3-0.1-0.3-0.3v-4.5c0-0.1 0.1-0.2 0.3-0.2zm-0.8 4v-1h-2v1zm-2-2h2v-1h-2zm-2.8-2c0.2 0 0.3 0.1 0.3 0.3v0.7h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-0.3v4h0.3c0.1 0 0.2 0.1 0.2 0.3v0.5c0 0.1-0.1 0.2-0.2 0.2h-1.5c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-4h-0.2c-0.2 0-0.3-0.1-0.3-0.2v-0.5c0-0.2 0.1-0.3 0.3-0.3h0.2v-0.8c0-0.1 0.1-0.2 0.3-0.2z"></path></svg>']];
     
-    let pay_attention = "Pay attention!"
-    let first_time_you_add_profile = "First time you add profile, you actually add name to the first (general) profile. After renaming you can add more profiles."
-    let errorname = "Error"
-    let errortimeout = "Error: could not get info about server status"
-    let invalid_name = "Invalid name. Try another"
-    let fighttext = "FIGHT!"
-    let onlymain = "Available only for main servers"
-    let choose_profile = "Choose your profile"
+    const pay_attention =              (document.querySelector("html").getAttribute("lang") == "ru") ? "Обрати внимание!" : "Pay attention!"
+    const first_time_you_add_profile = (document.querySelector("html").getAttribute("lang") == "ru") ? "При первом добавлении профиля вы фактически присваиваете имя первому (главному) профилю. После переименования вы можете добавить больше профилей." : "First time you add profile, you actually add name to the first (general) profile. After renaming you can add more profiles."
+    const errorname =                  (document.querySelector("html").getAttribute("lang") == "ru") ? "Ошибка" : "Error"
+    const errortimeout =               (document.querySelector("html").getAttribute("lang") == "ru") ? "Ошибка: не удалось получить информацию о состоянии сервера" : "Error: could not get info about server status"
+    const invalid_name =               (document.querySelector("html").getAttribute("lang") == "ru") ? "Некорректное имя. Попробуйте другое" : "Invalid name. Try another"
+    const fighttext =                  (document.querySelector("html").getAttribute("lang") == "ru") ? "В БОЙ!" : "FIGHT!"
+    const onlymain =                   (document.querySelector("html").getAttribute("lang") == "ru") ? "Доступно только для основного" : "Available only for main servers"
+    const choose_profile =             (document.querySelector("html").getAttribute("lang") == "ru") ? "Выберите профиль" : "Choose your profile"
+    const binggiling =                 (document.querySelector("html").getAttribute("lang") == "ru") ? "Бинҗилин!" : "Bĭnggìlìng!"
     if (document.querySelector("html").getAttribute("lang") == "ru"){
         serverdata[0][3] = "Основной";
         for (let i = 1; i < 10; i++){
             serverdata[i][3] = serverdata[i][3].replace("Test Server", "Тестовый")
         }
-        pay_attention = "Обрати внимание!"
-        first_time_you_add_profile = "При первом добавлении профиля вы фактически присваиваете имя первому (главному) профилю. После переименования вы можете добавить больше профилей."
-        errorname = "Ошибка"
-        errortimeout = "Ошибка: не удалось получить информацию о состоянии сервера"
-        invalid_name = "Некорректное имя. Попробуйте другое"
-        fighttext = "В БОЙ!"
-        onlymain = "Доступно только для основного"
-        choose_profile = "Выберите профиль"
     }
-    const servselect = document.querySelector('div#servselect');
-    const servselecttext = document.querySelector('div.select:nth-of-type(1)>span.selected');
-    serverdata.forEach(serveradats => {
-        let thisserver = document.createElement("span");
-        thisserver.innerHTML += serveradats[3];
-        thisserver.setAttribute('id', serveradats[1]);
-        thisserver.setAttribute('link', serveradats[2]);
-        thisserver.setAttribute('i', serverdata.indexOf(serveradats));
-        thisserver.classList.add('option');
-        thisserver.classList.toggle('unknown');
-        thisserver.setAttribute('status', 'unknown');
-        servselect.appendChild(thisserver);
-        console.log(thisserver, serveradats[0])
-        thisserver.setAttribute('title', errortimeout)
-        fetch(serveradats[0]).then(response => {
-            thisserver.classList.toggle('unknown');
-            thisserver.classList.add('online');
-            thisserver.setAttribute('status', 'online');
-            thisserver.setAttribute('title', "")
-        }).catch(error => {
-            thisserver.classList.toggle('unknown');
-            thisserver.classList.add('offline');
-            thisserver.setAttribute('status', 'offline');
-            thisserver.setAttribute('title', "")
-        });
-    })
-    //accounts
-    // structure: ["account1", "account2"]
+    const servoptions = document.querySelector('div#servoptions');
+    const servoptionstext = document.querySelector('div.select:nth-of-type(1)>span.selected');
+    const fight = document.querySelector('a#play');
+    const serverlist = document.querySelector('div.select:nth-of-type(1)');
+    const accselect = document.querySelector('div#accselect');
+    const accselecttext = document.querySelector('div.select[tabindex="7"]>span.selected');
+    if (localStorage.getItem("mtb_last_server") === null){
+        localStorage.setItem("mtb_last_server", '');
+    }
+    let mtb_last_server = localStorage.getItem("mtb_last_server");
     if (localStorage.getItem("mtb_accounts") === null){
         localStorage.setItem("mtb_accounts", '["."]');
     }
@@ -80,21 +55,14 @@ window.onload = (event) => {
     }
     let mtb_last_profile = localStorage.getItem("mtb_last_profile")
     let accounts = JSON.parse(mtb_accounts);
-    const addacc = document.querySelector('div#accadd');
-    if (accounts[0] == "."){
-        addacc.setAttribute("style", "background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.2' viewBox='0 0 20 20' width='20' height='20'%3E%3Cpath d='m0 15.8v4.2h4.2l12.3-12.3-4.2-4.2zm19.7-11.3c0.4-0.4 0.4-1.1 0-1.6l-2.6-2.6c-0.5-0.4-1.2-0.4-1.6 0l-2 2.1 4.1 4.1z' fill='%23fff'/%3E%3C/svg%3E\");")
-    }
-    const accselect = document.querySelector('div#accselect');
-    const accselecttext = document.querySelector('div.select[tabindex="7"]>span.selected');
-    const fight = document.querySelector('a#play');
     let izvelets = ""
     let saite = ""
     function izveletieskontu(name){
-        console.log("??", name);
+        //console.log("??", name);
         izvelets = name.toLowerCase();
         saite = "https://"+izvelets+".tankionline.com/play/"
         if (izvelets == "."){
-            console.log("?");
+            //console.log("?");
             fight.setAttribute('href', "https://tankionline.com/play/");
             accselecttext.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 1056 213" fill="currentColor" style="height: 1em;display: inline;margin: auto 0;"><path fill-rule="evenodd" d="m1014.9 178v-55.7h-67.1v55.7zm0-89.1v-53.9h-100.1q-3.3 0-5.4-2.1-2.2-2.2-2.2-5.2v-20.1q0-3.3 2.2-5.5 2.1-2.1 5.4-2.1h133.9q3.1 0 5.2 2.1 2.1 2.2 2.1 5.5v198.1q0 3-2.1 5.2-2.1 2.1-5.2 2.1h-136.7q-3.1 0-5.2-2.1-2.1-2.2-2.1-5.2v-109.5q0-3 2.1-5.1c1.4-1.5 3.2-2.2 5.2-2.2zm-282.3 122q-2.1-2.1-2.1-5.2v-21.3q0-3.3 2.1-5.4 2.1-2.2 5.5-2.2h96.3v-169.3q0-3 2.2-5.2 2.1-2.1 5.1-2.1h28.3q3 0 5.2 2.1 2.1 2.2 2.1 5.2v198.2q0 3.1-2.1 5.2-2.2 2.1-5.2 2.1h-131.9q-3.4 0-5.5-2.1zm-69.7-32.9v-55.7h-67v55.7zm0-89.1v-53.9h-100.2q-3.3 0-5.4-2.1-2.2-2.2-2.2-5.2v-20.1q0-3.3 2.2-5.5 2.1-2.1 5.4-2.1h133.9q3.1 0 5.2 2.1 2.1 2.2 2.1 5.5v198.1q0 3-2.1 5.2-2.1 2.1-5.2 2.1h-136.7q-3 0-5.2-2.1-2.1-2.2-2.1-5.2v-109.5q0-3 2.1-5.1c1.5-1.5 3.2-2.2 5.2-2.2zm-281.1 121.5q-2.2-1.6-2.2-4v-19q0-2.4 2.2-4 2.1-1.7 5.1-1.7h81.5l-82.1-62.8q-2.7-1.9-4.5-3.7-2.2-2.2-2.2-5v-8q0-2.8 2.2-4.7 1.8-2.1 4.5-4l82.1-62.8h-81.5q-3 0-5.1-1.6-2.2-1.7-2.2-4v-19.1q0-2.3 2.2-4 2.1-1.6 5.1-1.6h131.4q3 0 5.1 1.6 2.2 1.7 2.2 4v17.2q0 2.8-1.9 4.9-1.8 1.9-4.5 4l-95.2 72.9v2.4l95.2 72.9q2.7 2.1 4.5 4 1.9 1.9 1.9 4.9v17.2q0 2.4-2.2 4-2.1 1.7-5.1 1.7h-131.4q-3 0-5.1-1.7zm-69.9-32.4v-55.7h-67v55.7zm0-89.1v-53.9h-100.1q-3.4 0-5.5-2.1-2.1-2.2-2.1-5.2v-20.1q0-3.3 2.1-5.5 2.1-2.1 5.5-2.1h133.8q3.1 0 5.2 2.1 2.2 2.2 2.2 5.5v198.1q0 3.1-2.2 5.2-2.1 2.1-5.2 2.1h-136.7q-3 0-5.1-2.1-2.2-2.1-2.2-5.2v-109.5q0-3 2.2-5.1c1.4-1.5 3.1-2.2 5.1-2.2zm-268.7 35.1v81.4q0 3.1-2.2 5.2-1.8 2.1-5.1 2.1h-27.7q-3 0-5.1-1.8-2.2-2.1-2.2-5.5v-197.8q0-3.3 2.2-5.4 2.1-2.2 5.1-2.2h27.7q3.3 0 5.1 2.2 2.2 2.1 2.2 5.4v78.4h89.6v-78.4q0-3.3 2.1-5.4 2.2-2.2 5.2-2.2h27.3q3.4 0 5.5 2.2 2.1 2.1 2.1 5.4c0 0 0 107.4 0 108.9 0 2.1-6 7.5-8.4 7.5-1.6 0-123.4 0-123.4 0z"/></svg>';
         }
@@ -107,6 +75,75 @@ window.onload = (event) => {
             accselecttext.innerHTML = name;
             localStorage.setItem("mtb_last_profile", name);
         }
+    }
+    serverdata.forEach(serveradats => {
+        let thisserver = document.createElement("span");
+        let thisserveronline = document.createElement("span");
+        thisserveronline.classList.add('onlinecount');
+        thisserver.innerHTML += serveradats[3];
+        thisserver.setAttribute('id', serveradats[1]);
+        thisserver.setAttribute('link', serveradats[2]);
+        thisserver.setAttribute('i', serverdata.indexOf(serveradats));
+        if (mtb_last_server == serveradats[1]){
+            servoptionstext.innerHTML = serveradats[3];
+            servoptionstext.classList.toggle('unknown');
+            if (serveradats[1] == "main"){
+                serverlist.classList.add('selected');
+                if (accounts[0] == "." || accounts.length == 1){
+                    izveletieskontu(accounts[0])
+                    fight.setAttribute('href', "https://tankionline.com/play/");
+                } else {
+                    if (mtb_accounts.includes(mtb_last_profile)){
+                        accselecttext.innerHTML = mtb_last_profile;
+                        izveletieskontu(mtb_last_profile)
+                    } else {
+                        accselecttext.innerHTML = choose_profile;
+                    }
+                }
+            } else {
+                fight.setAttribute("href", serveradats[2]);
+            }
+        }
+        thisserver.classList.add('option');
+        thisserver.classList.toggle('unknown');
+        thisserver.setAttribute('status', 'unknown');
+        thisserver.appendChild(thisserveronline);
+        servoptions.appendChild(thisserver);
+        thisserver.setAttribute('title', errortimeout)
+        fetch(serveradats[0]).then(response => {
+            thisserver.classList.toggle('unknown');
+            thisserver.classList.add('online');
+            thisserver.setAttribute('status', 'online');
+            thisserver.setAttribute('title', "")
+            if (mtb_last_server == serveradats[1]){
+                servoptionstext.classList.add('online');
+                servoptionstext.classList.remove('unknown');
+            }
+            return response.json()
+        }).then(responsedata => {
+            let online = 0;
+            let nodes = responsedata["nodes"]
+            Object.keys(nodes).forEach(node => {
+                online += nodes[node]["online"]
+            })
+            //console.log(online);
+            thisserveronline.innerHTML = online;
+        }).catch(() => {
+            thisserver.classList.toggle('unknown');
+            thisserver.classList.add('offline');
+            thisserver.setAttribute('status', 'offline');
+            thisserver.setAttribute('title', "")
+            if (mtb_last_server == serveradats[1]){
+                servoptionstext.classList.add('offline');
+                servoptionstext.classList.remove('unknown');
+            }
+        });
+    })
+    //accounts
+    // structure: ["account1", "account2"]
+    const addacc = document.querySelector('div#accadd');
+    if (accounts[0] == "."){
+        addacc.setAttribute("style", "background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' version='1.2' viewBox='0 0 20 20' width='20' height='20'%3E%3Cpath d='m0 15.8v4.2h4.2l12.3-12.3-4.2-4.2zm19.7-11.3c0.4-0.4 0.4-1.1 0-1.6l-2.6-2.6c-0.5-0.4-1.2-0.4-1.6 0l-2 2.1 4.1 4.1z' fill='%23fff'/%3E%3C/svg%3E\");")
     }
     function pievienot (name) {
         let konts = document.createElement("span");
@@ -159,17 +196,18 @@ window.onload = (event) => {
         }
         inputacc.classList.toggle("open");
     })
-    const serveri = servselect.querySelectorAll('span');
-    const serverlist = document.querySelector('div.select:nth-of-type(1)');
+    //accounts+servers
+    const serveri = servoptions.querySelectorAll('span:not(.onlinecount)');
     const date = new Date(); 
     const month = date.getMonth();
-    const day = date.getDate(); 
+    const day = date.getDate();
     serveri.forEach(serveris => {
         serveris.addEventListener('click', () => {
             const id = serveris.getAttribute('id');
             const index = serveris.getAttribute('i');
+            localStorage.setItem("mtb_last_server", id);
+            mtb_last_server = id;
             const statuss = serveris.getAttribute('status');
-            let saite = "";
             if (id != "main"){
                 fight.setAttribute('href', serverdata[index][2]);
                 serverlist.classList.remove("selected")
@@ -183,22 +221,22 @@ window.onload = (event) => {
                     if (mtb_accounts.includes(mtb_last_profile)){
                         accselecttext.innerHTML = mtb_last_profile;
                         izveletieskontu(mtb_last_profile)
-                        console.log("glaggle")
+                        //console.log("glaggle")
                     } else {
                         accselecttext.innerHTML = choose_profile;
                     }
                 }
             }
-            servselecttext.innerHTML = serverdata[index][3];
+            servoptionstext.innerHTML = serverdata[index][3];
             if (id == "3dtank" && month == 3 && day == 1){
-                fight.textContent = "Bĭnggìlìng!"
+                fight.textContent = binggiling
             }
             else{
                 fight.textContent = fighttext
             }
-            servselecttext.classList.remove("online");
-            servselecttext.classList.remove("offline");
-            servselecttext.classList.add(statuss);
+            servoptionstext.classList.remove("online");
+            servoptionstext.classList.remove("offline");
+            servoptionstext.classList.add(statuss);
         });
     });
     //fullscreen
@@ -217,25 +255,43 @@ window.onload = (event) => {
     const reset = document.querySelector('div#reset');
     function resetservers(){
         reset.classList.toggle("off");
-        console.log(serveri.length)
+        //console.log(serveri.length)
         let index = 0;
         serveri.forEach(serveris => {
+            //console.log(serverdata[serveris.getAttribute("i")][0])
+            serveris.setAttribute("class", 'option unknown');
+            serveris.setAttribute('status', 'unknown');
+            serveris.setAttribute('title', errortimeout);
             fetch(serverdata[serveris.getAttribute("i")][0]).then(response => {
-                console.log(response.status, serverdata[serveris.getAttribute("i")][0])
+                //console.log(response.status, serverdata[serveris.getAttribute("i")][0])
                 serveris.setAttribute("class", 'option online');
                 serveris.setAttribute('status', 'online');
+                serveris.setAttribute('title', "");
                 index += 1;
                 if (index == serveri.length){
-                    console.log(index)
+                    //console.log(index)
                     reset.classList.toggle("off");
                 }
-            }).catch(error => {
-                console.log(404, serverdata[serveris.getAttribute("i")][0])
+                return response.json()
+            }).then(responsedata => {
+                let online = 0;
+                //console.log(responsedata)
+                let nodes = responsedata["nodes"]
+                //console.log(nodes)
+                Object.keys(nodes).forEach(node => {
+                    //console.log(node["online"])
+                    online += nodes[node]["online"]
+                })
+                //console.log(online)
+                serveris.querySelector('span.onlinecount').innerHTML = online;
+            }).catch(() => {
+                //console.log(404, serverdata[serveris.getAttribute("i")][0])
                 serveris.setAttribute("class", 'option offline');
                 serveris.setAttribute('status', 'offline');
+                serveris.setAttribute('title', "");
                 index += 1;
                 if (index == serveri.length){
-                    console.log(index)
+                    //console.log(index)
                     reset.classList.toggle("off");
                 }
             });

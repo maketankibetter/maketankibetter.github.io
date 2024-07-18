@@ -38,7 +38,7 @@
       // Code by ChatGPT and edited by sn0wgit (GitHub)
       function applyStylesByLanguage() {
         const userLanguage = navigator.language;
-        if (userLanguage === 'ru') {
+        if (userLanguage === 'ru' || userLanguage === "ru-RU") {
           const elements = document.getElementsByClassName('ru');
           for (const element of elements) {
             element.classList.add('show');
@@ -48,6 +48,7 @@
           for (const element of elements) {
             element.classList.add('show');
           }
+          console.log(userLanguage)
         }
       }
       window.addEventListener('load', applyStylesByLanguage);
